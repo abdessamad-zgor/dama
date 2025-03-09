@@ -1,4 +1,4 @@
-package core
+package dama
 
 import (
 	lcontext "github.com/abdessamad-zgor/dama/context"
@@ -10,7 +10,6 @@ type WidgetState map[string]any
 
 type DamaWidget interface {
 	GetParent() *Container
-	GetBox() Box
 	GetEventMap() event.EventMap
 	GetKeybindings() event.Keybindings
 
@@ -18,8 +17,7 @@ type DamaWidget interface {
 	SetState(state *WidgetState)
 
 	SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback)
-    Stylable
-    Element
+    DamaElement
 }
 
 type Widget struct {
@@ -31,7 +29,6 @@ type Widget struct {
 	EventMap    event.EventMap
 	Keybindings event.Keybindings
 	State       *WidgetState
-    Style
 }
 
 func (widget *Widget) GetParent() *Container {
@@ -63,6 +60,6 @@ func (widget *Widget) SetEventListener(key tcell.Key, eventName event.EventName,
 	widget.EventMap[eventName] = cb
 }
 
-func Render(screen tcell.Screen, context lcontext.context) {
+func (widget *Widget) Render(screen tcell.Screen, context lcontext.Context) {
 
 }

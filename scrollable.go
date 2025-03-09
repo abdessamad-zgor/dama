@@ -1,4 +1,4 @@
-package core
+package dama
 
 type Direction string
 

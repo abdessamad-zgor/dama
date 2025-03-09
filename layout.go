@@ -1,4 +1,4 @@
-package core
+package dama
 
 import (
 	"errors"
@@ -9,7 +9,7 @@ type Position interface{}
 type GridLayout struct {
 	Columns uint
 	Rows    uint
-    Widgets map[GridPosition]Widget
+    Elements map[GridPosition]DamaElement
 }
 
 type GridPosition struct {
@@ -20,7 +20,7 @@ type GridPosition struct {
 }
 
 type BaseLayout struct {
-    Widgets map[BasePosition]Widget
+    Elements map[BasePosition]DamaElement
 }
 
 type BasePosition = Direction
@@ -30,11 +30,11 @@ const (
 )
 
 type DamaLayout interface {
-    GetWidgets() []Widget
-    AddWidget(widget Widget, position Position) error
+    GetElements() []DamaElement
+    AddElement(element DamaElement, position Position) error
 }
 
-func (layout *GridLayout) AddWidget(widget Widget, position Position) error {
+func (layout *GridLayout) AddWidget(element DamaElement, position Position) error {
     gridPosition, ok := position.(GridPosition)
     if !ok {
         return errors.New("position is not of type GridPosition")
@@ -42,31 +42,31 @@ func (layout *GridLayout) AddWidget(widget Widget, position Position) error {
     if gridPosition.Row >= layout.Rows || gridPosition.Column >= layout.Columns || gridPosition.Column + gridPosition.ColumnSpan > layout.Columns || gridPosition.Row + gridPosition.RowSpan > layout.Rows {
         return errors.New("widget position is out of bounds")
     } 
-    layout.Widgets[gridPosition] = widget
+    layout.Elements[gridPosition] = element
     return nil 
 } 
 
-func (layout *BaseLayout) AddWidget(widget Widget, position Position) error {
+func (layout *BaseLayout) AddWidget(element DamaElement, position Position) error {
     basePosition, ok := position.(BasePosition)
     if !ok {
         return errors.New("position is not of type BasePosition")
     }
-    layout.Widgets[basePosition] = widget
+    layout.Elements[basePosition] = element
     return nil
 }
 
-func (layout *GridLayout) GetWidgets() []Widget {
-    widgets := []Widget{}
-    for _, w := range layout.Widgets {
-        widgets = append(widgets, w)
+func (layout *GridLayout) GetElements() []DamaElement {
+    elements := []DamaElement{}
+    for _, w := range layout.Elements {
+        elements = append(elements, w)
     }
-    return widgets
+    return elements
 }
 
-func (layout *BaseLayout) GetWidgets() []Widget {
-    widgets := []Widget{}
-    for _, w := range layout.Widgets {
-        widgets = append(widgets, w)
+func (layout *BaseLayout) Getelements() []DamaElement {
+    elements := []DamaElement{}
+    for _, w := range layout.Elements {
+        elements = append(elements, w)
     }
-    return widgets
+    return elements
 }

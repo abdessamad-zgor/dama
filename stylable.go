@@ -1,4 +1,4 @@
-package core
+package dama
 
 import (
 	lcontext "github.com/abdessamad-zgor/dama/context"
