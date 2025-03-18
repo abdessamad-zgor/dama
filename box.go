@@ -14,7 +14,7 @@ type Box struct {
 }
 
 func (box Box) Render(screen tcell.Screen, context lcontext.Context) {
-    stylable, ok := box.Element.(Stylable)
+    stylable, ok := box.Element.(DamaStylable)
     if ok {
         boxStyle := stylable.GetContextStyle(context)
         for xi := range box.Width {

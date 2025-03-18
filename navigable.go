@@ -1,19 +1,19 @@
 package dama
 
-type Navigable interface {
+type DamaNavigable interface {
 	GetTag() rune
 	GetTitle() string
 }
 
-type Display struct {
+type Navigable struct {
 	Title string
 	Tag   rune
 }
 
-func (display Display) GetTitle() string {
-    return display.Title
+func (navigable Navigable) GetTitle() string {
+    return navigable.Title
 }
 
-func (display Display) GetTag() rune {
-    return display.Tag
+func (navigable Navigable) GetTag() rune {
+    return navigable.Tag
 }

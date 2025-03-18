@@ -12,7 +12,7 @@ import (
 
 type DamaApp interface {
 	DamaContainer
-	Init() error
+	Start() 
 	StartEventLoop()
 }
 
@@ -51,7 +51,7 @@ func NewApp() (*App, error) {
 	return app, nil
 }
 
-func (app *App) Init() {
+func (app *App) Start() {
 	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
 	app.Render(app.Screen, app.Context)
@@ -66,9 +66,9 @@ func (app *App) StartKeyEventMapper() {
 		switch ev := ev.(type) {
 		case *tcell.EventKey:
 			key := ev.Key()
-			event, ok := app.Keybindings[key]
+			kevent, ok := app.Keybindings[key]
 			if ok {
-				app.EventChannel <- event.Event{event, key}
+				app.EventChannel <- event.Event{kevent, key}
 			}
 		case *tcell.EventResize:
 			app.Screen.Sync()
