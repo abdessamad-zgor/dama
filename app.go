@@ -6,12 +6,13 @@ import (
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/utils"
+	_ "github.com/abdessamad-zgor/dama/utils"
 	"github.com/gdamore/tcell/v2"
 )
 
 type DamaApp interface {
 	DamaContainer
+    DamaWidget
 	Start() 
 	StartEventLoop()
 }
@@ -19,6 +20,7 @@ type DamaApp interface {
 type App struct {
 	EventChannel chan event.Event
 	Screen       tcell.Screen
+    State        *WidgetState
 	*Container
 	event.EventMap
 	event.Keybindings
@@ -36,7 +38,7 @@ func NewApp() (*App, error) {
 		}
 		app.Screen = screen
 	} else {
-		screen = new(utils.Screen)
+		screen = tcell.NewSimulationScreen("UTF-8")
 		app.Screen = screen
 	}
 	if err := screen.Init(); err != nil {
@@ -107,3 +109,29 @@ func (app *App) StartEventLoop() {
 		}
 	}
 }
+
+func (app *App) GetParent() *Container {
+    return nil
+}
+
+func (app *App) GetEventMap() event.EventMap {
+    return app.EventMap
+}
+
+func (app *App) GetKeybindings() event.Keybindings {
+    return app.Keybindings
+}
+
+func (app *App) GetState() *WidgetState {
+    return app.State
+}
+
+func (app *App) SetState(state *WidgetState) {
+    app.State = state
+}
+
+func (app *App) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {
+	app.Keybindings[key] = eventName
+	app.EventMap[eventName] = cb
+}
+

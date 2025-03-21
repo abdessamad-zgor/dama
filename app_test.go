@@ -28,5 +28,4 @@ func teardown() {
 }
 
 func TestAppRender(t *testing.T) {
-  
 }

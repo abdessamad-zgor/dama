@@ -1,36 +1,96 @@
 package dama
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/event"
 	"github.com/gdamore/tcell/v2"
 )
 
-type StyleMap map[event.EventName]tcell.Style
+var DefaultStyle Style = Style {}
+
+
+type Spacing struct {
+	Top    uint
+	Bottom uint
+	Left   uint
+	Right  uint
+}
+
+type Border struct {
+	Color tcell.Color
+	Bold  bool
+}
+
+type Style struct {
+	Border     *Border
+	Padding    Spacing
+	Margin     Spacing
+	Background tcell.Color
+	Foreground  tcell.Color
+	Bold   bool
+	Italic bool
+}
 
 type DamaStylable interface {
-	GetStyleMap() StyleMap
-	GetEventStyle(event event.EventName) tcell.Style
-	SetEventStyle(event event.EventName, tstyle tcell.Style)
-  GetContextStyle(context lcontext.Context) tcell.Style
+    BorderColor(color tcell.Color) DamaStylable
+    BorderBold(bold bool) DamaStylable
+    Padding(padding Spacing) DamaStylable
+    Margin(margin Spacing) DamaStylable
+    Background(color tcell.Color) DamaStylable
+    Foreground(color tcell.Color) DamaStylable
+    Bold(bold bool) DamaStylable
+    Italic(italic bool) DamaStylable
+
+    GetStyle() Style
+    SetStyle(style Style) 
 }
 
 type Stylable struct {
-	StyleMap StyleMap
+	Style Style
 }
 
-func (stylable Stylable) GetStyleMap() StyleMap {
-	return stylable.StyleMap
+func (stylable *Stylable) BorderColor(color tcell.Color) *Stylable {
+    stylable.Style.Border.Color = color
+    return stylable
 }
 
-func (stylable Stylable) GetEventStyle(event event.EventName) tcell.Style {
-	return stylable.StyleMap[event]
+func (stylable *Stylable) BorderBold(bold bool) *Stylable {
+    stylable.Style.Border.Bold = bold
+    return stylable
 }
 
-func (stylable Stylable) SetEventStyle(event event.EventName, tstyle tcell.Style) {
-	stylable.StyleMap[event] = tstyle
+func (stylable *Stylable) Padding(padding Spacing) *Stylable {
+    stylable.Style.Padding = padding
+    return stylable
 }
 
-func (stylable Stylable) GetContextStyle(context lcontext.Context) tcell.Style {
-    return tcell.StyleDefault
+func (stylable *Stylable) Margin(margin Spacing) *Stylable {
+    stylable.Style.Margin = margin
+    return stylable
+}
+
+func (stylable *Stylable) Background(color tcell.Color) *Stylable {
+    stylable.Style.Background = color
+    return stylable
+}
+
+func (stylable *Stylable) Foreground(color tcell.Color) *Stylable {
+    stylable.Style.Foreground = color
+    return stylable
+}
+
+func (stylable *Stylable) Bold(bold bool) *Stylable {
+    stylable.Style.Bold = bold
+    return stylable
+}
+
+func (stylable *Stylable) Italic(italic bool) *Stylable {
+    stylable.Style.Italic = italic
+    return stylable
+}
+
+func (stylable *Stylable) GetStyle() Style {
+    return stylable.Style
+}
+
+func (stylable *Stylable) SetStyle(style Style) {
+    stylable.Style = style
 }
