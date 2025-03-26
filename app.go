@@ -27,23 +27,34 @@ type App struct {
 	lcontext.Context
 }
 
-func NewApp() (*App, error) {
+func initAppScreen() (tcell.Screen, error) {
 	isTesting := testing.Testing()
-	app := new(App)
 	var screen tcell.Screen
 	if !isTesting {
-		screen, err := tcell.NewScreen()
+		new_screen, err := tcell.NewScreen()
 		if err != nil {
 			return nil, err
 		}
-		app.Screen = screen
+        screen = new_screen
 	} else {
 		screen = tcell.NewSimulationScreen("UTF-8")
-		app.Screen = screen
 	}
-	if err := screen.Init(); err != nil {
+    return screen, nil
+}
+
+func NewApp() (*App, error) {
+	app := &App{
+        CreateContainer(),
+        
+    }
+    screen, err := initAppScreen()
+    if err != nil {
+        return nil, err
+    }
+	if err = screen.Init(); err != nil {
 		return nil, err
 	}
+    app.Screen = screen
 	width, height := app.Screen.Size()
 	app.EventChannel = make(chan event.Event)
 	app.X = 0

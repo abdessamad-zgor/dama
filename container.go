@@ -12,6 +12,7 @@ type DamaContainer interface {
 	SetLayout(layout DamaLayout)
 }
 
+
 type Container struct {
 	X      uint
 	Y      uint

@@ -11,9 +11,17 @@ type Navigable struct {
 }
 
 func (navigable Navigable) GetTitle() string {
-    return navigable.Title
+	return navigable.Title
 }
 
 func (navigable Navigable) GetTag() rune {
-    return navigable.Tag
+	return navigable.Tag
+}
+
+func (navigable Navigable) SetTitle(title string) {
+	navigable.Title = title
+}
+
+func (navigable Navigable) SetTag(tag rune) {
+	navigable.Tag = tag
 }
