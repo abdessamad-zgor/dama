@@ -6,7 +6,7 @@ import (
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	_ "github.com/abdessamad-zgor/dama/utils"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -29,23 +29,28 @@ type App struct {
 
 func initAppScreen() (tcell.Screen, error) {
 	isTesting := testing.Testing()
-	var screen tcell.Screen
+    screen, err := tcell.NewScreen()
+    if err != nil {
+        return nil, err
+    }
+    simulation_screen := tcell.NewSimulationScreen("UTF-8")
+
 	if !isTesting {
-		new_screen, err := tcell.NewScreen()
-		if err != nil {
-			return nil, err
-		}
-        screen = new_screen
+        return screen, nil
 	} else {
-		screen = tcell.NewSimulationScreen("UTF-8")
+        return simulation_screen, nil
 	}
-    return screen, nil
 }
 
 func NewApp() (*App, error) {
 	app := &App{
-        CreateContainer(),
-        
+        make(chan event.Event),
+        nil,
+        &WidgetState{},
+        NewContainer(),
+        make(event.EventMap),
+        make(event.Keybindings),
+        make(lcontext.Context),
     }
     screen, err := initAppScreen()
     if err != nil {
@@ -61,10 +66,12 @@ func NewApp() (*App, error) {
 	app.Y = 0
 	app.Width = uint(width)
 	app.Height = uint(height)
+    logger.Logger.Println("width: ", width," height: ", height)
 	return app, nil
 }
 
 func (app *App) Start() {
+    //defer app.Screen.Fini()
 	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
 	app.Render(app.Screen, app.Context)

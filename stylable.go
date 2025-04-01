@@ -47,42 +47,48 @@ type Stylable struct {
 	Style Style
 }
 
-func (stylable *Stylable) BorderColor(color tcell.Color) *Stylable {
+func (stylable *Stylable) BorderColor(color tcell.Color) DamaStylable {
+    if stylable.Style.Border == nil {
+        stylable.Style.Border = new(Border)
+    }
     stylable.Style.Border.Color = color
     return stylable
 }
 
-func (stylable *Stylable) BorderBold(bold bool) *Stylable {
+func (stylable *Stylable) BorderBold(bold bool) DamaStylable {
+    if stylable.Style.Border == nil {
+        stylable.Style.Border = new(Border)
+    }
     stylable.Style.Border.Bold = bold
     return stylable
 }
 
-func (stylable *Stylable) Padding(padding Spacing) *Stylable {
+func (stylable *Stylable) Padding(padding Spacing) DamaStylable {
     stylable.Style.Padding = padding
     return stylable
 }
 
-func (stylable *Stylable) Margin(margin Spacing) *Stylable {
+func (stylable *Stylable) Margin(margin Spacing) DamaStylable {
     stylable.Style.Margin = margin
     return stylable
 }
 
-func (stylable *Stylable) Background(color tcell.Color) *Stylable {
+func (stylable *Stylable) Background(color tcell.Color) DamaStylable {
     stylable.Style.Background = color
     return stylable
 }
 
-func (stylable *Stylable) Foreground(color tcell.Color) *Stylable {
+func (stylable *Stylable) Foreground(color tcell.Color) DamaStylable {
     stylable.Style.Foreground = color
     return stylable
 }
 
-func (stylable *Stylable) Bold(bold bool) *Stylable {
+func (stylable *Stylable) Bold(bold bool) DamaStylable {
     stylable.Style.Bold = bold
     return stylable
 }
 
-func (stylable *Stylable) Italic(italic bool) *Stylable {
+func (stylable *Stylable) Italic(italic bool) DamaStylable {
     stylable.Style.Italic = italic
     return stylable
 }

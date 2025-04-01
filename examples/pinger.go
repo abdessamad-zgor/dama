@@ -13,9 +13,9 @@ func main() {
         panic(fmt.Sprintf("failed to initialize app due to : %v\n", err))
     }
 
-    url := new(elements.Input)
-    url.SetTitle("URL")
+    url := elements.NewInput()
     url.SetTag('U')
+    url.SetTitle("URL")
 
     app.AddElement(url, dama.Center)
 

@@ -1,0 +1,5 @@
+2025/04/01 00:01:25 app.go:69: width:  80  height:  25
+2025/04/01 00:01:25 container.go:73: elements:  []
+2025/04/01 00:01:25 app_test.go:36: width:  80  height:  25
+2025/04/01 00:01:25 app_test.go:48: ints:  [1 2 3]
+2025/04/01 00:01:25 editable.go:69: editable contents:  h
