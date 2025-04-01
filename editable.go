@@ -2,7 +2,7 @@ package dama
 
 import (
 	_ "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 
 	"strings"
 
@@ -39,30 +39,35 @@ func NewEditable() *Editable {
 func (editable *Editable) RemoveRune() {
 	i, line := editable.Cursor.Column, editable.Cursor.Line
 	content := editable.Contents
-	contentLines := strings.Split(content, "\n")
-	contentRunes := []rune(contentLines[line])
-    if contentRunes[i] == '\n' {
+	lines := strings.Split(content, "\n")
+	runes := []rune(lines[line])
+    if runes[i] == '\n' {
         editable.Cursor.Line -= 1
 
     }
-	contentRunes = append(contentRunes[0:i-1], contentRunes[i:]...)
+	runes = append(runes[0:i-1], runes[i:]...)
     editable.Cursor.Column -= 1
 }
 
 func (editable *Editable) AddRune(char rune) {
 	i, line := editable.Cursor.Column, editable.Cursor.Line
 	content := editable.Contents
-	contentLines := strings.Split(content, "\n")
-	contentRunes := []rune(contentLines[line])
-	contentRunes = append(contentRunes[:i+1], contentRunes[i:]...)
-	contentRunes[i] = char
-	contentLines[i] = string(contentRunes)
-	editable.Contents = strings.Join(contentLines, "\n")
+	lines := strings.Split(content, "\n")
+	runes := []rune(lines[line])
+    if i >= len(runes) {
+        runes = append(runes, char)
+        lines[line] = string(runes)
+    } else {
+        runes = append(runes[:i+1], runes[i:]...)
+        runes[i] = char
+        lines[line] = string(runes)
+    }
+	editable.Contents = strings.Join(lines, "\n")
     editable.Cursor.Column += 1
     if char == '\n' {
         editable.Cursor.Line += 1
+        editable.Cursor.Column = 0
     }
-    logger.Logger.Println("editable contents: ",editable.Contents)
 }
 
 func (editable *Editable) GetCursor() *Cursor {

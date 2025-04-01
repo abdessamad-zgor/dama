@@ -1,6 +1,10 @@
 package dama
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/abdessamad-zgor/dama/logger"
+)
 
 func TestEditbale(t *testing.T) {
     editable := NewEditable()
@@ -20,11 +24,13 @@ func TestEditbale(t *testing.T) {
     cursor := editable.Cursor
     contents := editable.Contents
 
+    logger.Logger.Println("contents: ", contents, " cursor: ", cursor)
+
     if contents != "hello\nworld" {
         t.Error("editable does not insert runes correctely", contents)
     }    
 
-    if cursor.Column != len("world") {
+    if cursor.Column != len("world") || cursor.Line != 1 {
         t.Error("editable does not position the cursor correctely", *cursor)
     }
 } 
