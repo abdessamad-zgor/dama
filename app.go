@@ -1,7 +1,8 @@
 package dama
 
 import (
-	"fmt"
+	//"fmt"
+	"os"
 	"testing"
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
@@ -12,15 +13,15 @@ import (
 
 type DamaApp interface {
 	DamaContainer
-    DamaWidget
-	Start() 
-	StartEventLoop()
+	DamaWidget
+	Start()
 }
 
 type App struct {
 	EventChannel chan event.Event
+	ExitChannel  chan int
 	Screen       tcell.Screen
-    State        *WidgetState
+	State        *WidgetState
 	*Container
 	event.EventMap
 	event.Keybindings
@@ -29,66 +30,82 @@ type App struct {
 
 func initAppScreen() (tcell.Screen, error) {
 	isTesting := testing.Testing()
-    screen, err := tcell.NewScreen()
-    if err != nil {
-        return nil, err
-    }
-    simulation_screen := tcell.NewSimulationScreen("UTF-8")
-
-	if !isTesting {
-        return screen, nil
+    isDebug := os.Getenv("DEBUG")
+	var screen tcell.Screen
+	if isTesting || isDebug != "" {
+		screen = tcell.NewSimulationScreen("UTF-8")
 	} else {
-        return simulation_screen, nil
+		n_screen, err := tcell.NewScreen()
+		if err != nil {
+			return nil, err
+		}
+        screen = n_screen
 	}
+
+	return screen, nil
 }
 
 func NewApp() (*App, error) {
+	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 	app := &App{
-        make(chan event.Event),
-        nil,
-        &WidgetState{},
-        NewContainer(),
-        make(event.EventMap),
-        make(event.Keybindings),
-        make(lcontext.Context),
-    }
-    screen, err := initAppScreen()
-    if err != nil {
-        return nil, err
-    }
+		make(chan event.Event),
+		make(chan int),
+		nil,
+		&WidgetState{},
+		NewContainer(),
+		make(event.EventMap),
+		make(event.Keybindings),
+		make(lcontext.Context),
+	}
+	screen, err := initAppScreen()
+	if err != nil {
+		return nil, err
+	}
 	if err = screen.Init(); err != nil {
 		return nil, err
 	}
-    app.Screen = screen
+	//screen.HideCursor()
+	app.Screen = screen
 	width, height := app.Screen.Size()
 	app.EventChannel = make(chan event.Event)
 	app.X = 0
 	app.Y = 0
 	app.Width = uint(width)
 	app.Height = uint(height)
-    logger.Logger.Println("width: ", width," height: ", height)
+	logger.Logger.Println("width: ", width, " height: ", height)
 	return app, nil
 }
 
 func (app *App) Start() {
-    //defer app.Screen.Fini()
+	//defer func() {
+	//    if err := recover(); err!= nil {
+	//        logger.Logger.Fatal(err)
+	//    }
+	//}()
 	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
 	app.Render(app.Screen, app.Context)
-	app.Screen.Show()
-	go app.StartKeyEventMapper()
-	go app.StartEventLoop()
+	go app.EventLoop()
+	_ = <-app.ExitChannel
+	app.Screen.Fini()
 }
 
 func (app *App) StartKeyEventMapper() {
+	logger.Logger.Println("before show")
 	for {
+		logger.Logger.Println("before show")
+		app.Screen.Show()
+		logger.Logger.Println("after show")
 		ev := app.Screen.PollEvent()
 		switch ev := ev.(type) {
 		case *tcell.EventKey:
 			key := ev.Key()
 			kevent, ok := app.Keybindings[key]
 			if ok {
-				app.EventChannel <- event.Event{kevent, key}
+				app.EventChannel <- event.Event{kevent, key, ev}
+			}
+			if key == tcell.KeyCtrlC {
+				app.ExitChannel <- 0
 			}
 		case *tcell.EventResize:
 			app.Screen.Sync()
@@ -96,7 +113,8 @@ func (app *App) StartKeyEventMapper() {
 	}
 }
 
-func (app *App) StartEventLoop() {
+func (app *App) EventLoop() {
+	go app.StartKeyEventMapper()
 	for {
 		select {
 		case event := <-app.EventChannel:
@@ -104,52 +122,33 @@ func (app *App) StartEventLoop() {
 			if ok {
 				callback(app.Context, event)
 			}
-		case dispatchEvent, _ := <-lcontext.DispatchContextChannel:
-			switch dispatchEvent.Event {
-			case lcontext.HighlightWidget:
-			case lcontext.QueueRender:
-				value, ok := app.Context.GetValue(lcontext.RenderQueue)
-				payload := dispatchEvent.Payload
-				if ok {
-					queue, qOk := value.([]func())
-					rendefFn, fOk := payload.(func())
-
-					if qOk && fOk {
-						queue = append(queue, rendefFn)
-						app.Context.SetValue(lcontext.RenderQueue, queue)
-					} else {
-						panic(fmt.Sprintf("Invalid context value '%s' : %v or invalid cast %v.", lcontext.RenderQueue, value, payload))
-					}
-				} else {
-					app.Context.SetValue(lcontext.RenderQueue, [](func()){})
-				}
-			}
+		case _, _ = <-lcontext.DispatchContextChannel:
 		}
+		app.Render(app.Screen, app.Context)
 	}
 }
 
 func (app *App) GetParent() *Container {
-    return nil
+	return nil
 }
 
 func (app *App) GetEventMap() event.EventMap {
-    return app.EventMap
+	return app.EventMap
 }
 
 func (app *App) GetKeybindings() event.Keybindings {
-    return app.Keybindings
+	return app.Keybindings
 }
 
 func (app *App) GetState() *WidgetState {
-    return app.State
+	return app.State
 }
 
 func (app *App) SetState(state *WidgetState) {
-    app.State = state
+	app.State = state
 }
 
 func (app *App) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {
 	app.Keybindings[key] = eventName
 	app.EventMap[eventName] = cb
 }
-

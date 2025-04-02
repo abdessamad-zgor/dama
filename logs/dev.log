@@ -1,6 +1,17 @@
-2025/04/01 12:50:51 app.go:69: width:  80  height:  25
-2025/04/01 12:50:51 container.go:73: elements:  []
-2025/04/01 12:50:51 app_test.go:36: width:  80  height:  25
-2025/04/01 12:50:51 app_test.go:48: ints:  [1 2 3]
-2025/04/01 12:50:51 editable_test.go:27: contents:  hello
-world  cursor:  &{5 1}
+2025/04/02 00:14:26 app.go:75: width:  146  height:  33
+2025/04/02 00:14:26 container.go:73: elements:  [{0xc000380000 0xc000382000 0xc00000e060 0xc0000201a0 0xc0000700c0}]
+2025/04/02 00:14:26 container.go:75: element type:  elements.Input
+2025/04/02 00:14:26 input.go:60: box:  {29 6 87 18 {0xc000380000 0xc000382000 0xc00000e060 0xc0000201a0 0xc0000700c0}}
+2025/04/02 00:14:26 box.go:21: inside box render true  element type:  elements.Input
+2025/04/02 00:14:26 box.go:24: inside box render stylable
+2025/04/02 00:14:26 box.go:38: inside box render border
+2025/04/02 00:14:26 app.go:94: before show
+2025/04/02 00:14:26 app.go:96: before show
+2025/04/02 00:14:26 app.go:98: after show
+2025/04/02 00:14:26 app.go:96: before show
+2025/04/02 00:14:26 app.go:98: after show
+2025/04/02 00:14:28 app.go:96: before show
+2025/04/02 00:14:28 app.go:98: after show
+2025/04/02 00:14:30 app.go:96: before show
+2025/04/02 00:14:30 app.go:98: after show
+2025/04/02 00:14:30 app.go:96: before show

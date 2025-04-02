@@ -26,6 +26,7 @@ const (
 type Event struct {
 	Name EventName
 	Key  tcell.Key
+    TEvent tcell.Event
 }
 
 type Callback = func(context lcontext.Context, event Event)
