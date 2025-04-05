@@ -1,13 +1,13 @@
 package dama
 
 import (
-	//"fmt"
+	_ "fmt"
 	"os"
 	"testing"
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -23,6 +23,7 @@ type App struct {
 	Screen       tcell.Screen
 	State        *WidgetState
 	*Container
+	Navigator *Navigator
 	event.EventMap
 	event.Keybindings
 	lcontext.Context
@@ -30,7 +31,7 @@ type App struct {
 
 func initAppScreen() (tcell.Screen, error) {
 	isTesting := testing.Testing()
-    isDebug := os.Getenv("DEBUG")
+	isDebug := os.Getenv("DEBUG")
 	var screen tcell.Screen
 	if isTesting || isDebug != "" {
 		screen = tcell.NewSimulationScreen("UTF-8")
@@ -39,7 +40,7 @@ func initAppScreen() (tcell.Screen, error) {
 		if err != nil {
 			return nil, err
 		}
-        screen = n_screen
+		screen = n_screen
 	}
 
 	return screen, nil
@@ -53,6 +54,7 @@ func NewApp() (*App, error) {
 		nil,
 		&WidgetState{},
 		NewContainer(),
+		NewNavigator(),
 		make(event.EventMap),
 		make(event.Keybindings),
 		make(lcontext.Context),
@@ -64,7 +66,6 @@ func NewApp() (*App, error) {
 	if err = screen.Init(); err != nil {
 		return nil, err
 	}
-	//screen.HideCursor()
 	app.Screen = screen
 	width, height := app.Screen.Size()
 	app.EventChannel = make(chan event.Event)
@@ -72,30 +73,27 @@ func NewApp() (*App, error) {
 	app.Y = 0
 	app.Width = uint(width)
 	app.Height = uint(height)
-	logger.Logger.Println("width: ", width, " height: ", height)
 	return app, nil
 }
 
 func (app *App) Start() {
-	//defer func() {
-	//    if err := recover(); err!= nil {
-	//        logger.Logger.Fatal(err)
-	//    }
-	//}()
 	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
-	app.Render(app.Screen, app.Context)
+	app.Container.Render(app.Screen, app.Context)
 	go app.EventLoop()
 	_ = <-app.ExitChannel
 	app.Screen.Fini()
 }
 
+func (app *App) SetupNavigation() {
+	navigables := app.GetNavigables()
+	app.Navigator.IndexItems(navigables)
+	app.Navigator.Setup()
+}
+
 func (app *App) StartKeyEventMapper() {
-	logger.Logger.Println("before show")
 	for {
-		logger.Logger.Println("before show")
 		app.Screen.Show()
-		logger.Logger.Println("after show")
 		ev := app.Screen.PollEvent()
 		switch ev := ev.(type) {
 		case *tcell.EventKey:
@@ -124,7 +122,7 @@ func (app *App) EventLoop() {
 			}
 		case _, _ = <-lcontext.DispatchContextChannel:
 		}
-		app.Render(app.Screen, app.Context)
+		app.Container.Render(app.Screen, app.Context)
 	}
 }
 
