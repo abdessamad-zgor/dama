@@ -87,8 +87,17 @@ func (app *App) Start() {
 
 func (app *App) SetupNavigation() {
 	navigables := app.GetNavigables()
-	app.Navigator.IndexItems(navigables)
-	app.Navigator.Setup()
+	app.Navigator.GetNavigationTree(navigables)
+	tags := app.Navigator.SetupKeybindings()
+	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
+		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
+		eventRune := eventKey.Rune()
+		for _, tag := range tags {
+			if eventRune == tag {
+				app.Navigator.Navigate(tag)
+			}
+		}
+	})
 }
 
 func (app *App) StartKeyEventMapper() {

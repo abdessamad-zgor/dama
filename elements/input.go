@@ -12,7 +12,6 @@ type Input struct {
 	*dama.Widget
 	*dama.Editable
 	*dama.Scrollable
-	*dama.Stylable
 }
 
 func NewInput() Input {
@@ -20,9 +19,6 @@ func NewInput() Input {
 		dama.NewWidget(),
 		dama.NewEditable(),
 		new(dama.Scrollable),
-		&dama.Stylable{
-			dama.DefaultStyle,
-		},
 	}
 
 	input.SetEventListener(tcell.KeyRune, event.Key, func(context lcontext.Context, ievent event.Event) {

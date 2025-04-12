@@ -1,6 +1,7 @@
-2025/04/04 22:50:32 container.go:73: elements:  [{0xc00007a000 0xc00007c000 0xc00000e048 0xc00001e180 0xc0000760c0}]
-2025/04/04 22:50:32 container.go:75: element type:  elements.Input
-2025/04/04 22:50:32 input.go:60: box:  {33 7 99 21 {0xc00007a000 0xc00007c000 0xc00000e048 0xc00001e180 0xc0000760c0}}
-2025/04/04 22:50:32 box.go:21: inside box render true  element type:  elements.Input
-2025/04/04 22:50:32 box.go:24: inside box render stylable
-2025/04/04 22:50:32 box.go:38: inside box render border
+2025/04/12 23:14:09 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/12 23:14:09 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/12 23:14:09 container.go:73: elements:  [{0xc0001145d0 0xc0001a0000 0xc00019a020}]
+2025/04/12 23:14:09 container.go:75: element type:  elements.Input
+2025/04/12 23:14:09 input.go:52: box:  {33 7 99 21 {0xc0001145d0 0xc0001a0000 0xc00019a020}}
+2025/04/12 23:14:09 box.go:19: inside box render stylable
+2025/04/12 23:14:09 box.go:33: inside box render border
