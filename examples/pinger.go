@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -8,16 +8,18 @@ import (
 )
 
 func main() {
-    app, err := dama.NewApp()
-    if err != nil {
-        panic(fmt.Sprintf("failed to initialize app due to : %v\n", err))
-    }
+	app, err := dama.NewApp()
+	if err != nil {
+		panic(fmt.Sprintf("failed to initialize app due to : %v\n", err))
+	}
 
-    url := elements.NewInput()
-    url.SetTag('U')
-    url.SetTitle("URL")
+	url := elements.NewInput()
+	url.SetTag('U')
+	url.SetTitle("URL")
 
-    app.AddElement(url, dama.Center)
+	app.AddElement(url, dama.Top)
 
-    app.Start()
+	//area := elements.NewTextArea()
+
+	app.Start()
 }

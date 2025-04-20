@@ -1,7 +1,15 @@
-2025/04/12 23:14:09 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/12 23:14:09 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/12 23:14:09 container.go:73: elements:  [{0xc0001145d0 0xc0001a0000 0xc00019a020}]
-2025/04/12 23:14:09 container.go:75: element type:  elements.Input
-2025/04/12 23:14:09 input.go:52: box:  {33 7 99 21 {0xc0001145d0 0xc0001a0000 0xc00019a020}}
-2025/04/12 23:14:09 box.go:19: inside box render stylable
-2025/04/12 23:14:09 box.go:33: inside box render border
+2025/04/20 11:41:54 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/20 11:41:54 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/20 11:41:54 navigator.go:35: getNavigationTree 
+2025/04/20 11:41:54 navigator.go:58: Navigator root:  {<nil> 0xc0000a2000 0xc000356060}
+2025/04/20 11:41:54 navigator.go:70: index:  []  current_item:  {<nil> 0xc0000a2000 0xc000356060}
+2025/04/20 11:41:54 navigator.go:70: index:  []  current_item:  {<nil> {0xc00035a000 0xc00035e000 0xc000350020} <nil>}
+2025/04/20 11:41:54 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
+2025/04/20 11:41:54 container.go:75: element type:  elements.Input
+2025/04/20 11:41:54 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}
+2025/04/20 11:41:56 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
+2025/04/20 11:41:56 container.go:75: element type:  elements.Input
+2025/04/20 11:41:56 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}
+2025/04/20 11:41:56 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
+2025/04/20 11:41:56 container.go:75: element type:  elements.Input
+2025/04/20 11:41:56 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}

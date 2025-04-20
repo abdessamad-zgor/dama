@@ -15,6 +15,8 @@ type DamaApp interface {
 	DamaContainer
 	DamaWidget
 	Start()
+	Exit()
+	GetNavigator() *Navigator
 }
 
 type App struct {
@@ -54,11 +56,14 @@ func NewApp() (*App, error) {
 		nil,
 		&WidgetState{},
 		NewContainer(),
-		NewNavigator(),
+		nil,
 		make(event.EventMap),
 		make(event.Keybindings),
 		make(lcontext.Context),
 	}
+	navigator := NewNavigator()
+	navigator.Root.Element = app
+	app.Navigator = navigator
 	screen, err := initAppScreen()
 	if err != nil {
 		return nil, err
@@ -79,15 +84,39 @@ func NewApp() (*App, error) {
 func (app *App) Start() {
 	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
+	app.SetupNavigation()
 	app.Container.Render(app.Screen, app.Context)
 	go app.EventLoop()
 	_ = <-app.ExitChannel
-	app.Screen.Fini()
+	_, ok := app.Screen.(tcell.SimulationScreen)
+	if !ok {
+		app.Screen.Fini()
+	}
+}
+
+func (app *App) Exit() {
+	app.ExitChannel <- 0
 }
 
 func (app *App) SetupNavigation() {
 	navigables := app.GetNavigables()
 	app.Navigator.GetNavigationTree(navigables)
+	tags := app.Navigator.SetupKeybindings()
+	if len(navigables) >= 1 {
+		app.Navigator.Navigate(navigables[0].GetTag())
+	}
+	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
+		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
+		eventRune := eventKey.Rune()
+		for _, tag := range tags {
+			if eventRune == tag {
+				app.Navigator.Navigate(tag)
+			}
+		}
+	})
+}
+
+func (app *App) UpdateNavigator() {
 	tags := app.Navigator.SetupKeybindings()
 	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
@@ -129,6 +158,7 @@ func (app *App) EventLoop() {
 			if ok {
 				callback(app.Context, event)
 			}
+			app.UpdateNavigator()
 		case _, _ = <-lcontext.DispatchContextChannel:
 		}
 		app.Container.Render(app.Screen, app.Context)
@@ -153,6 +183,10 @@ func (app *App) GetState() *WidgetState {
 
 func (app *App) SetState(state *WidgetState) {
 	app.State = state
+}
+
+func (app *App) GetNavigator() *Navigator {
+	return app.Navigator
 }
 
 func (app *App) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {

@@ -31,19 +31,20 @@ func teardown() {
 }
 
 func TestAppRender(t *testing.T) {
-	app.Start()
-    width, height := app.GetBox().Width, app.GetBox().Height 
-    logger.Logger.Println("width: ", width, " height: ", height)
+	go app.Start()
+	app.Exit()
+	width, height := app.GetBox().Width, app.GetBox().Height
+	logger.Logger.Println("width: ", width, " height: ", height)
 	if width <= 0 || height <= 0 {
 		t.Fatalf("failed to get screen width and height, %d, %d", app.GetBox().Width, app.GetBox().Height)
 	}
 }
 
 func TestMescillinous(t *testing.T) {
-    ints := []int{}
-    ints = append(ints, 1)
-    ints = append(ints, 2)
-    ints = append(ints, 3)
+	ints := []int{}
+	ints = append(ints, 1)
+	ints = append(ints, 2)
+	ints = append(ints, 3)
 
-    logger.Logger.Println("ints: ", ints)
+	logger.Logger.Println("ints: ", ints)
 }

@@ -18,6 +18,14 @@ type GridLayout struct {
 	Elements  map[GridPosition]DamaElement
 }
 
+func NewGridLayout(columns int, rows int) *GridLayout {
+	grid := new(GridLayout)
+	grid.Columns = uint(columns)
+	grid.Rows = uint(rows)
+	grid.Elements = make(map[GridPosition]DamaElement)
+	return grid
+}
+
 type GridPosition struct {
 	Column     uint
 	Row        uint
@@ -73,31 +81,31 @@ func (layout *BaseLayout) AddElement(element DamaElement, position Position) err
 	case Center:
 		x = (layout.Container.X + layout.Container.Width/5)
 		y = (layout.Container.Y + layout.Container.Height/5)
-		width = (layout.Container.Width/5 * 3)
-		height = (layout.Container.Height/5 * 3)
+		width = (layout.Container.Width / 5 * 3)
+		height = (layout.Container.Height / 5 * 3)
 	case Left:
 		x = (layout.Container.X)
-		y = (layout.Container.Y) + (layout.Container.Height/5)
-		width = (layout.Container.Width/5) * 3
-		height = (layout.Container.Height/5) * 3
+		y = (layout.Container.Y) + (layout.Container.Height / 5)
+		width = (layout.Container.Width / 5) * 3
+		height = (layout.Container.Height / 5) * 3
 	case Right:
-		x = (layout.Container.X) + (layout.Container.Width/5) * 4
-		y = (layout.Container.Y) + (layout.Container.Height/5)
-		width = (layout.Container.Width/5) * 3
-		height = (layout.Container.Height/5) * 3
+		x = (layout.Container.X) + (layout.Container.Width/5)*4
+		y = (layout.Container.Y) + (layout.Container.Height / 5)
+		width = (layout.Container.Width / 5) * 3
+		height = (layout.Container.Height / 5) * 3
 	case Top:
-		x = (layout.Container.X) 
+		x = (layout.Container.X)
 		y = (layout.Container.Y)
 		width = layout.Container.Width
-		height = (layout.Container.Height/5) 
+		height = (layout.Container.Height / 5)
 	case Bottom:
 		x = (layout.Container.X)
-		y = (layout.Container.Y) + (layout.Container.Height/5) * 4
+		y = (layout.Container.Y) + (layout.Container.Height/5)*4
 		width = layout.Container.Width
-		height = (layout.Container.Height/5)
+		height = (layout.Container.Height / 5)
 	}
 
-    element.SetBox(uint(x), uint(y), uint(width), uint(height))
+	element.SetBox(uint(x), uint(y), uint(width), uint(height))
 	layout.Elements[basePosition] = element
 	return nil
 }

@@ -47,6 +47,8 @@ func (input Input) GetBox() dama.Box {
 	return box
 }
 
+//func (input Input)
+
 func (input Input) Render(screen tcell.Screen, context lcontext.Context) {
 	box := input.GetBox()
 	logger.Logger.Println("box: ", box)

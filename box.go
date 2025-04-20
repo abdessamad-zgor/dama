@@ -2,7 +2,7 @@ package dama
 
 import (
 	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -16,7 +16,7 @@ type Box struct {
 
 func (box Box) Render(screen tcell.Screen, context lcontext.Context) {
 	boxStyle := box.Element.GetStyle()
-	logger.Logger.Println("inside box render stylable")
+
 	if boxStyle.Border != nil {
 		borderStyle := tcell.StyleDefault.Foreground(boxStyle.Border.Color).Bold(boxStyle.Border.Bold)
 		for xi := range box.Width {
@@ -30,7 +30,6 @@ func (box Box) Render(screen tcell.Screen, context lcontext.Context) {
 				}
 			}
 		}
-		logger.Logger.Println("inside box render border")
 
 		screen.SetContent(int(box.X), int(box.Y), tcell.RuneULCorner, nil, borderStyle)
 		screen.SetContent(int(box.X+box.Width-1), int(box.Y), tcell.RuneURCorner, nil, borderStyle)
