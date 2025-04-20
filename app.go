@@ -7,7 +7,7 @@ import (
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -98,22 +98,39 @@ func (app *App) Exit() {
 	app.ExitChannel <- 0
 }
 
+
 func (app *App) SetupNavigation() {
 	navigables := app.GetNavigables()
 	app.Navigator.GetNavigationTree(navigables)
 	tags := app.Navigator.SetupKeybindings()
-	if len(navigables) >= 1 {
-		app.Navigator.Navigate(navigables[0].GetTag())
-	}
 	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
 		eventRune := eventKey.Rune()
 		for _, tag := range tags {
 			if eventRune == tag {
-				app.Navigator.Navigate(tag)
+				app.Navigate(tag)
 			}
 		}
 	})
+	if len(navigables) >= 1 {
+		app.Navigate(navigables[0].GetTag())
+	}
+}
+
+func (app *App) Navigate(tag rune) {
+	if app.Navigator.Navigate(tag) {
+		app.EventMap = event.DefaultEventMap()
+		app.Keybindings = event.DefaultKeybindings()
+		app.UpdateNavigator()
+		widget, ok := app.Navigator.Current.Element.(DamaWidget)
+		if ok {
+			elementEventMap := widget.GetEventMap()
+			elementKeybindings := widget.GetKeybindings()
+			for key, value := range elementKeybindings {
+				app.SetEventListener(key, value, elementEventMap[value])
+			}
+		}
+	}
 }
 
 func (app *App) UpdateNavigator() {
@@ -123,7 +140,7 @@ func (app *App) UpdateNavigator() {
 		eventRune := eventKey.Rune()
 		for _, tag := range tags {
 			if eventRune == tag {
-				app.Navigator.Navigate(tag)
+				app.Navigate(tag)
 			}
 		}
 	})
@@ -136,12 +153,14 @@ func (app *App) StartKeyEventMapper() {
 		switch ev := ev.(type) {
 		case *tcell.EventKey:
 			key := ev.Key()
-			kevent, ok := app.Keybindings[key]
-			if ok {
-				app.EventChannel <- event.Event{kevent, key, ev}
-			}
 			if key == tcell.KeyCtrlC {
 				app.ExitChannel <- 0
+			}
+			kevent, ok := app.Keybindings[key]
+			eevent := event.Event{kevent, key, ev}
+			logger.Logger.Println("event: ", eevent)
+			if ok {
+				app.EventChannel <- eevent
 			}
 		case *tcell.EventResize:
 			app.Screen.Sync()
@@ -158,7 +177,6 @@ func (app *App) EventLoop() {
 			if ok {
 				callback(app.Context, event)
 			}
-			app.UpdateNavigator()
 		case _, _ = <-lcontext.DispatchContextChannel:
 		}
 		app.Container.Render(app.Screen, app.Context)

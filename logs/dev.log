@@ -1,15 +1,145 @@
-2025/04/20 11:41:54 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/20 11:41:54 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/20 11:41:54 navigator.go:35: getNavigationTree 
-2025/04/20 11:41:54 navigator.go:58: Navigator root:  {<nil> 0xc0000a2000 0xc000356060}
-2025/04/20 11:41:54 navigator.go:70: index:  []  current_item:  {<nil> 0xc0000a2000 0xc000356060}
-2025/04/20 11:41:54 navigator.go:70: index:  []  current_item:  {<nil> {0xc00035a000 0xc00035e000 0xc000350020} <nil>}
-2025/04/20 11:41:54 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
-2025/04/20 11:41:54 container.go:75: element type:  elements.Input
-2025/04/20 11:41:54 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}
-2025/04/20 11:41:56 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
-2025/04/20 11:41:56 container.go:75: element type:  elements.Input
-2025/04/20 11:41:56 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}
-2025/04/20 11:41:56 container.go:73: elements:  [{0xc00035a000 0xc00035e000 0xc000350020}]
-2025/04/20 11:41:56 container.go:75: element type:  elements.Input
-2025/04/20 11:41:56 input.go:54: box:  {0 0 166 7 {0xc00035a000 0xc00035e000 0xc000350020}}
+2025/04/21 00:55:02 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/21 00:55:02 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/21 00:55:02 navigator.go:35: getNavigationTree 
+2025/04/21 00:55:02 navigator.go:58: Navigator root:  {<nil> 0xc0000a2000 0xc0001a6060}
+2025/04/21 00:55:02 navigator.go:70: index:  []  current_item:  {<nil> 0xc0000a2000 0xc0001a6060}
+2025/04/21 00:55:02 navigator.go:70: index:  []  current_item:  {<nil> 0xc0001a6030 <nil>}
+2025/04/21 00:55:02 stylable.go:51: styling before:  &{{0xc000104900 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/21 00:55:02 stylable.go:52: styling after:  &{{0xc000104900 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/21 00:55:03 app.go:161: event:  {key 256 0xc000408000}
+2025/04/21 00:55:03 input.go:28: Inside input listener
+2025/04/21 00:55:03 app.go:161: event:  {key 256 0xc000038040}
+2025/04/21 00:55:03 input.go:28: Inside input listener
+2025/04/21 00:55:04 app.go:161: event:  {key 256 0xc00011c740}
+2025/04/21 00:55:04 input.go:28: Inside input listener
+2025/04/21 00:55:05 app.go:161: event:  {key 256 0xc000408020}
+2025/04/21 00:55:05 input.go:28: Inside input listener
+2025/04/21 00:55:06 app.go:161: event:  {key 256 0xc000408040}
+2025/04/21 00:55:06 input.go:28: Inside input listener
+2025/04/21 00:55:06 app.go:161: event:  {key 256 0xc000408060}
+2025/04/21 00:55:06 input.go:28: Inside input listener
+2025/04/21 00:55:06 app.go:161: event:  {key 256 0xc000038060}
+2025/04/21 00:55:06 input.go:28: Inside input listener
+2025/04/21 00:55:07 app.go:161: event:  {key 256 0xc000038080}
+2025/04/21 00:55:07 input.go:28: Inside input listener
+2025/04/21 00:55:07 app.go:161: event:  {key 256 0xc000408080}
+2025/04/21 00:55:07 input.go:28: Inside input listener
+2025/04/21 00:55:07 app.go:161: event:  {key 256 0xc0004080a0}
+2025/04/21 00:55:07 input.go:28: Inside input listener
+2025/04/21 00:55:08 app.go:161: event:  {key 256 0xc0000380a0}
+2025/04/21 00:55:08 input.go:28: Inside input listener
+2025/04/21 00:55:09 app.go:161: event:  {key 256 0xc0000380c0}
+2025/04/21 00:55:09 input.go:28: Inside input listener
+2025/04/21 00:55:09 app.go:161: event:  {key 256 0xc0000380e0}
+2025/04/21 00:55:09 input.go:28: Inside input listener
+2025/04/21 00:55:09 app.go:161: event:  {key 256 0xc000038100}
+2025/04/21 00:55:09 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc000038120}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc000038140}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc0004080c0}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc00011c760}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc00011c780}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:10 app.go:161: event:  {key 256 0xc00011c7a0}
+2025/04/21 00:55:10 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc00011c7c0}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc00011c7e0}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc00011c800}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc00011c820}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc000038160}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc0004080e0}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc000408100}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:12 app.go:161: event:  {key 256 0xc00011c840}
+2025/04/21 00:55:12 input.go:28: Inside input listener
+2025/04/21 00:55:13 app.go:161: event:  {carriage-return 13 0xc000408120}
+2025/04/21 00:55:13 input.go:33: Inside input listener
+2025/04/21 00:55:13 app.go:161: event:  {carriage-return 13 0xc000408140}
+2025/04/21 00:55:13 input.go:33: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc000408160}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc0000381a0}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc000408180}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc00011c860}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc0004081a0}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:15 app.go:161: event:  {key 256 0xc0000381c0}
+2025/04/21 00:55:15 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc00011c880}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc00011c8a0}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc0004081c0}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc0004081e0}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc00011c8c0}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc00011c8e0}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:16 app.go:161: event:  {key 256 0xc00011c900}
+2025/04/21 00:55:16 input.go:28: Inside input listener
+2025/04/21 00:55:17 app.go:161: event:  {key 256 0xc000408200}
+2025/04/21 00:55:17 input.go:28: Inside input listener
+2025/04/21 00:55:17 app.go:161: event:  {key 256 0xc000408220}
+2025/04/21 00:55:17 input.go:28: Inside input listener
+2025/04/21 00:55:17 app.go:161: event:  {key 256 0xc000408240}
+2025/04/21 00:55:17 input.go:28: Inside input listener
+2025/04/21 00:55:17 app.go:161: event:  {carriage-return 13 0xc00011c920}
+2025/04/21 00:55:17 input.go:33: Inside input listener
+2025/04/21 00:55:18 app.go:161: event:  {key 256 0xc00011c940}
+2025/04/21 00:55:18 input.go:28: Inside input listener
+2025/04/21 00:55:19 app.go:161: event:  {key 256 0xc00011c960}
+2025/04/21 00:55:19 input.go:28: Inside input listener
+2025/04/21 00:55:19 app.go:161: event:  {key 256 0xc00011c980}
+2025/04/21 00:55:19 input.go:28: Inside input listener
+2025/04/21 00:55:19 app.go:161: event:  {key 256 0xc0000381e0}
+2025/04/21 00:55:19 input.go:28: Inside input listener
+2025/04/21 00:55:20 app.go:161: event:  {key 256 0xc000038200}
+2025/04/21 00:55:20 input.go:28: Inside input listener
+2025/04/21 00:55:20 app.go:161: event:  {key 256 0xc000038220}
+2025/04/21 00:55:20 input.go:28: Inside input listener
+2025/04/21 00:55:20 app.go:161: event:  {key 256 0xc000038240}
+2025/04/21 00:55:20 input.go:28: Inside input listener
+2025/04/21 00:55:20 app.go:161: event:  {key 256 0xc000408260}
+2025/04/21 00:55:20 input.go:28: Inside input listener
+2025/04/21 00:55:20 app.go:161: event:  {key 256 0xc000408280}
+2025/04/21 00:55:20 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc0004082a0}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc0004082c0}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc0004082e0}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc000408300}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc000408320}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:21 app.go:161: event:  {key 256 0xc000408340}
+2025/04/21 00:55:21 input.go:28: Inside input listener
+2025/04/21 00:55:22 app.go:161: event:  {key 256 0xc000408360}
+2025/04/21 00:55:22 input.go:28: Inside input listener
+2025/04/21 00:55:22 app.go:161: event:  {key 256 0xc000408380}
+2025/04/21 00:55:22 input.go:28: Inside input listener
+2025/04/21 00:55:22 app.go:161: event:  {key 256 0xc0004083a0}
+2025/04/21 00:55:22 input.go:28: Inside input listener
+2025/04/21 00:55:22 app.go:161: event:  {key 256 0xc0004083c0}
+2025/04/21 00:55:22 input.go:28: Inside input listener
+2025/04/21 00:55:22 app.go:161: event:  {key 256 0xc0004083e0}
+2025/04/21 00:55:22 input.go:28: Inside input listener
+2025/04/21 00:56:38 app.go:161: event:  {carriage-return 13 0xc000408400}
+2025/04/21 00:56:38 input.go:33: Inside input listener
+2025/04/21 00:56:45 app.go:161: event:  { 3 0xc000408420}

@@ -14,8 +14,8 @@ type Input struct {
 	*dama.Scrollable
 }
 
-func NewInput() Input {
-	input := Input{
+func NewInput() *Input {
+	input := &Input{
 		dama.NewWidget(),
 		dama.NewEditable(),
 		new(dama.Scrollable),
@@ -25,33 +25,40 @@ func NewInput() Input {
 		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
 		rune := keyEvent.Rune()
 		input.AddRune(rune)
+		logger.Logger.Println("Inside input listener")
 	})
 
-	input.SetEventListener(tcell.KeyCR, event.Key, func(context lcontext.Context, ievent event.Event) {
+	input.SetEventListener(tcell.KeyCR, event.CR, func(context lcontext.Context, ievent event.Event) {
 		input.AddRune('\n')
+		logger.Logger.Println("Inside input listener")
 	})
 
 	input.BorderColor(tcell.ColorDefault)
 	return input
 }
 
-func (input Input) ContentsToText() dama.Text {
+func (input *Input) ContentsToText() dama.Text {
 	box := input.GetBox()
 
 	return dama.Text{input.Contents, &box}
 }
 
-func (input Input) GetBox() dama.Box {
+func (input *Input) GetBox() dama.Box {
 	box := input.Widget.GetBox()
 	box.Element = input
 	return box
 }
 
-//func (input Input)
+func (input *Input) Focus() {
+	input.BorderColor(tcell.ColorBlueViolet)
+}
 
-func (input Input) Render(screen tcell.Screen, context lcontext.Context) {
+func (input *Input) Blur() {
+	input.BorderColor(tcell.ColorDefault)
+}
+
+func (input *Input) Render(screen tcell.Screen, context lcontext.Context) {
 	box := input.GetBox()
-	logger.Logger.Println("box: ", box)
 	box.Render(screen, context)
 
 	text := input.ContentsToText()

@@ -3,10 +3,10 @@ package dama
 import (
 	"errors"
 	"fmt"
-	"reflect"
+	_ "reflect"
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -70,9 +70,7 @@ func (container *Container) GetBox() Box {
 
 func (container *Container) Render(screen tcell.Screen, context lcontext.Context) {
 	elements := container.GetElements()
-	logger.Logger.Println("elements: ", elements)
 	for _, element := range elements {
-		logger.Logger.Println("element type: ", reflect.TypeOf(element))
 		element.Render(screen, context)
 	}
 }

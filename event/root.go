@@ -16,6 +16,7 @@ const (
 	Quit          EventName = "quit"
 	Confirm       EventName = "confirm"
 	Key           EventName = "key"
+	CR		 	  EventName = "carriage-return"
 	Help          EventName = "help"
 	Save          EventName = "save"
 	Left          EventName = "left"
@@ -37,16 +38,17 @@ type Keybindings = map[tcell.Key]EventName
 
 var AppEventMap EventMap
 
-func SetDefaultEventMap() EventMap {
+func DefaultEventMap() EventMap {
 	appEventMap := make(EventMap)
 	appEventMap[Key] = func(appcontext lcontext.Context, event Event) {
 		// send rune to widget
 		// key := event.Key()
 	}
 
-	appEventMap[Left] = func(appcontext lcontext.Context, event Event) {
-
-	}
-
 	return appEventMap
+}
+
+func DefaultKeybindings() Keybindings {
+	appKeybindings := make(Keybindings)
+	return appKeybindings
 }

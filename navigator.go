@@ -116,7 +116,7 @@ func (navigator *Navigator) SearchIndex(tag rune) *IndexItem {
 	return indexItem
 }
 
-func (navigator *Navigator) Navigate(tag rune) {
+func (navigator *Navigator) Navigate(tag rune) bool {
 	indexItem := navigator.SearchIndex(tag)
 
 	if indexItem != nil {
@@ -126,6 +126,8 @@ func (navigator *Navigator) Navigate(tag rune) {
 		navigator.Current = indexItem.Item
 		navigator.CurrentPath = indexItem.Path
 		navigator.Current.Element.Focus()
+		return true
 	}
+	return false
 
 }
