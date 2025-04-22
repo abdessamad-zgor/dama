@@ -40,10 +40,6 @@ var AppEventMap EventMap
 
 func DefaultEventMap() EventMap {
 	appEventMap := make(EventMap)
-	appEventMap[Key] = func(appcontext lcontext.Context, event Event) {
-		// send rune to widget
-		// key := event.Key()
-	}
 
 	return appEventMap
 }

@@ -2,7 +2,7 @@ package dama
 
 import (
 	_ "github.com/abdessamad-zgor/dama/context"
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/logger"
 
 	"strings"
 
@@ -43,7 +43,6 @@ func (editable *Editable) RemoveRune() {
 	runes := []rune(lines[line])
     if runes[i] == '\n' {
         editable.Cursor.Line -= 1
-
     }
 	runes = append(runes[0:i-1], runes[i:]...)
     editable.Cursor.Column -= 1
@@ -68,6 +67,7 @@ func (editable *Editable) AddRune(char rune) {
         editable.Cursor.Line += 1
         editable.Cursor.Column = 0
     }
+	logger.Logger.Print("line runes at char " + string(char) + ": ", runes)
 }
 
 func (editable *Editable) GetCursor() *Cursor {

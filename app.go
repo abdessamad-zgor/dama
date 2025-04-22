@@ -7,7 +7,7 @@ import (
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -82,16 +82,21 @@ func NewApp() (*App, error) {
 }
 
 func (app *App) Start() {
-	app.Screen.Clear()
 	app.Screen.SetStyle(tcell.StyleDefault)
 	app.SetupNavigation()
-	app.Container.Render(app.Screen, app.Context)
+	app.Draw()
 	go app.EventLoop()
 	_ = <-app.ExitChannel
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
 		app.Screen.Fini()
 	}
+}
+
+func (app *App) Draw() {
+	app.Screen.Clear()
+	app.Container.Render(app.Screen, app.Context)
+	app.Screen.Show()
 }
 
 func (app *App) Exit() {
@@ -148,7 +153,6 @@ func (app *App) UpdateNavigator() {
 
 func (app *App) StartKeyEventMapper() {
 	for {
-		app.Screen.Show()
 		ev := app.Screen.PollEvent()
 		switch ev := ev.(type) {
 		case *tcell.EventKey:
@@ -158,7 +162,6 @@ func (app *App) StartKeyEventMapper() {
 			}
 			kevent, ok := app.Keybindings[key]
 			eevent := event.Event{kevent, key, ev}
-			logger.Logger.Println("event: ", eevent)
 			if ok {
 				app.EventChannel <- eevent
 			}
@@ -177,9 +180,9 @@ func (app *App) EventLoop() {
 			if ok {
 				callback(app.Context, event)
 			}
+			app.Draw()
 		case _, _ = <-lcontext.DispatchContextChannel:
 		}
-		app.Container.Render(app.Screen, app.Context)
 	}
 }
 
