@@ -12,6 +12,7 @@ const (
 	VisualMode    EventName = "visual-mode"
 	NormalMode    EventName = "normal-mode"
 	TagNavigation EventName = "tag-navigation"
+	MoveCursor    EventName = "move-cursor"
 	Escape        EventName = "escape"
 	Quit          EventName = "quit"
 	Confirm       EventName = "confirm"

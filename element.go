@@ -15,6 +15,8 @@ type DamaElement interface {
 	GetTitle() string
 	GetTag() rune
 	IsNavigable() bool
+	RenderTag(screen tcell.Screen)
+	RenderTitle(screen tcell.Screen)
 	Focus()
 	Blur()
 }
@@ -31,6 +33,36 @@ type Element struct {
 
 func (element *Element) Render(screen tcell.Screen, context lcontext.Context) {
 
+}
+
+func (element *Element) RenderTag(screen tcell.Screen) {
+	if element.Tag != rune(0) {
+		offset := 2
+		tagText := "["+string(element.Tag)+"]"
+		color := tcell.ColorDefault
+		if element.Style.Border != nil {
+			color = element.Style.Border.Color
+		}
+		for i, char := range tagText {
+			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, tcell.StyleDefault.Foreground(color))
+		}
+	}
+}
+
+func (element *Element) RenderTitle(screen tcell.Screen) {
+	if element.Title != "" {
+		offset := 2
+		if element.Tag != rune(0) {
+			offset += 4
+		}
+		color := tcell.ColorDefault
+		if element.Style.Border != nil {
+			color = element.Style.Border.Color
+		}
+		for i, char := range element.Title {
+			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, tcell.StyleDefault.Foreground(color))
+		}
+	}	
 }
 
 func (element *Element) GetBox() Box {

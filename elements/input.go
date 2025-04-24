@@ -14,6 +14,23 @@ type Input struct {
 	*dama.Scrollable
 }
 
+func KeyToDirection(key tcell.Key) dama.Direction {
+	direction := dama.Center
+	switch(key) {
+	case tcell.KeyUp:
+		direction = dama.Top
+	case tcell.KeyDown:
+		direction = dama.Bottom
+	case tcell.KeyLeft:
+		direction = dama.Left
+	case tcell.KeyRight:
+		direction = dama.Right
+	default:
+		direction = dama.Center
+	}
+	return direction
+}
+
 func NewInput() *Input {
 	input := &Input{
 		dama.NewWidget(),
@@ -33,6 +50,30 @@ func NewInput() *Input {
 		logger.Logger.Println("Inside input listener")
 	})
 
+	input.SetEventListener(tcell.KeyUp, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
+		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
+		direction := KeyToDirection(keyEvent.Key())
+		input.MoveCursor(direction)
+	})
+
+	input.SetEventListener(tcell.KeyDown, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
+		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
+		direction := KeyToDirection(keyEvent.Key())
+		input.MoveCursor(direction)
+	})
+
+	input.SetEventListener(tcell.KeyLeft, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
+		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
+		direction := KeyToDirection(keyEvent.Key())
+		input.MoveCursor(direction)
+	})
+
+	input.SetEventListener(tcell.KeyRight, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
+		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
+		direction := KeyToDirection(keyEvent.Key())
+		input.MoveCursor(direction)
+	})
+
 	input.BorderColor(tcell.ColorDefault)
 	return input
 }
@@ -50,7 +91,7 @@ func (input *Input) GetBox() dama.Box {
 }
 
 func (input *Input) Focus() {
-	input.BorderColor(tcell.ColorBlueViolet)
+	input.BorderColor(tcell.ColorLime)
 }
 
 func (input *Input) Blur() {
@@ -60,6 +101,8 @@ func (input *Input) Blur() {
 func (input *Input) Render(screen tcell.Screen, context lcontext.Context) {
 	box := input.GetBox()
 	box.Render(screen, context)
+	input.RenderTag(screen)
+	input.RenderTitle(screen)
 
 	text := input.ContentsToText()
 	text.Render(screen)
