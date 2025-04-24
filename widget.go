@@ -17,18 +17,27 @@ type DamaWidget interface {
 	SetState(state *WidgetState)
 
 	SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback)
-    DamaElement
+	DamaElement
 }
 
 type Widget struct {
+	*Element
 	Parent      *Container
-	X           uint
-	Y           uint
-	Width       uint
-	Height      uint
 	EventMap    event.EventMap
 	Keybindings event.Keybindings
 	State       *WidgetState
+}
+
+func NewWidget() *Widget {
+	widget := Widget{
+		new(Element),
+		nil,
+		make(event.EventMap),
+		make(event.Keybindings),
+		nil,
+	}
+
+	return &widget
 }
 
 func (widget *Widget) GetParent() *Container {
@@ -36,7 +45,9 @@ func (widget *Widget) GetParent() *Container {
 }
 
 func (widget *Widget) GetBox() Box {
-	return Box{widget.X, widget.Y, widget.Width, widget.Height, widget}
+	box := widget.Element.GetBox()
+	box.Element = widget
+	return box
 }
 
 func (widget *Widget) GetEventMap() event.EventMap {

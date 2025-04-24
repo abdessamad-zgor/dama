@@ -1,11 +1,11 @@
 package dama
 
 import (
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
-var DefaultStyle Style = Style {}
-
+var DefaultStyle Style = Style{}
 
 type Spacing struct {
 	Top    uint
@@ -24,73 +24,81 @@ type Style struct {
 	Padding    Spacing
 	Margin     Spacing
 	Background tcell.Color
-	Foreground  tcell.Color
-	Bold   bool
-	Italic bool
+	Foreground tcell.Color
+	Bold       bool
+	Italic     bool
 }
 
-type DamaStylable interface {
-    BorderColor(color tcell.Color) DamaStylable
-    BorderBold(bold bool) DamaStylable
-    Padding(padding Spacing) DamaStylable
-    Margin(margin Spacing) DamaStylable
-    Background(color tcell.Color) DamaStylable
-    Foreground(color tcell.Color) DamaStylable
-    Bold(bold bool) DamaStylable
-    Italic(italic bool) DamaStylable
+type DamaStyle interface {
+	BorderColor(color tcell.Color) DamaStyle
+	BorderBold(bold bool) DamaStyle
+	Padding(padding Spacing) DamaStyle
+	Margin(margin Spacing) DamaStyle
+	Background(color tcell.Color) DamaStyle
+	Foreground(color tcell.Color) DamaStyle
+	Bold(bold bool) DamaStyle
+	Italic(italic bool) DamaStyle
 
-    GetStyle() Style
-    SetStyle(style Style) 
+	GetStyle() Style
+	SetStyle(style Style)
 }
 
-type Stylable struct {
+type Styling struct {
 	Style Style
 }
 
-func (stylable *Stylable) BorderColor(color tcell.Color) *Stylable {
-    stylable.Style.Border.Color = color
-    return stylable
+func (styling *Styling) BorderColor(color tcell.Color) DamaStyle {
+	logger.Logger.Println("styling before: ", styling)
+	logger.Logger.Println("styling after: ", styling)
+	if styling.Style.Border == nil {
+		styling.Style.Border = new(Border)
+	}
+	styling.Style.Border.Color = color
+	return styling
 }
 
-func (stylable *Stylable) BorderBold(bold bool) *Stylable {
-    stylable.Style.Border.Bold = bold
-    return stylable
+func (styling *Styling) BorderBold(bold bool) DamaStyle {
+	if styling.Style.Border == nil {
+		styling.Style.Border = new(Border)
+	}
+	styling.Style.Border.Bold = bold
+	return styling
 }
 
-func (stylable *Stylable) Padding(padding Spacing) *Stylable {
-    stylable.Style.Padding = padding
-    return stylable
+func (styling *Styling) Padding(padding Spacing) DamaStyle {
+	styling.Style.Padding = padding
+	return styling
 }
 
-func (stylable *Stylable) Margin(margin Spacing) *Stylable {
-    stylable.Style.Margin = margin
-    return stylable
+func (styling *Styling) Margin(margin Spacing) DamaStyle {
+	styling.Style.Margin = margin
+	return styling
 }
 
-func (stylable *Stylable) Background(color tcell.Color) *Stylable {
-    stylable.Style.Background = color
-    return stylable
+func (styling *Styling) Background(color tcell.Color) DamaStyle {
+	styling.Style.Background = color
+	return styling
 }
 
-func (stylable *Stylable) Foreground(color tcell.Color) *Stylable {
-    stylable.Style.Foreground = color
-    return stylable
+func (styling *Styling) Foreground(color tcell.Color) DamaStyle {
+	styling.Style.Foreground = color
+	return styling
 }
 
-func (stylable *Stylable) Bold(bold bool) *Stylable {
-    stylable.Style.Bold = bold
-    return stylable
+func (styling *Styling) Bold(bold bool) DamaStyle {
+	styling.Style.Bold = bold
+	return styling
 }
 
-func (stylable *Stylable) Italic(italic bool) *Stylable {
-    stylable.Style.Italic = italic
-    return stylable
+func (styling *Styling) Italic(italic bool) DamaStyle {
+	styling.Style.Italic = italic
+	return styling
 }
 
-func (stylable *Stylable) GetStyle() Style {
-    return stylable.Style
+func (styling *Styling) GetStyle() Style {
+	return styling.Style
 }
 
-func (stylable *Stylable) SetStyle(style Style) {
-    stylable.Style = style
+func (styling *Styling) SetStyle(style Style) {
+	styling.Style = style
 }

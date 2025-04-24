@@ -1,31 +1,35 @@
 package event
 
 import (
+	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/gdamore/tcell/v2"
-    lcontext "github.com/abdessamad-zgor/dama/context"
 )
 
 type EventName string
 
 const (
-	InsertMode EventName = "insert-mode"
-	VisualMode EventName = "visual-mode"
-	NormalMode EventName = "normal-mode"
-	Escape     EventName = "escape"
-	Quit       EventName = "quit"
-	Confirm    EventName = "confirm"
-	Key        EventName = "key"
-	Help       EventName = "help"
-	Save       EventName = "save"
-	Left       EventName = "left"
-	Right      EventName = "right"
-	Top        EventName = "top"
-	Bottom     EventName = "bottom"
+	InsertMode    EventName = "insert-mode"
+	VisualMode    EventName = "visual-mode"
+	NormalMode    EventName = "normal-mode"
+	TagNavigation EventName = "tag-navigation"
+	MoveCursor    EventName = "move-cursor"
+	Escape        EventName = "escape"
+	Quit          EventName = "quit"
+	Confirm       EventName = "confirm"
+	Key           EventName = "key"
+	CR		 	  EventName = "carriage-return"
+	Help          EventName = "help"
+	Save          EventName = "save"
+	Left          EventName = "left"
+	Right         EventName = "right"
+	Top           EventName = "top"
+	Bottom        EventName = "bottom"
 )
 
 type Event struct {
-	Name EventName
-	Key  tcell.Key
+	Name   EventName
+	Key    tcell.Key
+	TEvent tcell.Event
 }
 
 type Callback = func(context lcontext.Context, event Event)
@@ -35,16 +39,13 @@ type Keybindings = map[tcell.Key]EventName
 
 var AppEventMap EventMap
 
-func SetDefaultEventMap() EventMap {
+func DefaultEventMap() EventMap {
 	appEventMap := make(EventMap)
-	appEventMap[Key] = func(appcontext lcontext.Context, event Event) {
-        // send rune to widget
-        // key := event.Key()
-	}
 
-    appEventMap[Left] = func(appcontext lcontext.Context, event Event) {
+	return appEventMap
+}
 
-    }
-        
-    return appEventMap
+func DefaultKeybindings() Keybindings {
+	appKeybindings := make(Keybindings)
+	return appKeybindings
 }
