@@ -16,7 +16,9 @@ type DamaWidget interface {
 	GetState() *WidgetState
 	SetState(state *WidgetState)
 
-	SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback)
+	SetKeybinding(key tcell.Key, callback event.KeybindingCallback)
+	SetKeybindings(callback event.KeybindingCallback, keys ...tcell.Key)
+	SetEventCallback(eventname event.EventName, callback event.EventCallback)
 	DamaElement
 }
 
@@ -66,8 +68,17 @@ func (widget *Widget) SetState(state *WidgetState) {
 	widget.State = state
 }
 
-func (widget *Widget) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {
-	widget.Keybindings[key] = eventName
+func (widget *Widget) SetKeybinding(key tcell.Key, cb event.KeybindingCallback) {
+	widget.Keybindings[key] = cb
+}
+
+func (widget *Widget) SetKeybindings(cb event.KeybindingCallback, keys ...tcell.Key) {
+	for _, key := range keys {
+		widget.Keybindings[key] = cb
+	}
+}
+
+func (widget *Widget) SetEventCallback(eventName event.EventName, cb event.EventCallback) {
 	widget.EventMap[eventName] = cb
 }
 

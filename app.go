@@ -20,7 +20,6 @@ type DamaApp interface {
 }
 
 type App struct {
-	EventChannel chan event.Event
 	ExitChannel  chan int
 	Screen       tcell.Screen
 	State        *WidgetState
@@ -51,7 +50,6 @@ func initAppScreen() (tcell.Screen, error) {
 func NewApp() (*App, error) {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 	app := &App{
-		make(chan event.Event),
 		make(chan int),
 		nil,
 		&WidgetState{},
@@ -73,7 +71,6 @@ func NewApp() (*App, error) {
 	}
 	app.Screen = screen
 	width, height := app.Screen.Size()
-	app.EventChannel = make(chan event.Event)
 	app.X = 0
 	app.Y = 0
 	app.Width = uint(width)
@@ -103,12 +100,11 @@ func (app *App) Exit() {
 	app.ExitChannel <- 0
 }
 
-
 func (app *App) SetupNavigation() {
 	navigables := app.GetNavigables()
 	app.Navigator.GetNavigationTree(navigables)
 	tags := app.Navigator.SetupKeybindings()
-	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
+	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
 		eventRune := eventKey.Rune()
 		for _, tag := range tags {
@@ -132,7 +128,11 @@ func (app *App) Navigate(tag rune) {
 			elementEventMap := widget.GetEventMap()
 			elementKeybindings := widget.GetKeybindings()
 			for key, value := range elementKeybindings {
-				app.SetEventListener(key, value, elementEventMap[value])
+				app.SetKeybinding(key, value)
+			}
+
+			for key, value := range elementEventMap {
+				app.SetEventCallback(key, value)
 			}
 		}
 	}
@@ -140,7 +140,7 @@ func (app *App) Navigate(tag rune) {
 
 func (app *App) UpdateNavigator() {
 	tags := app.Navigator.SetupKeybindings()
-	app.SetEventListener(tcell.KeyRune, event.TagNavigation, func(context lcontext.Context, kevent event.Event) {
+	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
 		eventRune := eventKey.Rune()
 		for _, tag := range tags {
@@ -151,7 +151,7 @@ func (app *App) UpdateNavigator() {
 	})
 }
 
-func (app *App) StartKeyEventMapper() {
+func (app *App) KeybindingEventLoop() {
 	for {
 		ev := app.Screen.PollEvent()
 		switch ev := ev.(type) {
@@ -160,10 +160,10 @@ func (app *App) StartKeyEventMapper() {
 			if key == tcell.KeyCtrlC {
 				app.ExitChannel <- 0
 			}
-			kevent, ok := app.Keybindings[key]
-			eevent := event.Event{kevent, key, ev}
+			callback, ok := app.Keybindings[key]
+			kevent := event.KeyEvent{key, ev}
 			if ok {
-				app.EventChannel <- eevent
+				callback(app.Context, kevent)
 			}
 		case *tcell.EventResize:
 			app.Screen.Sync()
@@ -172,16 +172,12 @@ func (app *App) StartKeyEventMapper() {
 }
 
 func (app *App) EventLoop() {
-	go app.StartKeyEventMapper()
+	go app.KeybindingEventLoop()
 	for {
-		select {
-		case event := <-app.EventChannel:
-			callback, ok := app.EventMap[event.Name]
-			if ok {
-				callback(app.Context, event)
-			}
-			app.Draw()
-		case _, _ = <-lcontext.DispatchContextChannel:
+		eevent := <- event.EventChannel
+		callback, ok := app.EventMap[eevent.Name]
+		if ok {
+			callback(app.Context, eevent)
 		}
 	}
 }
@@ -210,7 +206,16 @@ func (app *App) GetNavigator() *Navigator {
 	return app.Navigator
 }
 
-func (app *App) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {
-	app.Keybindings[key] = eventName
-	app.EventMap[eventName] = cb
+func (app *App) SetKeybinding(key tcell.Key, cb event.KeybindingCallback) {
+	app.Keybindings[key] = cb 
+}
+
+func (app *App) SetKeybindings(cb event.KeybindingCallback, keys ...tcell.Key) {
+	for _, key := range keys {
+		app.Keybindings[key] = cb
+	}
+}
+
+func (app *App) SetEventCallback(eventname event.EventName, callback event.EventCallback) {
+	app.EventMap[eventname] = callback 
 }

@@ -3,8 +3,8 @@ package elements
 import (
 	"github.com/abdessamad-zgor/dama"
 	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/event"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -14,22 +14,6 @@ type Input struct {
 	*dama.Scrollable
 }
 
-func KeyToDirection(key tcell.Key) dama.Direction {
-	direction := dama.Center
-	switch(key) {
-	case tcell.KeyUp:
-		direction = dama.Top
-	case tcell.KeyDown:
-		direction = dama.Bottom
-	case tcell.KeyLeft:
-		direction = dama.Left
-	case tcell.KeyRight:
-		direction = dama.Right
-	default:
-		direction = dama.Center
-	}
-	return direction
-}
 
 func NewInput() *Input {
 	input := &Input{
@@ -37,42 +21,9 @@ func NewInput() *Input {
 		dama.NewEditable(),
 		new(dama.Scrollable),
 	}
+	input.SetEditable(true)
 
-	input.SetEventListener(tcell.KeyRune, event.Key, func(context lcontext.Context, ievent event.Event) {
-		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
-		rune := keyEvent.Rune()
-		input.AddRune(rune)
-		logger.Logger.Println("Inside input listener")
-	})
-
-	input.SetEventListener(tcell.KeyCR, event.CR, func(context lcontext.Context, ievent event.Event) {
-		input.AddRune('\n')
-		logger.Logger.Println("Inside input listener")
-	})
-
-	input.SetEventListener(tcell.KeyUp, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
-		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
-		direction := KeyToDirection(keyEvent.Key())
-		input.MoveCursor(direction)
-	})
-
-	input.SetEventListener(tcell.KeyDown, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
-		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
-		direction := KeyToDirection(keyEvent.Key())
-		input.MoveCursor(direction)
-	})
-
-	input.SetEventListener(tcell.KeyLeft, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
-		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
-		direction := KeyToDirection(keyEvent.Key())
-		input.MoveCursor(direction)
-	})
-
-	input.SetEventListener(tcell.KeyRight, event.MoveCursor, func(context lcontext.Context, ievent event.Event) {
-		keyEvent, _ := ievent.TEvent.(*tcell.EventKey)
-		direction := KeyToDirection(keyEvent.Key())
-		input.MoveCursor(direction)
-	})
+	input.AttachModeSwitching(input)
 
 	input.BorderColor(tcell.ColorDefault)
 	return input
