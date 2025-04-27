@@ -167,6 +167,7 @@ func (editable *Editable) AttachModeSwitching(widget DamaWidget) {
 		widget.SetKeybinding(tcell.KeyEsc, func (context lcontext.Context, eevent event.KeyEvent) {
 			if editable.Mode == InsertMode || editable.Mode == VisualMode {
 				editable.Mode = NormalMode
+				widget.BorderColor(tcell.ColorLime)
 			}
 		})
 
@@ -176,8 +177,10 @@ func (editable *Editable) AttachModeSwitching(widget DamaWidget) {
 			if editable.Mode == NormalMode {
 				if keyRune == 'i' {
 					editable.Mode = InsertMode
+					widget.BorderColor(tcell.ColorBlue)
 				} else if keyRune == 'v' {
 					editable.Mode = VisualMode
+					widget.BorderColor(tcell.ColorYellow)
 				}
 				logger.Logger.Println("editable mode: ", editable.Mode)
 			} else if editable.Mode == InsertMode {
