@@ -84,7 +84,6 @@ func (editable *Editable) AddRune(char rune) {
 			editable.Cursor.Line += 1
 			editable.Cursor.Column = 0
 		}
-		logger.Logger.Print("line runes at char " + string(char) + ": ", runes)
 	}
 }
 
@@ -180,8 +179,10 @@ func (editable *Editable) AttachModeSwitching(widget DamaWidget) {
 				} else if keyRune == 'v' {
 					editable.Mode = VisualMode
 				}
+				logger.Logger.Println("editable mode: ", editable.Mode)
 			} else if editable.Mode == InsertMode {
 				editable.AddRune(keyRune)
+				logger.Logger.Println("editable contents : ", editable.Contents)
 			}
 		})
 

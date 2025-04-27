@@ -1,22 +1,85 @@
-2025/04/26 23:47:22 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/26 23:47:22 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/26 23:47:22 navigator.go:35: getNavigationTree 
-2025/04/26 23:47:22 navigator.go:58: Navigator root:  {<nil> 0xc00009e000 0xc000372060}
-2025/04/26 23:47:22 navigator.go:70: index:  []  current_item:  {<nil> 0xc00009e000 0xc000372060}
-2025/04/26 23:47:22 navigator.go:70: index:  []  current_item:  {<nil> 0xc000372030 <nil>}
-2025/04/26 23:47:22 stylable.go:51: styling before:  &{{0xc00036e150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/26 23:47:22 stylable.go:52: styling after:  &{{0xc00036e150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/26 23:47:38 editable.go:87: line runes at char k: [107]
-2025/04/26 23:47:39 editable.go:87: line runes at char s: [107 115]
-2025/04/26 23:47:39 editable.go:87: line runes at char k: [107 115 107]
-2025/04/26 23:47:39 editable.go:87: line runes at char s: [107 115 107 115]
-2025/04/26 23:47:41 editable.go:87: line runes at char d: [107 115 107 115 100]
-2025/04/26 23:47:41 editable.go:87: line runes at char k: [107 115 107 115 100 107]
-2025/04/26 23:47:41 editable.go:87: line runes at char d: [107 115 107 115 100 107 100]
-2025/04/26 23:47:41 editable.go:87: line runes at char k: [107 115 107 115 100 107 100 107]
-2025/04/26 23:47:41 editable.go:87: line runes at char i: [107 115 107 115 100 107 100 107 105]
-2025/04/26 23:47:42 editable.go:87: line runes at char d: [107 115 107 115 100 107 100 107 105 100]
-2025/04/26 23:47:42 editable.go:87: line runes at char k: [107 115 107 115 100 107 100 107 105 100 107]
-2025/04/26 23:47:42 editable.go:87: line runes at char d: [107 115 107 115 100 107 100 107 105 100 107 100]
-2025/04/26 23:47:42 editable.go:87: line runes at char k: [107 115 107 115 100 107 100 107 105 100 107 100 107]
-2025/04/26 23:47:42 editable.go:87: line runes at char d: [107 115 107 115 100 107 100 107 105 100 107 100 107 100]
+2025/04/27 15:01:45 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/27 15:01:45 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/27 15:01:45 navigator.go:35: getNavigationTree 
+2025/04/27 15:01:45 navigator.go:58: Navigator root:  {<nil> 0xc000112050 0xc000388060}
+2025/04/27 15:01:45 navigator.go:70: index:  []  current_item:  {<nil> 0xc000112050 0xc000388060}
+2025/04/27 15:01:45 navigator.go:70: index:  []  current_item:  {<nil> 0xc000388030 <nil>}
+2025/04/27 15:01:45 stylable.go:51: styling before:  &{{0xc000384150 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/27 15:01:45 stylable.go:52: styling after:  &{{0xc000384150 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/04/27 15:01:47 editable.go:182: editable mode:  insert
+2025/04/27 15:01:48 editable.go:185: editable contents :  k
+2025/04/27 15:01:48 editable.go:185: editable contents :  kd
+2025/04/27 15:01:48 editable.go:185: editable contents :  kdk
+2025/04/27 15:01:48 editable.go:185: editable contents :  kdkd
+2025/04/27 15:01:48 editable.go:185: editable contents :  kdkdk
+2025/04/27 15:01:50 editable.go:182: editable mode:  normal
+2025/04/27 15:01:51 editable.go:182: editable mode:  normal
+2025/04/27 15:01:51 editable.go:182: editable mode:  normal
+2025/04/27 15:01:51 editable.go:182: editable mode:  normal
+2025/04/27 15:01:51 editable.go:182: editable mode:  normal
+2025/04/27 15:01:54 editable.go:182: editable mode:  insert
+2025/04/27 15:01:54 editable.go:185: editable contents :  kdkdkk
+2025/04/27 15:01:54 editable.go:185: editable contents :  kdkdkkd
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d,
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d,d
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d,d,
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d,d,d
+2025/04/27 15:01:55 editable.go:185: editable contents :  kdkdkkd,d,d,d,
+2025/04/27 15:01:56 editable.go:185: editable contents :  kdkdkkd,d,d,d,j
+2025/04/27 15:01:56 editable.go:185: editable contents :  kdkdkkd,d,d,d,jf
+2025/04/27 15:01:57 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfj
+2025/04/27 15:01:57 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjf
+2025/04/27 15:01:57 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfj
+2025/04/27 15:01:57 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjf
+2025/04/27 15:01:59 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjft
+2025/04/27 15:01:59 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftb
+2025/04/27 15:01:59 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbo
+2025/04/27 15:02:00 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon
+2025/04/27 15:02:00 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon 
+2025/04/27 15:02:01 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon m
+2025/04/27 15:02:01 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mo
+2025/04/27 15:02:01 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+2025/04/27 15:02:03 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+l
+2025/04/27 15:02:03 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+la
+2025/04/27 15:02:04 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah
+2025/04/27 15:02:05 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah 
+2025/04/27 15:02:05 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah i
+2025/04/27 15:02:05 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in
+2025/04/27 15:02:07 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3
+2025/04/27 15:02:07 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l
+2025/04/27 15:02:08 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l 
+2025/04/27 15:02:08 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l t
+2025/04/27 15:02:09 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l ta
+2025/04/27 15:02:09 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tab
+2025/04/27 15:02:09 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabo
+2025/04/27 15:02:09 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabon
+2025/04/27 15:02:10 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabon 
+2025/04/27 15:02:10 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabon r
+2025/04/27 15:02:10 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabon rb
+2025/04/27 15:02:11 editable.go:185: editable contents :  kdkdkkd,d,d,d,jfjfjftbon mok
+lah in3l tabon rbk
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal
+2025/04/27 15:02:16 editable.go:182: editable mode:  normal

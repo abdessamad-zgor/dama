@@ -168,6 +168,7 @@ func (app *App) KeybindingEventLoop() {
 		case *tcell.EventResize:
 			app.Screen.Sync()
 		}
+		app.Draw()
 	}
 }
 
@@ -179,6 +180,7 @@ func (app *App) EventLoop() {
 		if ok {
 			callback(app.Context, eevent)
 		}
+		app.Draw()
 	}
 }
 
