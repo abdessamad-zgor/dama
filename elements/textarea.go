@@ -26,5 +26,15 @@ func NewTextArea() *TextArea {
 }
 
 func (textarea *TextArea) Render(screen tcell.Screen, context lcontext.Context) {
-	 
+	box := textarea.GetBox()
+	box.Render(screen, context)
+	textarea.RenderTag(screen)
+	textarea.RenderTitle(screen)
+
+	text := dama.Text{textarea.Contents, &box}
+	text.Render(screen)
+	screen.ShowCursor(textarea.Cursor.Column+1+int(box.X), textarea.Cursor.Line+1+int(box.Y))
+
+	screen.SetCursorStyle(tcell.CursorStyleDefault)
+
 }

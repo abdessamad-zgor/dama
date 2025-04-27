@@ -17,9 +17,12 @@ func main() {
 	url.SetTag('U')
 	url.SetTitle("URL")
 
-	app.AddElement(url, dama.Top)
+	output := elements.NewTextArea()
+	output.SetTag('O')
+	output.SetTitle("Output")
 
-	//area := elements.NewTextArea()
+	app.AddElement(url, dama.Top)
+	app.AddElement(output, dama.Center)
 
 	app.Start()
 }

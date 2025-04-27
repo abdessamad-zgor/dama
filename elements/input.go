@@ -29,12 +29,6 @@ func NewInput() *Input {
 	return input
 }
 
-func (input *Input) ContentsToText() dama.Text {
-	box := input.GetBox()
-
-	return dama.Text{input.Contents, &box}
-}
-
 func (input *Input) GetBox() dama.Box {
 	box := input.Widget.GetBox()
 	box.Element = input
@@ -55,7 +49,7 @@ func (input *Input) Render(screen tcell.Screen, context lcontext.Context) {
 	input.RenderTag(screen)
 	input.RenderTitle(screen)
 
-	text := input.ContentsToText()
+	text := dama.Text{input.Contents, &box}
 	text.Render(screen)
 	screen.ShowCursor(input.Cursor.Column+1+int(box.X), input.Cursor.Line+1+int(box.Y))
 
