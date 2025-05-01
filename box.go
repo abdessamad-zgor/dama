@@ -7,10 +7,10 @@ import (
 )
 
 type Box struct {
-	X       uint
-	Y       uint
-	Width   uint
-	Height  uint
+	X       int
+	Y       int
+	Width   int
+	Height  int
 	Element DamaElement
 }
 

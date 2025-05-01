@@ -73,8 +73,8 @@ func NewApp() (*App, error) {
 	width, height := app.Screen.Size()
 	app.X = 0
 	app.Y = 0
-	app.Width = uint(width)
-	app.Height = uint(height)
+	app.Width = (width)
+	app.Height = (height)
 	return app, nil
 }
 

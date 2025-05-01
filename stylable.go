@@ -8,10 +8,10 @@ import (
 var DefaultStyle Style = Style{}
 
 type Spacing struct {
-	Top    uint
-	Bottom uint
-	Left   uint
-	Right  uint
+	Top    int
+	Bottom int
+	Left   int
+	Right  int
 }
 
 type Border struct {

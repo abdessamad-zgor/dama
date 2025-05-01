@@ -1,57 +1,31 @@
-2025/04/27 18:10:36 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:36 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:36 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:36 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:36 navigator.go:35: getNavigationTree 
-2025/04/27 18:10:36 navigator.go:58: Navigator root:  {<nil> 0xc00015a050 0xc00038a078}
-2025/04/27 18:10:36 navigator.go:70: index:  []  current_item:  {<nil> 0xc00015a050 0xc00038a078}
-2025/04/27 18:10:36 navigator.go:70: index:  []  current_item:  {<nil> 0xc00038a060 <nil>}
-2025/04/27 18:10:36 navigator.go:70: index:  [{O {<nil> 0xc00038a060 <nil>}}]  current_item:  {<nil> 0xc00038a030 <nil>}
-2025/04/27 18:10:36 stylable.go:51: styling before:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:36 stylable.go:52: styling after:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:40 editable.go:185: editable mode:  normal
-2025/04/27 18:10:42 editable.go:185: editable mode:  normal
-2025/04/27 18:10:46 editable.go:185: editable mode:  normal
-2025/04/27 18:10:46 editable.go:185: editable mode:  normal
-2025/04/27 18:10:56 editable.go:185: editable mode:  normal
-2025/04/27 18:10:56 editable.go:185: editable mode:  normal
-2025/04/27 18:10:57 stylable.go:51: styling before:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:57 stylable.go:52: styling after:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:10:57 editable.go:185: editable mode:  insert
-2025/04/27 18:10:58 editable.go:188: editable contents :  k
-2025/04/27 18:10:58 editable.go:188: editable contents :  kx
-2025/04/27 18:10:58 editable.go:188: editable contents :  kxk
-2025/04/27 18:10:58 editable.go:188: editable contents :  kxkk
-2025/04/27 18:10:58 editable.go:188: editable contents :  kxkkx
-2025/04/27 18:10:59 editable.go:188: editable contents :  kxkkxk
-2025/04/27 18:10:59 editable.go:188: editable contents :  kxkkxkk
-2025/04/27 18:10:59 editable.go:188: editable contents :  kxkkxkkx
-2025/04/27 18:10:59 editable.go:188: editable contents :  kxkkxkkxk
-2025/04/27 18:10:59 editable.go:188: editable contents :  kxkkxkkxkx
-2025/04/27 18:11:00 editable.go:188: editable contents :  kxkkxkkxkxk
-2025/04/27 18:11:01 editable.go:188: editable contents :  kxkkxkkxkxkk
-2025/04/27 18:11:01 editable.go:188: editable contents :  kxkkxkkxkxkkk
-2025/04/27 18:11:01 editable.go:188: editable contents :  kxkkxkkxkxkkkd
-2025/04/27 18:11:04 stylable.go:51: styling before:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:04 stylable.go:52: styling after:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:06 editable.go:185: editable mode:  normal
-2025/04/27 18:11:06 editable.go:185: editable mode:  normal
-2025/04/27 18:11:07 editable.go:185: editable mode:  normal
-2025/04/27 18:11:07 editable.go:185: editable mode:  normal
-2025/04/27 18:11:07 editable.go:185: editable mode:  normal
-2025/04/27 18:11:09 editable.go:185: editable mode:  normal
-2025/04/27 18:11:09 editable.go:185: editable mode:  normal
-2025/04/27 18:11:10 editable.go:185: editable mode:  normal
-2025/04/27 18:11:11 stylable.go:51: styling before:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:11 stylable.go:52: styling after:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:11 editable.go:185: editable mode:  insert
-2025/04/27 18:11:11 editable.go:188: editable contents :  kxkkxkkxkxkkkdk
-2025/04/27 18:11:11 editable.go:188: editable contents :  kxkkxkkxkxkkkdki
-2025/04/27 18:11:12 editable.go:188: editable contents :  kxkkxkkxkxkkkdkid
-2025/04/27 18:11:12 editable.go:188: editable contents :  kxkkxkkxkxkkkdkidi
-2025/04/27 18:11:12 editable.go:188: editable contents :  kxkkxkkxkxkkkdkidid
-2025/04/27 18:11:12 editable.go:188: editable contents :  kxkkxkkxkxkkkdkididk
-2025/04/27 18:11:12 stylable.go:51: styling before:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:12 stylable.go:52: styling after:  &{{0xc000386150 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/27 18:11:14 editable.go:185: editable mode:  normal
-2025/04/27 18:11:14 editable.go:185: editable mode:  normal
+2025/05/01 21:07:53 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:53 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:53 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:53 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:53 navigator.go:35: getNavigationTree 
+2025/05/01 21:07:53 navigator.go:58: Navigator root:  {<nil> 0xc000182050 0xc00000e090}
+2025/05/01 21:07:53 navigator.go:70: index:  []  current_item:  {<nil> 0xc000182050 0xc00000e090}
+2025/05/01 21:07:53 navigator.go:70: index:  []  current_item:  {<nil> 0xc00000e078 <nil>}
+2025/05/01 21:07:53 navigator.go:70: index:  [{O {<nil> 0xc00000e078 <nil>}}]  current_item:  {<nil> 0xc00000e048 <nil>}
+2025/05/01 21:07:53 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:53 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:56 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:56 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:56 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:07:56 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:00 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:00 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:03 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:03 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:05 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:05 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:05 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/01 21:08:05 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}

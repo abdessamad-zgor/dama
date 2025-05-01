@@ -13,9 +13,10 @@ import (
 type EditableMode string
 
 const (
-	NormalMode EditableMode = "normal"
-	VisualMode EditableMode = "visual"
-	InsertMode EditableMode = "insert"
+	NoMode 		EditableMode = "no-mode"
+	NormalMode 	EditableMode = "normal"
+	VisualMode 	EditableMode = "visual"
+	InsertMode 	EditableMode = "insert"
 )
 
 type Cursor struct {
@@ -162,44 +163,41 @@ func KeyToDirection(key tcell.Key) Direction {
 	return direction
 }
 
-func (editable *Editable) AttachModeSwitching(widget DamaWidget) {
-	if editable.Editable {
-		widget.SetKeybinding(tcell.KeyEsc, func (context lcontext.Context, eevent event.KeyEvent) {
-			if editable.Mode == InsertMode || editable.Mode == VisualMode {
-				editable.Mode = NormalMode
-				widget.BorderColor(tcell.ColorLime)
-			}
-		})
+func (editable *Editable) OnEscape (context lcontext.Context, eevent event.KeyEvent) {
+	if editable.Mode == InsertMode || editable.Mode == VisualMode {
+		editable.Mode = NormalMode
+	} else {
+		editable.Mode = NoMode
+	}
+}
 
-		widget.SetKeybinding(tcell.KeyRune, func (context lcontext.Context, eevent event.KeyEvent) {
-			keyEvent, _ := eevent.TEvent.(*tcell.EventKey)
-			keyRune := keyEvent.Rune()
-			if editable.Mode == NormalMode {
-				if keyRune == 'i' {
-					editable.Mode = InsertMode
-					widget.BorderColor(tcell.ColorBlue)
-				} else if keyRune == 'v' {
-					editable.Mode = VisualMode
-					widget.BorderColor(tcell.ColorYellow)
-				}
-				logger.Logger.Println("editable mode: ", editable.Mode)
-			} else if editable.Mode == InsertMode {
-				editable.AddRune(keyRune)
-				logger.Logger.Println("editable contents : ", editable.Contents)
-			}
-		})
+func (editable *Editable) OnCarriageReturn (context lcontext.Context, eevent event.KeyEvent) {
+	if editable.Mode == InsertMode {
+		editable.AddRune('\n')
+	} else if editable.Mode == NoMode {
+		editable.Mode = NormalMode 
+	} else {
+		editable.MoveCursor(Bottom)
+	}
+}
 
-		widget.SetKeybinding(tcell.KeyCR, func (context lcontext.Context, eevent event.KeyEvent) {
-			if editable.Mode == InsertMode {
-				editable.AddRune('\n')
-			} else {
-				editable.MoveCursor(Bottom)
-			}
-		})
+func (editable *Editable) OnArrowKeys (context lcontext.Context, eevent event.KeyEvent) {
+	direction := KeyToDirection(eevent.Key)
+	editable.MoveCursor(direction)
+}
 
-		widget.SetKeybindings(func (context lcontext.Context, eevent event.KeyEvent) {
-			direction := KeyToDirection(eevent.Key)
-			editable.MoveCursor(direction)
-		}, tcell.KeyUp, tcell.KeyDown, tcell.KeyLeft, tcell.KeyRight)
+func (editable *Editable) OnKeyRune (context lcontext.Context, eevent event.KeyEvent) {
+	keyEvent, _ := eevent.TEvent.(*tcell.EventKey)
+	keyRune := keyEvent.Rune()
+	if editable.Mode == NormalMode {
+		if keyRune == 'i' {
+			editable.Mode = InsertMode
+		} else if keyRune == 'v' {
+			editable.Mode = VisualMode
+		}
+		logger.Logger.Println("editable mode: ", editable.Mode)
+	} else if editable.Mode == InsertMode {
+		editable.AddRune(keyRune)
+		logger.Logger.Println("editable contents : ", editable.Contents)
 	}
 }

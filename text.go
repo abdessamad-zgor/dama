@@ -5,8 +5,11 @@ import (
 )
 
 type Text struct {
-    Text string
-    Box  *Box
+    Text 	string
+    X 		int
+	Y 		int
+	Width 	int
+	Height 	int
 }
 
 func (text Text) Render(screen tcell.Screen) {
@@ -18,9 +21,9 @@ func (text Text) Render(screen tcell.Screen) {
             line += 1
             column = 0
         }
-        charX := int(text.Box.X+uint(column+1))
-        charY := int(text.Box.Y+uint(line+1))
-        if charX >= int(text.Box.Width) || charY >= int(text.Box.Height)  {
+        charX := int(text.X+(column))
+        charY := int(text.Y+(line))
+        if charX > (text.Width) || charY > (text.Height)  {
             continue;
         }
         screen.SetContent(charX, charY, char, nil, tcell.StyleDefault)
