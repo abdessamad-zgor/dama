@@ -7,7 +7,7 @@ import (
 
 	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -107,6 +107,7 @@ func (app *App) SetupNavigation() {
 	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
 		eventRune := eventKey.Rune()
+		logger.Logger.Println("Captured rune in navigation " + string(eventRune)) 
 		for _, tag := range tags {
 			if eventRune == tag {
 				app.Navigate(tag)
@@ -119,11 +120,22 @@ func (app *App) SetupNavigation() {
 }
 
 func (app *App) Navigate(tag rune) {
+	previousWidget, pOk := app.Navigator.Current.Element.(DamaWidget)
 	if app.Navigator.Navigate(tag) {
-		app.EventMap = event.DefaultEventMap()
-		app.Keybindings = event.DefaultKeybindings()
 		app.UpdateNavigator()
 		widget, ok := app.Navigator.Current.Element.(DamaWidget)
+		if pOk {
+			previousEventMap := previousWidget.GetEventMap()
+			previousKeybindings := previousWidget.GetKeybindings()
+			for key, _ := range previousKeybindings {
+				delete(app.Keybindings, key)
+			}
+
+			for key, _ := range previousEventMap {
+				delete(app.EventMap, key)
+			}
+		}
+
 		if ok {
 			elementEventMap := widget.GetEventMap()
 			elementKeybindings := widget.GetKeybindings()
@@ -143,6 +155,7 @@ func (app *App) UpdateNavigator() {
 	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
 		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
 		eventRune := eventKey.Rune()
+		logger.Logger.Println("Captured rune in navigation " + string(eventRune)) 
 		for _, tag := range tags {
 			if eventRune == tag {
 				app.Navigate(tag)

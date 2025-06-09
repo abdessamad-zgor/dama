@@ -1,31 +1,5 @@
-2025/05/01 21:07:53 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:53 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:53 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:53 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:53 navigator.go:35: getNavigationTree 
-2025/05/01 21:07:53 navigator.go:58: Navigator root:  {<nil> 0xc000182050 0xc00000e090}
-2025/05/01 21:07:53 navigator.go:70: index:  []  current_item:  {<nil> 0xc000182050 0xc00000e090}
-2025/05/01 21:07:53 navigator.go:70: index:  []  current_item:  {<nil> 0xc00000e078 <nil>}
-2025/05/01 21:07:53 navigator.go:70: index:  [{O {<nil> 0xc00000e078 <nil>}}]  current_item:  {<nil> 0xc00000e048 <nil>}
-2025/05/01 21:07:53 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:53 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:56 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:56 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:56 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:07:56 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:00 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:00 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:03 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:03 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:04 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:05 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:05 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:05 stylable.go:51: styling before:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/05/01 21:08:05 stylable.go:52: styling after:  &{{0xc000010240 {0 0 0 0} {0 0 0 0} default default false false}}
+2025/05/03 18:11:24 navigator.go:129: Navigator current element:  {<nil> 0xc00014e030 <nil>}
+2025/05/03 18:11:24 input.go:65: Input mode:  no-mode
+2025/05/03 18:11:24 input.go:65: Input mode:  no-mode
+2025/05/03 21:58:23 input.go:65: Input mode:  no-mode
+2025/05/03 21:59:35 input.go:65: Input mode:  no-mode

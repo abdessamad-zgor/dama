@@ -1,48 +1,31 @@
 package event
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/gdamore/tcell/v2"
 )
 
 type EventName string
 
-var EventChannel chan Event = make(chan Event)
+type EventDetail struct {
+	Name   		EventName
+	Key    		tcell.Key
+	TcellEvent 	tcell.Event
+}
+
+type Callback = func (event EventDetail)
+
+type EventType string
 
 const (
-	Escape        EventName = "escape"
-	Quit          EventName = "quit"
-	Confirm       EventName = "confirm"
-	Help          EventName = "help"
-	Save          EventName = "save"
+	AppEvent EventType = "app-event"
+	Keybinding EventType = "keybinding"
 )
 
-type Event struct {
-	Name   EventName
-	Key    tcell.Key
-	TEvent tcell.Event
+type KeybindingDetail struct {
+	Value	string
+
 }
 
-type KeyEvent struct {
-	Key 	tcell.Key
-	TEvent 	tcell.Event
-}
-
-type EventCallback = func(context lcontext.Context, event Event)
-type KeybindingCallback = func(context lcontext.Context, event KeyEvent)
-
-type EventMap = map[EventName]EventCallback
-type Keybindings = map[tcell.Key]KeybindingCallback
-
-var AppEventMap EventMap
-
-func DefaultEventMap() EventMap {
-	appEventMap := make(EventMap)
-
-	return appEventMap
-}
-
-func DefaultKeybindings() Keybindings {
-	appKeybindings := make(Keybindings)
-	return appKeybindings
+type DamaEvent struct {
+	Type EventType
 }

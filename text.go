@@ -23,7 +23,7 @@ func (text Text) Render(screen tcell.Screen) {
         }
         charX := int(text.X+(column))
         charY := int(text.Y+(line))
-        if charX > (text.Width) || charY > (text.Height)  {
+        if charX > (text.X+text.Width) || charY > (text.Y+text.Height)  {
             continue;
         }
         screen.SetContent(charX, charY, char, nil, tcell.StyleDefault)

@@ -3,8 +3,8 @@ package elements
 import (
 	"github.com/abdessamad-zgor/dama"
 	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/event"
-	_ "github.com/abdessamad-zgor/dama/logger"
+	devent "github.com/abdessamad-zgor/dama/event"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -21,7 +21,6 @@ func NewInput() *Input {
 		dama.NewEditable(),
 		new(dama.Scrollable),
 	}
-	input.SetEditable(true)
 	input.Mode = dama.NoMode
 
 	input.BorderColor(tcell.ColorDefault)
@@ -44,7 +43,7 @@ func (input *Input) Blur() {
 	input.Focused = false 
 }
 
-func (input *Input) OnKeyRune(context lcontext.Context, eevent event.KeyEvent) {
+func (input *Input) OnKeyRune(context lcontext.Context, eevent devent.KeyEvent) {
 	input.Editable.OnKeyRune(context, eevent)
 	if input.Mode == dama.NormalMode {
 		input.BorderColor(tcell.ColorLime)
@@ -62,6 +61,7 @@ func (input *Input) Render(screen tcell.Screen, context lcontext.Context) {
 	box.Render(screen, context)
 	input.RenderTag(screen)
 	input.RenderTitle(screen)
+	logger.Logger.Println("Input mode: ", input.GetMode())
 
 	if input.GetMode() == dama.NoMode {
 		hint := "(Press Enter for normal mode)"
@@ -72,8 +72,11 @@ func (input *Input) Render(screen tcell.Screen, context lcontext.Context) {
 	text := dama.Text{input.Contents, box.X + 1, box.Y + 1, box.Width - 1, box.Height - 1}
 	text.Render(screen)
 
-	input.SetKeybinding(tcell.KeyRune, input.OnKeyRune)
+	if input.GetMode() != dama.NoMode {
+		input.SetKeybinding(tcell.KeyRune, input.OnKeyRune)
+	}
 	input.SetKeybinding(tcell.KeyCR, input.OnCarriageReturn)
+	input.SetKeybinding(tcell.KeyEsc, input.OnEscape)
 	input.SetKeybindings(input.OnArrowKeys, tcell.KeyUp, tcell.KeyDown, tcell.KeyLeft, tcell.KeyRight)
 
 	if input.IsFocused() {
