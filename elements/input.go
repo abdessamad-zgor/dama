@@ -2,7 +2,6 @@ package elements
 
 import (
 	"github.com/abdessamad-zgor/dama"
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	devent "github.com/abdessamad-zgor/dama/event"
 	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
