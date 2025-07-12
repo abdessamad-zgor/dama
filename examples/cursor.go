@@ -36,41 +36,20 @@ func main() {
 	s.SetCursorStyle(tcell.CursorStyleDefault)
 	s.ShowCursor(3, 2)
 	quit := make(chan struct{})
-	style := tcell.StyleDefault
 	go func(s tcell.Screen) {
 		for {
-            logger.Logger.Println("inside cursor example")
+			logger.Logger.Println("before failure")
 			s.Show()
+			logger.Logger.Println("after failure")
 			ev := s.PollEvent()
 			switch ev := ev.(type) {
 			case *tcell.EventKey:
-				switch ev.Key() {
+				key := ev.Key()
+				switch key {
 				case tcell.KeyRune:
-					switch ev.Rune() {
-					case '0':
-						s.SetContent(2, 2, '0', nil, style)
-						s.SetCursorStyle(tcell.CursorStyleDefault, tcell.ColorReset)
-					case '1':
-						s.SetContent(2, 2, '1', nil, style)
-						s.SetCursorStyle(tcell.CursorStyleBlinkingBlock, tcell.ColorGreen)
-					case '2':
-						s.SetCell(2, 2, tcell.StyleDefault, '2')
-						s.SetCursorStyle(tcell.CursorStyleSteadyBlock, tcell.ColorBlue)
-					case '3':
-						s.SetCell(2, 2, tcell.StyleDefault, '3')
-						s.SetCursorStyle(tcell.CursorStyleBlinkingUnderline, tcell.ColorRed)
-					case '4':
-						s.SetCell(2, 2, tcell.StyleDefault, '4')
-						s.SetCursorStyle(tcell.CursorStyleSteadyUnderline, tcell.ColorOrange)
-					case '5':
-						s.SetCell(2, 2, tcell.StyleDefault, '5')
-						s.SetCursorStyle(tcell.CursorStyleBlinkingBar, tcell.ColorYellow)
-					case '6':
-						s.SetCell(2, 2, tcell.StyleDefault, '6')
-						s.SetCursorStyle(tcell.CursorStyleSteadyBar, tcell.ColorPink)
-					}
-
+					logger.Logger.Println("key: ", key)
 				case tcell.KeyEscape, tcell.KeyEnter, tcell.KeyCtrlC:
+					logger.Logger.Println("key: ", key)
 					close(quit)
 					return
 				case tcell.KeyCtrlL:
