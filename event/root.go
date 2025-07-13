@@ -5,11 +5,9 @@ import (
 )
 type EventType string
 
-:q
-:q
 const (
-	AppEvent EventType = "app-event"
-	Keybinding EventType = "keybinding"
+	DAppEvent EventType = "app-event"
+	DKeybinding EventType = "keybinding"
 )
 
 type Callback = func (event EventDetail)

@@ -25,23 +25,27 @@ type MatcherPatternResult struct {
 	texts	[]int
 	nums	[]int
 	chars	[]int
+	all		int
 }
 
 func (match Match) IsFull() bool {
+	utils.Assert(match.All >= match.Matches, "there was something wrong with the counting off all matches")
 	return match.All == match.Matches
 }
 
 func (match Match) IsPartial() bool {
+	utils.Assert(match.All >= match.Matches, "there was something wrong with the counting off all matches")
 	return match.Matches < matches.All
 }
 
 func (match Match) IsNone() bool {
+	utils.Assert(match.All >= match.Matches, "there was something wrong with the counting off all matches")
 	return match.Matches == 0
 } 
 
 func GetMatcher(pattern string) (Matcher, error) {
-	noOp := func(keystrokes string) int {
-		return -1
+	noOp := func(keystrokes string) Match {
+		return Match{}
 	}
 	if len(pattern) == 0 {
 		return noOp, errors.New("connot have empty string as keybinding pattern")
@@ -69,6 +73,7 @@ func GetMatcher(pattern string) (Matcher, error) {
 
 		matcher := func (keystrokes string) Match {
 			match := Match{}
+			match.All = matcherPatten.all
 			matcherRegex := regexp.MustCompile(matcherPattern.pattern)
 			matches := matcherRegex.FindAllStringSubmatch(keystrokes, -1)
 			utils.Assert(len(matches) == 1, "keybinding matchers got multiple matches, probably the keystroke buffer didn't get emptied")
@@ -77,11 +82,15 @@ func GetMatcher(pattern string) (Matcher, error) {
 					if _m != "" {
 						if slices.Contains(matcherPattern.texts, i) {
 							match.Texts = append(match.Texts, _m)
-							match.Matche += 1
+							match.Matches += 1
 						} else if slices.Contains(matcherPattern.nums, i) {
-							match.Numbers = append(match.s, _m)
+							match.Numbers = append(match.Numbers, _m)
+							match.Matches += 1
 						} else if slices.Contains(matcherPattern.chars, i) {
-
+							match.Chars = append(match.Chars, _m)
+							match.Matches += 1
+						} else {
+							match.Matches += 1
 						}
 					} else {
 						break
@@ -105,29 +114,29 @@ func GetMatcherPattern(matches [][]string) PatternMatcherResult {
 		specialChar := match[1]
 		if special != "" && match[4] == "" {
 			matcherPattern.WriteString(`(`+specialChar+`)*`)
-			result.All += 1
+			result.all += 1
 		}else {
 			if match[4] == "text" {
 				matcherPattern.WriteString(`(\w+)*`)
 				result.texts = append(result.texts, i)
-				result.All += 1
+				result.all += 1
 			} else if match[4] == "num" {
 				matcherPattern.WriteString(`(\d+)*`)
 				result.nums = append(result.nums, i)
-				result.All += 1
+				result.all += 1
 			} else if match[4] == "char" {
 				matcherPattern.WriteString(`(\w)*`)
 				result.chars = append(result.chars, i)
-				result.All += 1
+				result.all += 1
 			} else {
 				matcherPattern.WriteString(`(`+specialChar+`)*`)
-				result.All += 1
+				result.all += 1
 			}
 		}
 		chars := match[5]
 		for _, char := range chars {
 			matcherPattern.WriteString(`(`+string(char)+`)*`)
-			result.All += 1
+			result.all += 1
 		}
 	}
 

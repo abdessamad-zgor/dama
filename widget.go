@@ -19,14 +19,14 @@ type DamaWidget interface {
 type Widget struct {
 	*Element
 	Parent      *Container
-	Events 		dutils.ViewList[string,devent.DamaEvent]
+	Events 		dutils.VList[dutils.VListKey, devent.DamaEvent]
 }
 
 func NewWidget() *Widget {
 	widget := Widget{
 		new(Element),
 		nil,
-		dutils.NewViewList[string, devent.DamaEvent](),
+		dutils.NewVList[dutils.VListKey, devent.DamaEvent](),
 	}
 
 	return &widget
@@ -43,9 +43,38 @@ func (widget *Widget) GetBox() Box {
 }
 
 func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
+	patternMatcher, err := keystroke.GetMatcher(pattern)
+	if err != nil {
+		panic(err)
+	}
+	keybinding := devent.Event{
+		devent.DKeybinding,
+		devent.EventDetail{
+			devent.Keybinding{
+				pattern,
+				patternMatcher,
+				cb,
+			},
+		},
+	}
+
+	widget.Events.Add(keybinding)
 }
 
 func (widget *Widget) SetAppEvent(eventName devent.EventName, cb devent.Callback) {
+	appevent := devent.Event{
+		devent.DAppEvent,
+		devent.EventDetail{
+			nil,
+			&devent.AppEvent{
+				eventName,
+				nil,
+				cb,
+			},
+		},
+	}
+
+	widget.Events.Add(appevent)
 }
 
 func (widget *Widget) Render(screen tcell.Screen) {
