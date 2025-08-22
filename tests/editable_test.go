@@ -1,13 +1,14 @@
-package dama
+package tests
 
 import (
 	"testing"
 
 	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/traits"
 )
 
 func TestEditbale(t *testing.T) {
-    editable := NewEditable()
+    editable := traits.NewEditable()
 
     editable.AddRune('h')
     editable.AddRune('e')

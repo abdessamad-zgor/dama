@@ -1,83 +1,122 @@
-2025/04/24 17:30:26 stylable.go:51: styling before:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/24 17:30:26 stylable.go:52: styling after:  &{{<nil> {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/24 17:30:26 navigator.go:35: getNavigationTree 
-2025/04/24 17:30:26 navigator.go:58: Navigator root:  {<nil> 0xc0000a2000 0xc0000e20c0}
-2025/04/24 17:30:26 navigator.go:70: index:  []  current_item:  {<nil> 0xc0000a2000 0xc0000e20c0}
-2025/04/24 17:30:26 navigator.go:70: index:  []  current_item:  {<nil> 0xc0000e2090 <nil>}
-2025/04/24 17:30:26 stylable.go:51: styling before:  &{{0xc0000a9870 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/24 17:30:26 stylable.go:52: styling after:  &{{0xc0000a9870 {0 0 0 0} {0 0 0 0} default default false false}}
-2025/04/24 17:30:29 editable.go:70: line runes at char k: [107]
-2025/04/24 17:30:29 input.go:45: Inside input listener
-2025/04/24 17:30:29 editable.go:70: line runes at char s: [107 115]
-2025/04/24 17:30:29 input.go:45: Inside input listener
-2025/04/24 17:30:30 editable.go:70: line runes at char l: [107 115 108]
-2025/04/24 17:30:30 input.go:45: Inside input listener
-2025/04/24 17:30:30 editable.go:70: line runes at char s: [107 115 108 115]
-2025/04/24 17:30:30 input.go:45: Inside input listener
-2025/04/24 17:30:30 editable.go:70: line runes at char s: [107 115 108 115 115]
-2025/04/24 17:30:30 input.go:45: Inside input listener
-2025/04/24 17:30:30 editable.go:70: line runes at char k: [107 115 108 115 115 107]
-2025/04/24 17:30:30 input.go:45: Inside input listener
-2025/04/24 17:30:31 editable.go:70: line runes at char s: [107 115 108 115 115 107 115]
-2025/04/24 17:30:31 input.go:45: Inside input listener
-2025/04/24 17:30:31 editable.go:70: line runes at char k: [107 115 108 115 115 107 115 107]
-2025/04/24 17:30:31 input.go:45: Inside input listener
-2025/04/24 17:30:31 editable.go:70: line runes at char s: [107 115 108 115 115 107 115 107 115]
-2025/04/24 17:30:31 input.go:45: Inside input listener
-2025/04/24 17:30:31 editable.go:70: line runes at char k: [107 115 108 115 115 107 115 107 115 107]
-2025/04/24 17:30:31 input.go:45: Inside input listener
-2025/04/24 17:30:31 editable.go:70: line runes at char k: [107 115 108 115 115 107 115 107 115 107 107]
-2025/04/24 17:30:31 input.go:45: Inside input listener
-2025/04/24 17:30:32 editable.go:70: line runes at char ;: [107 115 108 115 115 107 115 107 115 107 107 59]
-2025/04/24 17:30:32 input.go:45: Inside input listener
-2025/04/24 17:30:32 editable.go:70: line runes at char 
-: [107 115 108 115 115 107 115 107 115 107 107 59 10]
-2025/04/24 17:30:32 input.go:50: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char k: [107]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char s: [107 115]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char k: [107 115 107]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char s: [107 115 107 115]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char k: [107 115 107 115 107]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char s: [107 115 107 115 107 115]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char k: [107 115 107 115 107 115 107]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:33 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115]
-2025/04/24 17:30:33 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char k: [107 115 107 115 107 115 107 115 107]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char k: [107 115 107 115 107 115 107 115 107 115 107]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115 107 115]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char k: [107 115 107 115 107 115 107 115 107 115 107 115 107]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:34 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115 107 115 107 115]
-2025/04/24 17:30:34 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char l: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char l: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char s: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char l: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 108 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:40 editable.go:70: line runes at char l: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 108 108 115]
-2025/04/24 17:30:40 input.go:45: Inside input listener
-2025/04/24 17:30:44 editable.go:70: line runes at char :: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 108 108 58 115]
-2025/04/24 17:30:44 input.go:45: Inside input listener
-2025/04/24 17:30:44 editable.go:70: line runes at char <: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 108 108 58 60 115]
-2025/04/24 17:30:44 input.go:45: Inside input listener
-2025/04/24 17:30:45 editable.go:70: line runes at char w: [107 115 107 115 107 115 107 115 107 115 107 115 107 115 108 115 108 115 108 108 58 60 119 115]
-2025/04/24 17:30:45 input.go:45: Inside input listener
+2025/06/25 13:08:18 cursor.go:41: before failure
+2025/06/25 13:08:18 cursor.go:43: after failure
+2025/06/25 13:08:18 cursor.go:41: before failure
+2025/06/25 13:08:18 cursor.go:43: after failure
+2025/06/25 13:08:22 cursor.go:50: key:  256
+2025/06/25 13:08:22 cursor.go:41: before failure
+2025/06/25 13:08:22 cursor.go:43: after failure
+2025/06/25 13:08:22 cursor.go:50: key:  256
+2025/06/25 13:08:22 cursor.go:41: before failure
+2025/06/25 13:08:22 cursor.go:43: after failure
+2025/06/25 13:08:23 cursor.go:50: key:  256
+2025/06/25 13:08:23 cursor.go:41: before failure
+2025/06/25 13:08:23 cursor.go:43: after failure
+2025/06/25 13:08:25 cursor.go:50: key:  256
+2025/06/25 13:08:25 cursor.go:41: before failure
+2025/06/25 13:08:25 cursor.go:43: after failure
+2025/06/25 13:08:25 cursor.go:50: key:  256
+2025/06/25 13:08:25 cursor.go:41: before failure
+2025/06/25 13:08:25 cursor.go:43: after failure
+2025/06/25 13:08:25 cursor.go:50: key:  256
+2025/06/25 13:08:25 cursor.go:41: before failure
+2025/06/25 13:08:25 cursor.go:43: after failure
+2025/06/25 13:08:27 cursor.go:50: key:  256
+2025/06/25 13:08:27 cursor.go:41: before failure
+2025/06/25 13:08:27 cursor.go:43: after failure
+2025/06/25 13:08:27 cursor.go:50: key:  256
+2025/06/25 13:08:27 cursor.go:41: before failure
+2025/06/25 13:08:27 cursor.go:43: after failure
+2025/06/25 13:08:28 cursor.go:50: key:  256
+2025/06/25 13:08:28 cursor.go:41: before failure
+2025/06/25 13:08:28 cursor.go:43: after failure
+2025/06/25 13:08:28 cursor.go:50: key:  256
+2025/06/25 13:08:28 cursor.go:41: before failure
+2025/06/25 13:08:28 cursor.go:43: after failure
+2025/06/25 13:08:29 cursor.go:50: key:  256
+2025/06/25 13:08:29 cursor.go:41: before failure
+2025/06/25 13:08:29 cursor.go:43: after failure
+2025/06/25 13:08:29 cursor.go:50: key:  256
+2025/06/25 13:08:29 cursor.go:41: before failure
+2025/06/25 13:08:29 cursor.go:43: after failure
+2025/06/25 13:08:30 cursor.go:50: key:  256
+2025/06/25 13:08:30 cursor.go:41: before failure
+2025/06/25 13:08:30 cursor.go:43: after failure
+2025/06/25 13:08:30 cursor.go:50: key:  256
+2025/06/25 13:08:30 cursor.go:41: before failure
+2025/06/25 13:08:30 cursor.go:43: after failure
+2025/06/25 13:08:32 cursor.go:50: key:  256
+2025/06/25 13:08:32 cursor.go:41: before failure
+2025/06/25 13:08:32 cursor.go:43: after failure
+2025/06/25 13:08:32 cursor.go:50: key:  256
+2025/06/25 13:08:32 cursor.go:41: before failure
+2025/06/25 13:08:32 cursor.go:43: after failure
+2025/06/25 13:08:33 cursor.go:50: key:  256
+2025/06/25 13:08:33 cursor.go:41: before failure
+2025/06/25 13:08:33 cursor.go:43: after failure
+2025/06/25 13:08:33 cursor.go:50: key:  256
+2025/06/25 13:08:33 cursor.go:41: before failure
+2025/06/25 13:08:33 cursor.go:43: after failure
+2025/06/25 13:08:33 cursor.go:50: key:  256
+2025/06/25 13:08:33 cursor.go:41: before failure
+2025/06/25 13:08:33 cursor.go:43: after failure
+2025/06/25 13:08:35 cursor.go:50: key:  256
+2025/06/25 13:08:35 cursor.go:41: before failure
+2025/06/25 13:08:35 cursor.go:43: after failure
+2025/06/25 13:08:35 cursor.go:50: key:  256
+2025/06/25 13:08:35 cursor.go:41: before failure
+2025/06/25 13:08:35 cursor.go:43: after failure
+2025/06/25 13:08:36 cursor.go:50: key:  256
+2025/06/25 13:08:36 cursor.go:41: before failure
+2025/06/25 13:08:36 cursor.go:43: after failure
+2025/06/25 13:08:36 cursor.go:50: key:  256
+2025/06/25 13:08:36 cursor.go:41: before failure
+2025/06/25 13:08:36 cursor.go:43: after failure
+2025/06/25 13:08:37 cursor.go:50: key:  256
+2025/06/25 13:08:37 cursor.go:41: before failure
+2025/06/25 13:08:37 cursor.go:43: after failure
+2025/06/25 13:08:37 cursor.go:50: key:  256
+2025/06/25 13:08:37 cursor.go:41: before failure
+2025/06/25 13:08:37 cursor.go:43: after failure
+2025/06/25 13:08:39 cursor.go:50: key:  256
+2025/06/25 13:08:39 cursor.go:41: before failure
+2025/06/25 13:08:39 cursor.go:43: after failure
+2025/06/25 13:08:39 cursor.go:50: key:  256
+2025/06/25 13:08:39 cursor.go:41: before failure
+2025/06/25 13:08:39 cursor.go:43: after failure
+2025/06/25 13:08:40 cursor.go:50: key:  256
+2025/06/25 13:08:40 cursor.go:41: before failure
+2025/06/25 13:08:40 cursor.go:43: after failure
+2025/06/25 13:08:41 cursor.go:50: key:  256
+2025/06/25 13:08:41 cursor.go:41: before failure
+2025/06/25 13:08:41 cursor.go:43: after failure
+2025/06/25 13:08:50 cursor.go:50: key:  256
+2025/06/25 13:08:50 cursor.go:41: before failure
+2025/06/25 13:08:50 cursor.go:43: after failure
+2025/06/25 13:09:10 cursor.go:50: key:  256
+2025/06/25 13:09:10 cursor.go:41: before failure
+2025/06/25 13:09:10 cursor.go:43: after failure
+2025/06/25 13:09:21 cursor.go:50: key:  256
+2025/06/25 13:09:21 cursor.go:41: before failure
+2025/06/25 13:09:21 cursor.go:43: after failure
+2025/06/25 13:09:24 cursor.go:50: key:  256
+2025/06/25 13:09:24 cursor.go:41: before failure
+2025/06/25 13:09:24 cursor.go:43: after failure
+2025/06/25 13:09:26 cursor.go:50: key:  256
+2025/06/25 13:09:26 cursor.go:41: before failure
+2025/06/25 13:09:26 cursor.go:43: after failure
+2025/06/25 13:09:28 cursor.go:50: key:  256
+2025/06/25 13:09:28 cursor.go:41: before failure
+2025/06/25 13:09:28 cursor.go:43: after failure
+2025/06/25 13:09:29 cursor.go:50: key:  256
+2025/06/25 13:09:29 cursor.go:41: before failure
+2025/06/25 13:09:29 cursor.go:43: after failure
+2025/06/25 13:09:30 cursor.go:50: key:  256
+2025/06/25 13:09:30 cursor.go:41: before failure
+2025/06/25 13:09:30 cursor.go:43: after failure
+2025/06/25 13:09:32 cursor.go:50: key:  256
+2025/06/25 13:09:32 cursor.go:41: before failure
+2025/06/25 13:09:32 cursor.go:43: after failure
+2025/06/25 13:09:32 cursor.go:50: key:  256
+2025/06/25 13:09:32 cursor.go:41: before failure
+2025/06/25 13:09:32 cursor.go:43: after failure
+2025/06/25 13:09:34 cursor.go:52: key:  3

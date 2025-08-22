@@ -1,15 +1,14 @@
 package dama
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/gdamore/tcell/v2"
 )
 
 type DamaElement interface {
 	DamaStyle
-	Render(screen tcell.Screen, context lcontext.Context)
+	Render(screen tcell.Screen)
 	GetBox() Box
-	SetBox(x uint, y uint, width uint, height uint)
+	SetBox(x int, y int, width int, height int)
 	SetTitle(title string)
 	SetTag(tag rune)
 	GetTitle() string
@@ -19,19 +18,21 @@ type DamaElement interface {
 	RenderTitle(screen tcell.Screen)
 	Focus()
 	Blur()
+	IsFocused() bool
 }
 
 type Element struct {
-	X      uint
-	Y      uint
-	Width  uint
-	Height uint
-	Tag    rune
-	Title  string
+	X     	int
+	Y      	int
+	Width  	int
+	Height 	int
+	Tag    	rune
+	Title  	string
+	Focused	bool
 	Styling
 }
 
-func (element *Element) Render(screen tcell.Screen, context lcontext.Context) {
+func (element *Element) Render(screen tcell.Screen) {
 
 }
 
@@ -75,7 +76,7 @@ func (element *Element) GetBox() Box {
 	}
 }
 
-func (element *Element) SetBox(x uint, y uint, width uint, height uint) {
+func (element *Element) SetBox(x int, y int, width int, height int) {
 	element.X = x
 	element.Y = y
 	element.Width = width
@@ -108,4 +109,8 @@ func (element *Element) Focus() {
 
 func (element *Element) Blur() {
 
+}
+
+func (element *Element) IsFocused() bool {
+	return element.Focused
 }

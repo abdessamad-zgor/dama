@@ -32,7 +32,6 @@ func NewNavigator() *Navigator {
 }
 
 func getNavigationTree(elements []DamaElement) []NavigationItem {
-	logger.Logger.Println("getNavigationTree ")
 	navigationItems := []NavigationItem{}
 	for _, element := range elements {
 		navigationItem := NavigationItem{nil, element, nil}
@@ -55,7 +54,7 @@ func getNavigationTree(elements []DamaElement) []NavigationItem {
 func (navigator *Navigator) indexItems() {
 	stack := []NavigationItem{}
 	current_item := navigator.Root
-	logger.Logger.Println("Navigator root: ", current_item)
+	// logger.Logger.Println("Navigator root: ", current_item)
 
 	stack = append(stack, current_item)
 	for len(stack) != 0 {
@@ -67,7 +66,7 @@ func (navigator *Navigator) indexItems() {
 		if parent != nil {
 			prefix = string(parent.Element.GetTag()) + prefix
 		}
-		logger.Logger.Println("index: ", navigator.Index, " current_item: ", current_item)
+		// logger.Logger.Println("index: ", navigator.Index, " current_item: ", current_item)
 		if current_item.Element.IsNavigable() {
 			navigator.Index = append(navigator.Index, IndexItem{prefix + string(current_item.Element.GetTag()), current_item})
 		}
@@ -126,6 +125,8 @@ func (navigator *Navigator) Navigate(tag rune) bool {
 		navigator.Current = indexItem.Item
 		navigator.CurrentPath = indexItem.Path
 		navigator.Current.Element.Focus()
+
+		logger.Logger.Println("Navigator current element: ", navigator.Current, ", Element path: ", navigator.CurrentPath)
 		return true
 	}
 	return false

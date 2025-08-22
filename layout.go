@@ -13,24 +13,24 @@ type Position interface{}
 
 type GridLayout struct {
 	Container *Container
-	Columns   uint
-	Rows      uint
+	Columns   int
+	Rows      int
 	Elements  map[GridPosition]DamaElement
 }
 
 func NewGridLayout(columns int, rows int) *GridLayout {
 	grid := new(GridLayout)
-	grid.Columns = uint(columns)
-	grid.Rows = uint(rows)
+	grid.Columns = int(columns)
+	grid.Rows = int(rows)
 	grid.Elements = make(map[GridPosition]DamaElement)
 	return grid
 }
 
 type GridPosition struct {
-	Column     uint
-	Row        uint
-	RowSpan    uint
-	ColumnSpan uint
+	Column     int
+	Row        int
+	RowSpan    int
+	ColumnSpan int
 }
 
 type BaseLayout struct {
@@ -54,10 +54,10 @@ func (layout *GridLayout) AddElement(element DamaElement, position Position) err
 		return errors.New("widget position is out of bounds")
 	}
 
-	x := uint(layout.Container.X) + uint(layout.Container.Width/layout.Columns)*gridPosition.Column
-	y := uint(layout.Container.Y) + uint(layout.Container.Height/layout.Rows)*gridPosition.Row
-	width := uint(layout.Container.Width/layout.Columns) * gridPosition.ColumnSpan
-	height := uint(layout.Container.Height/layout.Rows) * gridPosition.RowSpan
+	x := (layout.Container.X) + int(layout.Container.Width/layout.Columns)*gridPosition.Column
+	y := (layout.Container.Y) + int(layout.Container.Height/layout.Rows)*gridPosition.Row
+	width := int(layout.Container.Width/layout.Columns) * gridPosition.ColumnSpan
+	height := int(layout.Container.Height/layout.Rows) * gridPosition.RowSpan
 
 	element.SetBox(x, y, width, height)
 
@@ -65,19 +65,10 @@ func (layout *GridLayout) AddElement(element DamaElement, position Position) err
 	return nil
 }
 
-func (layout *BaseLayout) isPositionFree(position BasePosition) bool {
-	_, ok := layout.Elements[position]
-	return !ok
-}
 
-func (layout *BaseLayout) AddElement(element DamaElement, position Position) error {
-	basePosition, ok := position.(BasePosition)
-	if !ok {
-		return errors.New("position is not of type BasePosition")
-	}
-
-	x, y, width, height := uint(0), uint(0), uint(0), uint(0)
-	switch basePosition {
+func (layout *BaseLayout) getBoxForPosition(position BasePosition) (int, int, int, int) {
+	x, y, width, height := (0), (0), (0), (0)
+	switch position {
 	case Center:
 		x = (layout.Container.X + layout.Container.Width/5)
 		y = (layout.Container.Y + layout.Container.Height/5)
@@ -105,8 +96,90 @@ func (layout *BaseLayout) AddElement(element DamaElement, position Position) err
 		height = (layout.Container.Height / 5)
 	}
 
-	element.SetBox(uint(x), uint(y), uint(width), uint(height))
+	return x, y, width, height
+}
+
+func (layout *BaseLayout) shrinkAt(element DamaElement, position BasePosition) {
+	for keyPosition, elementAtPosition := range layout.Elements {
+		if elementAtPosition == element {
+			box := element.GetBox()
+			x, y, width, height := layout.getBoxForPosition(position)
+			px, py, pwidth, pheight := layout.getBoxForPosition(keyPosition)
+
+			if x + width > box.X {
+				box.X = px
+			}
+
+			if y + height > box.Y {
+				box.Y = py
+			}
+
+			if x < box.X + box.Width {
+				box.Width = pwidth
+			}
+
+			if y < box.Y + box.Height {
+				box.Height = pheight
+			}
+			element.SetBox((x), (y), (width), (height))
+		}
+	}
+}
+
+func (layout *BaseLayout) isPositionFree(position BasePosition) bool {
+	_, ok := layout.Elements[position]
+	return !ok
+}
+
+func (layout *BaseLayout) expandTo(element DamaElement, position BasePosition) {
+	for _, elementAtPosition := range layout.Elements {
+		if elementAtPosition == element {
+			box := element.GetBox()
+			x, y, width, height := layout.getBoxForPosition(position)
+			if x < box.X {
+				box.X = x
+			}
+
+			if y < box.Y {
+				box.Y = y
+			}
+
+			if x + width > box.X + box.Width {
+				box.Width += x + width - box.X - box.Width
+			}
+
+			if y + height > box.Y + box.Height {
+				box.Height +=  y + height - box.Y - box.Height
+			}
+			element.SetBox((x), (y), (width), (height))
+		}
+	}
+}
+
+func (layout *BaseLayout) AddElement(element DamaElement, position Position) error {
+	basePosition, ok := position.(BasePosition)
+	if !ok {
+		return errors.New("position is not of type BasePosition")
+	}
+
+	x, y, width, height := layout.getBoxForPosition(basePosition)
+	element.SetBox((x), (y), (width), (height))
 	layout.Elements[basePosition] = element
+
+	//positions := []BasePosition{Center, Top, Bottom, Left, Right}
+
+	//for _, lElement := range layout.Elements {
+	//	for _, pos := range positions {
+	//		if pos != basePosition{
+	//			if layout.isPositionFree(pos) {
+	//				layout.expandTo(lElement, pos)
+	//			} else {
+	//				layout.shrinkAt(lElement, pos)
+	//			}
+	//		}
+	//	}
+	//}
+
 	return nil
 }
 

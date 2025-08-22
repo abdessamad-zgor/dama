@@ -1,17 +1,17 @@
-package dama
+package traits
 
 import (
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
 var DefaultStyle Style = Style{}
 
 type Spacing struct {
-	Top    uint
-	Bottom uint
-	Left   uint
-	Right  uint
+	Top    int
+	Bottom int
+	Left   int
+	Right  int
 }
 
 type Border struct {
@@ -48,8 +48,6 @@ type Styling struct {
 }
 
 func (styling *Styling) BorderColor(color tcell.Color) DamaStyle {
-	logger.Logger.Println("styling before: ", styling)
-	logger.Logger.Println("styling after: ", styling)
 	if styling.Style.Border == nil {
 		styling.Style.Border = new(Border)
 	}

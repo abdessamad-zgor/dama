@@ -1,4 +1,4 @@
-package dama
+package traits
 
 type Direction string
 

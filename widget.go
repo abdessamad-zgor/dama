@@ -1,40 +1,30 @@
 package dama
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
-	"github.com/abdessamad-zgor/dama/event"
+	devent "github.com/abdessamad-zgor/dama/event"
+	dutils "github.com/abdessamad-zgor/dama/utils"
 	"github.com/gdamore/tcell/v2"
 )
 
-type WidgetState map[string]any
-
 type DamaWidget interface {
 	GetParent() *Container
-	GetEventMap() event.EventMap
-	GetKeybindings() event.Keybindings
 
-	GetState() *WidgetState
-	SetState(state *WidgetState)
-
-	SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback)
+	SetKeybinding(pattern string, callback devent.Callback)
+	SetAppEvent(eventname devent.EventName, callback devent.Callback)
 	DamaElement
 }
 
 type Widget struct {
 	*Element
 	Parent      *Container
-	EventMap    event.EventMap
-	Keybindings event.Keybindings
-	State       *WidgetState
+	Events 		dutils.VList[dutils.VListKey, devent.DamaEvent]
 }
 
 func NewWidget() *Widget {
 	widget := Widget{
 		new(Element),
 		nil,
-		make(event.EventMap),
-		make(event.Keybindings),
-		nil,
+		dutils.NewVList[dutils.VListKey, devent.DamaEvent](),
 	}
 
 	return &widget
@@ -50,27 +40,41 @@ func (widget *Widget) GetBox() Box {
 	return box
 }
 
-func (widget *Widget) GetEventMap() event.EventMap {
-	return widget.EventMap
+func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
+	patternMatcher, err := keystroke.GetMatcher(pattern)
+	if err != nil {
+		panic(err)
+	}
+	keybinding := devent.Event{
+		devent.DKeybinding,
+		devent.EventDetail{
+			devent.Keybinding{
+				pattern,
+				patternMatcher,
+				cb,
+			},
+		},
+	}
+
+	widget.Events.Add(keybinding)
 }
 
-func (widget *Widget) GetKeybindings() event.Keybindings {
-	return widget.Keybindings
+func (widget *Widget) SetAppEvent(eventName devent.EventName, cb devent.Callback) {
+	appevent := devent.Event{
+		devent.DAppEvent,
+		devent.EventDetail{
+			nil,
+			&devent.AppEvent{
+				eventName,
+				nil,
+				cb,
+			},
+		},
+	}
+
+	widget.Events.Add(appevent)
 }
 
-func (widget *Widget) GetState() *WidgetState {
-	return widget.State
-}
-
-func (widget *Widget) SetState(state *WidgetState) {
-	widget.State = state
-}
-
-func (widget *Widget) SetEventListener(key tcell.Key, eventName event.EventName, cb event.Callback) {
-	widget.Keybindings[key] = eventName
-	widget.EventMap[eventName] = cb
-}
-
-func (widget *Widget) Render(screen tcell.Screen, context lcontext.Context) {
+func (widget *Widget) Render(screen tcell.Screen) {
 
 }

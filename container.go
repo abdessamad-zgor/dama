@@ -5,7 +5,6 @@ import (
 	"fmt"
 	_ "reflect"
 
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
@@ -68,10 +67,10 @@ func (container *Container) GetBox() Box {
 	return box
 }
 
-func (container *Container) Render(screen tcell.Screen, context lcontext.Context) {
+func (container *Container) Render(screen tcell.Screen) {
 	elements := container.GetElements()
 	for _, element := range elements {
-		element.Render(screen, context)
+		element.Render(screen)
 	}
 }
 
