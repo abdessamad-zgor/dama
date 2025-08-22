@@ -6,8 +6,6 @@ import (
 	"github.com/gdamore/tcell/v2"
 )
 
-type WidgetState map[string]any
-
 type DamaWidget interface {
 	GetParent() *Container
 

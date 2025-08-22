@@ -5,7 +5,6 @@ import (
 	"os"
 	"testing"
 
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/abdessamad-zgor/dama/event"
 	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
@@ -20,14 +19,11 @@ type DamaApp interface {
 }
 
 type App struct {
-	ExitChannel  chan int
-	Screen       tcell.Screen
-	State        *WidgetState
 	*Container
-	Navigator *Navigator
-	event.EventMap
-	event.Keybindings
-	lcontext.Context
+	ExitChannel  	chan int
+	Screen       	tcell.Screen
+	Navigator 		*Navigator
+	EventManager	EventManager
 }
 
 func initAppScreen() (tcell.Screen, error) {
@@ -50,18 +46,15 @@ func initAppScreen() (tcell.Screen, error) {
 func NewApp() (*App, error) {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 	app := &App{
+		NewContainer(),
 		make(chan int),
 		nil,
-		&WidgetState{},
-		NewContainer(),
-		nil,
-		make(event.EventMap),
-		make(event.Keybindings),
-		make(lcontext.Context),
 	}
 	navigator := NewNavigator()
+	eventManager := NewEventManager()
 	navigator.Root.Element = app
 	app.Navigator = navigator
+	app.EventManager = eventManager
 	screen, err := initAppScreen()
 	if err != nil {
 		return nil, err
@@ -82,7 +75,7 @@ func (app *App) Start() {
 	app.Screen.SetStyle(tcell.StyleDefault)
 	app.SetupNavigation()
 	app.Draw()
-	go app.EventLoop()
+	go app.EventManager.EventLoop()
 	_ = <-app.ExitChannel
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
@@ -92,7 +85,7 @@ func (app *App) Start() {
 
 func (app *App) Draw() {
 	app.Screen.Clear()
-	app.Container.Render(app.Screen, app.Context)
+	app.Container.Render(app.Screen)
 	app.Screen.Show()
 }
 
@@ -104,16 +97,7 @@ func (app *App) SetupNavigation() {
 	navigables := app.GetNavigables()
 	app.Navigator.GetNavigationTree(navigables)
 	tags := app.Navigator.SetupKeybindings()
-	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
-		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
-		eventRune := eventKey.Rune()
-		logger.Logger.Println("Captured rune in navigation " + string(eventRune)) 
-		for _, tag := range tags {
-			if eventRune == tag {
-				app.Navigate(tag)
-			}
-		}
-	})
+	// TODO: replace this section
 	if len(navigables) >= 1 {
 		app.Navigate(navigables[0].GetTag())
 	}
@@ -152,85 +136,13 @@ func (app *App) Navigate(tag rune) {
 
 func (app *App) UpdateNavigator() {
 	tags := app.Navigator.SetupKeybindings()
-	app.SetKeybinding(tcell.KeyRune, func(context lcontext.Context, kevent event.KeyEvent) {
-		eventKey, _ := kevent.TEvent.(*tcell.EventKey)
-		eventRune := eventKey.Rune()
-		logger.Logger.Println("Captured rune in navigation " + string(eventRune)) 
-		for _, tag := range tags {
-			if eventRune == tag {
-				app.Navigate(tag)
-			}
-		}
-	})
-}
-
-func (app *App) KeybindingEventLoop() {
-	for {
-		ev := app.Screen.PollEvent()
-		switch ev := ev.(type) {
-		case *tcell.EventKey:
-			key := ev.Key()
-			if key == tcell.KeyCtrlC {
-				app.ExitChannel <- 0
-			}
-			callback, ok := app.Keybindings[key]
-			kevent := event.KeyEvent{key, ev}
-			if ok {
-				callback(app.Context, kevent)
-			}
-		case *tcell.EventResize:
-			app.Screen.Sync()
-		}
-		app.Draw()
-	}
-}
-
-func (app *App) EventLoop() {
-	go app.KeybindingEventLoop()
-	for {
-		eevent := <- event.EventChannel
-		callback, ok := app.EventMap[eevent.Name]
-		if ok {
-			callback(app.Context, eevent)
-		}
-		app.Draw()
-	}
 }
 
 func (app *App) GetParent() *Container {
 	return nil
 }
 
-func (app *App) GetEventMap() event.EventMap {
-	return app.EventMap
-}
-
-func (app *App) GetKeybindings() event.Keybindings {
-	return app.Keybindings
-}
-
-func (app *App) GetState() *WidgetState {
-	return app.State
-}
-
-func (app *App) SetState(state *WidgetState) {
-	app.State = state
-}
-
 func (app *App) GetNavigator() *Navigator {
 	return app.Navigator
 }
 
-func (app *App) SetKeybinding(key tcell.Key, cb event.KeybindingCallback) {
-	app.Keybindings[key] = cb 
-}
-
-func (app *App) SetKeybindings(cb event.KeybindingCallback, keys ...tcell.Key) {
-	for _, key := range keys {
-		app.Keybindings[key] = cb
-	}
-}
-
-func (app *App) SetEventCallback(eventname event.EventName, callback event.EventCallback) {
-	app.EventMap[eventname] = callback 
-}

@@ -1,13 +1,12 @@
 package dama
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	"github.com/gdamore/tcell/v2"
 )
 
 type DamaElement interface {
 	DamaStyle
-	Render(screen tcell.Screen, context lcontext.Context)
+	Render(screen tcell.Screen)
 	GetBox() Box
 	SetBox(x int, y int, width int, height int)
 	SetTitle(title string)
@@ -33,7 +32,7 @@ type Element struct {
 	Styling
 }
 
-func (element *Element) Render(screen tcell.Screen, context lcontext.Context) {
+func (element *Element) Render(screen tcell.Screen) {
 
 }
 

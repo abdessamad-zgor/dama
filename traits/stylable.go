@@ -1,4 +1,4 @@
-package dama
+package traits
 
 import (
 	_ "github.com/abdessamad-zgor/dama/logger"
@@ -48,8 +48,6 @@ type Styling struct {
 }
 
 func (styling *Styling) BorderColor(color tcell.Color) DamaStyle {
-	// logger.Logger.Println("styling before: ", styling)
-	//logger.Logger.Println("styling after: ", styling)
 	if styling.Style.Border == nil {
 		styling.Style.Border = new(Border)
 	}

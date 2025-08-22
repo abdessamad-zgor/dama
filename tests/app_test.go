@@ -1,4 +1,4 @@
-package dama
+package tests
 
 import (
 	"fmt"
@@ -6,10 +6,10 @@ import (
 	"testing"
 
 	"github.com/abdessamad-zgor/dama/logger"
-	//"github.com/abdessamad-zgor/dama/elements"
+	"github.com/abdessamad-zgor/dama"
 )
 
-var app DamaApp
+var app dama.DamaApp
 
 func TestMain(m *testing.M) {
 	setup()
@@ -19,7 +19,7 @@ func TestMain(m *testing.M) {
 }
 
 func setup() {
-	new_app, err := NewApp()
+	new_app, err := dama.NewApp()
 	if err != nil {
 		panic(fmt.Sprintf("failed to create new app, because: %v", err))
 	}
@@ -27,7 +27,7 @@ func setup() {
 }
 
 func teardown() {
-	app = new(App)
+	app = new(dama.App)
 }
 
 func TestAppRender(t *testing.T) {
@@ -40,11 +40,3 @@ func TestAppRender(t *testing.T) {
 	}
 }
 
-func TestMescillinous(t *testing.T) {
-	ints := []int{}
-	ints = append(ints, 1)
-	ints = append(ints, 2)
-	ints = append(ints, 3)
-
-	logger.Logger.Println("ints: ", ints)
-}

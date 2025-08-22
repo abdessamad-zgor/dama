@@ -1,7 +1,6 @@
 package dama
 
 import (
-	lcontext "github.com/abdessamad-zgor/dama/context"
 	_ "github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
@@ -14,7 +13,7 @@ type Box struct {
 	Element DamaElement
 }
 
-func (box Box) Render(screen tcell.Screen, context lcontext.Context) {
+func (box Box) Render(screen tcell.Screen) {
 	boxStyle := box.Element.GetStyle()
 
 	if boxStyle.Border != nil {

@@ -11,7 +11,7 @@ import (
 var Logger *log.Logger
 
 func init() {
-	_, ok := os.LookupEnv("DAMA_DEV")
+	_, ok := os.LookupEnv("DEBUG")
     isTesting := testing.Testing()
 	if ok || isTesting {
 		//cwd, err := os.Getwd()
@@ -19,7 +19,7 @@ func init() {
 		if !ok {
 			panic("cannot get logger package root file.")
 		}
-		logFile, err := os.OpenFile(path.Join(path.Dir(loggerPackageRoot), "../logs/dev.log"), os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0644)
+		logFile, err := os.OpenFile(path.Join(path.Dir(loggerPackageRoot), "../logs/debug.log"), os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0644)
 		if err != nil {
 			panic(err)
 		}

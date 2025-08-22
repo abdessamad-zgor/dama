@@ -1,9 +1,9 @@
 package dama
 
 import (
-	devent "github.com/abdessamaad-zgor/dama/event"
-	dutils "github.com/abdessamaad-zgor/dama/utils"
-	"github.com/abdessamaad-zgor/dama/keystroke"
+	devent "github.com/abdessamad-zgor/dama/event"
+	dutils "github.com/abdessamad-zgor/dama/utils"
+	"github.com/abdessamad-zgor/dama/keystroke"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -12,11 +12,30 @@ type EventManager struct {
 	Buffer  			string
 	KeystrokeChannel 	chan devent.KeystrokeEvent
 	AppEventChannel     chan devent.AppEvent
-	Events 				dutils.ExclusionList[devent.Event]
+	Events 				dutils.EList[devent.Event]
+}
+
+func NewEventManager() EventManager {
+	em := EventManager {
+		nil,
+		"",
+		make(chan devent.KeystrokeEvent),
+		make(chan devent.AppEvent),
+		NewEList[devent.Event](),
+	}
+	return em
 }
 
 func (em *EventManager) RegisterEvents() {
-
+	current := em.App.Navigator.Current
+	em.Events.Empty()
+	for current != nil {
+		currentWidget, ok := current.Element.(*Widget)
+		for _, e := range current.Events {
+			em.Events.Add(e)
+		}
+		current = current.Parent
+	}
 }
 
 func (em *EventManager) HandleTcellEvents() {
@@ -38,11 +57,41 @@ func (em *EventManager) EventLoop() {
 		select {
 			case keystrokeEvent := <- em.KeystrokeChannel:
 				em.Buffer = em.Buffer + keystrokeEvent.Keystroke
+				em.HandleKeybindings()
 			case appEvent := <- em.AppEventChannel:
+				
 		}
 	}
 }
 
 func (em *EventManager) HandleKeybindings() {
+	fullMatches := []devent.Event{}
+	partialMatches := []devent.Event{}
+	buffer := em.Buffer
+	for _, e := range em.Events.Items() {
+		// just filter on event type
+		if kb, ok := e.Detail.(*devent.Keybinding); ok && kb.Matcher(em.Buffer).IsFull() {
+			fullMatches = append(fullMatches, e)
+		}
+		if ok && kb.Matcher(em.Buffer).IsPartial() {
+			partialMatches = append(partialMatches, e)
+		}
+	}
+	dutils.Assert(fullMatches <= 1, "there should be at most 1 full match when handling keybindings")
+	if len(fullMatches) == 1 && len(partialMatches) == 0 {
+		kb, ok := fullMatches.Detail.(*devent.Keybinding);
+		kb.Callback(e.Detail)
+	}
 
+	if len(partials) > 0 {
+		time.Wait(300)
+		if buffer == em.Buffer && len(fulls) == 1 {
+			kb, ok := fullMatches.Detail.(*devent.Keybinding);
+			kb.Callback(e.Detail)
+		}
+	}
+}
+
+func (em *EventManager) HandleAppEvents() {
+	// later baby, not now
 }

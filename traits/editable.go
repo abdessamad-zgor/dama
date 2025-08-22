@@ -1,6 +1,7 @@
-package dama
+package traits
 
 import (
+	"github.com/abdessamad-zgor/dama"
 	devent "github.com/abdessamad-zgor/dama/event"
 	"github.com/abdessamad-zgor/dama/logger"
 
@@ -33,7 +34,7 @@ type DamaEditable interface {
 }
 
 type Editable struct {
-	Element  Element
+	Element  dama.Element
 	Cursor   Cursor
 	Contents string
 	Mode     EditMode
