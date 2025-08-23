@@ -11,17 +11,17 @@ type KeystrokeEvent struct {
 	RecievedAt time.Time
 }
 
-func ToKeytrokeEvent(event tcell.KeyEvent) KeystrokeEvent {
+func ToKeytrokeEvent(event tcell.EventKey) KeystrokeEvent {
 	key := event.Key()
-	switch key.(type) {
+	switch key {
 	case tcell.KeyRune:
-		char := key.Rune()
+		char := event.Rune()
 		return KeystrokeEvent{
 			string(char),
 			event.When(),
 		}
 	default:
-		eventString, _ := keystroke.TcellEventToString[key]
+		eventString, _ := keystroke.TcellKeyToString[key]
 		return KeystrokeEvent{
 			eventString,
 			event.When(),

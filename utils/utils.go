@@ -1,16 +1,15 @@
 package utils
 
 import (
-	"fmt"
 	"errors"
 )
 
-type List[V any] struct {
+type List[V comparable] struct {
 	items []V
 }
 
-func NewList[V any]() List[V] {
-	items := make([]V)
+func NewList[V comparable]() List[V] {
+	items := make([]V, 1)
 	list := List[V] {
 		items,
 	}
@@ -29,45 +28,45 @@ func (list List[T]) Remove(element T) {
 			break
 		}
 	}
-	list.items = append(list.items[0:ielem], ...list.items[ielem + 1:])
+	list.items = append(list.items[0:ielem], list.items[ielem + 1:]...)
 }
 
-type VList[V any] struct {
-	items	map[string]List[V]
+type VList[V comparable] struct {
+	items	*map[string]List[V]
 	current string
 }
 
-func NewVList[V any]() Vlist[V] {
-	default := make(map[string]List[V])
+func NewVList[V comparable]() VList[V] {
+	_default := make(map[string]List[V])
 	vlist := VList[V] {
-		&default,
+		&_default,
 		"",
 	}
 	return vlist
 }
 
 func (vlist VList[V]) Add(element V) {
-	vlist.items[vlist.current].Add(element)
+	(*(vlist.items))[vlist.current].Add(element)
 }
 
 func (vlist VList[V]) Remove(element V) {
-	vlist.items[vlist.current].Remove(element)
+	(*(vlist.items))[vlist.current].Remove(element)
 }
 
 func (vlist VList[V]) AddView(key string) {
-	vlist.items[key] = NewList[V]()
+	(*(vlist.items))[key] = NewList[V]()
 }
 
 func (vlist VList[V]) RemoveView(key string) {
-	delete(vlist.items, key)
+	delete(*(vlist.items), key)
 }
 
 
-type EList[V any] struct {
+type EList[V comparable] struct {
 	items	List[V]
 }
 
-func NewEList[V any]() Elist[V] {
+func NewEList[V comparable]() EList[V] {
 	elist := EList[V] {
 		NewList[V](),
 	}
@@ -75,7 +74,8 @@ func NewEList[V any]() Elist[V] {
 }
 
 func (elist EList[V]) Add(element V, ef func (V, V) bool) {
-	for _, elem := range elist.items {
+	for _, elem := range elist.items.items {
+		_ = elem
 	}
 }
 

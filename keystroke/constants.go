@@ -4,7 +4,7 @@ import (
 	"github.com/gdamore/tcell/v2"
 )
 
-const TcellKeyToString = map[tcell.Key]string {
+var TcellKeyToString = map[tcell.Key]string {
 	tcell.KeyEnter:          "<CR>",
 	tcell.KeyBackspace:      "<BS>",
 	tcell.KeyTab:            "<Tab>",
@@ -69,12 +69,12 @@ const TcellKeyToString = map[tcell.Key]string {
 	tcell.KeyCtrlSpace:      "<C-Space>",
 	tcell.KeyCtrlUnderscore: "<C-_>",
 	tcell.KeyCtrlRightSq:    "<C-]>",
-	tcell.KeyCtrlLefSq:		 "<C-[>",
+	//tcell.KeyCtrlLeftSq:	 "<C-[>",
 	tcell.KeyCtrlBackslash:  "<C-\\>",
 	tcell.KeyCtrlCarat:      "<C-^>",
 }
 
-const SpecialCharacters []string = []string {
+var SpecialCharacters []string = []string {
 	"<Space>",
 	"<CR>",
 	"<BS>",
@@ -88,7 +88,7 @@ const SpecialCharacters []string = []string {
 	"<Down>",
 	"<Left>",
 	"<Right>",
-	"<Home>"
+	"<Home>",
 	"<End>",
 	"<UpLeft>",
 	"<UpRight>",

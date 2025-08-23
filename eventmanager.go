@@ -41,7 +41,7 @@ func (em *EventManager) RegisterEvents() {
 func (em *EventManager) HandleTcellEvents() {
 	for {
 		event := tcell.PollEvent()
-		switch (event.type) {
+		switch event.(type) {
 		case tcell.EventKey:
 			keystrokeEvent := devent.ToKeystrokeEvent(event)
 			em.KeystrokeChannel <- keystrokeEvent

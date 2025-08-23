@@ -17,14 +17,14 @@ type DamaWidget interface {
 type Widget struct {
 	*Element
 	Parent      *Container
-	Events 		dutils.VList[dutils.VListKey, devent.DamaEvent]
+	Events 		dutils.VList[devent.DamaEvent]
 }
 
 func NewWidget() *Widget {
 	widget := Widget{
 		new(Element),
 		nil,
-		dutils.NewVList[dutils.VListKey, devent.DamaEvent](),
+		dutils.NewVList[devent.DamaEvent](),
 	}
 
 	return &widget

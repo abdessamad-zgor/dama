@@ -1,8 +1,5 @@
 package event
 
-import (
-	"github.com/gdamore/tcell/v2"
-)
 type EventType string
 
 const (
