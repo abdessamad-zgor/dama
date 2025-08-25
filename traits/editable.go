@@ -1,13 +1,7 @@
 package traits
 
 import (
-	"github.com/abdessamad-zgor/dama"
-	devent "github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/logger"
-
 	"strings"
-
-	"github.com/gdamore/tcell/v2"
 )
 
 type EditMode string
@@ -34,7 +28,6 @@ type DamaEditable interface {
 }
 
 type Editable struct {
-	Element  dama.Element
 	Cursor   Cursor
 	Contents string
 	Mode     EditMode
@@ -121,65 +114,10 @@ func (editable *Editable) GetLines() []string {
 	return lines
 }
 
-func (_editable *Editable) SetEditable(editable bool) {
-	_editable.Editable = editable
-}
-
-func (editable *Editable) IsEditable() bool {
-	return editable.Editable 
-}
-
 func (editable *Editable) SetMode(mode EditMode) {
 	editable.Mode = mode
 }
 
 func (editable *Editable) GetMode() EditMode {
 	return editable.Mode
-}
-
-func KeyToDirection(key tcell.Key) Direction {
-	direction := Center
-	switch(key) {
-	case tcell.KeyUp:
-		direction = Top
-	case tcell.KeyDown:
-		direction = Bottom
-	case tcell.KeyLeft:
-		direction = Left
-	case tcell.KeyRight:
-		direction = Right
-	default:
-		direction = Center
-	}
-	return direction
-}
-
-func (editable *Editable) OnEscape (event devent.KeyEvent) {
-	editable.Mode = NoMode
-}
-
-func (editable *Editable) OnCarriageReturn (event devent.KeyEvent) {
-	if editable.Mode == NoMode && editable.Editable {
-		editable.Mode = InsertMode 
-	} else {
-		if editable.Editable {
-			editable.AddRune('\n')
-		} else {
-			editable.MoveCursor(Bottom)
-		}
-	}
-}
-
-func (editable *Editable) OnArrowKeys (event devent.KeyEvent) {
-	direction := KeyToDirection(eevent.Key)
-	editable.MoveCursor(direction)
-}
-
-func (editable *Editable) OnKeyRune (event devent.KeyEvent) {
-	keyEvent, _ := eevent.TEvent.(*tcell.EventKey)
-	keyRune := keyEvent.Rune()
-	if editable.Mode == InsertMode  {
-		editable.AddRune(keyRune)
-		logger.Logger.Println("editable contents : ", editable.Contents)
-	}
 }

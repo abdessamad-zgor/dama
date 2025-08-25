@@ -12,7 +12,7 @@ type EventManager struct {
 	Buffer  			string
 	KeystrokeChannel 	chan devent.KeystrokeEvent
 	AppEventChannel     chan devent.AppEvent
-	Events 				dutils.EList[devent.Event]
+	Events 				dutils.EList[devent.DamaEvent]
 }
 
 func NewEventManager() EventManager {
@@ -21,13 +21,13 @@ func NewEventManager() EventManager {
 		"",
 		make(chan devent.KeystrokeEvent),
 		make(chan devent.AppEvent),
-		NewEList[devent.Event](),
+		dutils.NewEList[devent.DamaEvent](),
 	}
 	return em
 }
 
 func (em *EventManager) RegisterEvents() {
-	current := em.App.Navigator.Current
+	current := &em.App.Navigator.Current
 	em.Events.Empty()
 	for current != nil {
 		currentWidget, ok := current.Element.(*Widget)

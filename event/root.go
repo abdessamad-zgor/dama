@@ -9,7 +9,7 @@ const (
 
 type Callback = func (event EventDetail)
 
-type Event struct {
+type DamaEvent struct {
 	Type	EventType
 	Detail	EventDetail
 }

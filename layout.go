@@ -2,6 +2,7 @@ package dama
 
 import (
 	"errors"
+	"github.com/abdessamad-zgor/dama/traits"
 )
 
 type DamaLayout interface {
@@ -38,7 +39,7 @@ type BaseLayout struct {
 	Elements  map[BasePosition]DamaElement
 }
 
-type BasePosition = Direction
+type BasePosition = traits.Direction
 
 const (
 	Center BasePosition = "center"

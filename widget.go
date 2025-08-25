@@ -10,7 +10,7 @@ type DamaWidget interface {
 	GetParent() *Container
 
 	SetKeybinding(pattern string, callback devent.Callback)
-	SetAppEvent(eventname devent.EventName, callback devent.Callback)
+	SetAppEvent(eventname devent.AppEventName, callback devent.Callback)
 	DamaElement
 }
 
@@ -59,7 +59,7 @@ func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
 	widget.Events.Add(keybinding)
 }
 
-func (widget *Widget) SetAppEvent(eventName devent.EventName, cb devent.Callback) {
+func (widget *Widget) SetAppEvent(eventName devent.AppEventName, cb devent.Callback) {
 	appevent := devent.Event{
 		devent.DAppEvent,
 		devent.EventDetail{

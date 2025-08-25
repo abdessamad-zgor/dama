@@ -12,17 +12,16 @@ import (
 
 type DamaApp interface {
 	DamaContainer
-	DamaWidget
 	Start()
 	Exit()
-	GetNavigator() *Navigator
+	GetNavigator() Navigator
 }
 
 type App struct {
 	*Container
 	ExitChannel  	chan int
 	Screen       	tcell.Screen
-	Navigator 		*Navigator
+	Navigator 		Navigator
 	EventManager	EventManager
 }
 
@@ -49,12 +48,11 @@ func NewApp() (*App, error) {
 		NewContainer(),
 		make(chan int),
 		nil,
+		NewNavigator(),
+		NewEventManager(),
 	}
-	navigator := NewNavigator()
-	eventManager := NewEventManager()
-	navigator.Root.Element = app
-	app.Navigator = navigator
-	app.EventManager = eventManager
+	app.Navigator.Root.Element = app 
+	app.EventManager.App = app
 	screen, err := initAppScreen()
 	if err != nil {
 		return nil, err
@@ -94,55 +92,55 @@ func (app *App) Exit() {
 }
 
 func (app *App) SetupNavigation() {
-	navigables := app.GetNavigables()
-	app.Navigator.GetNavigationTree(navigables)
-	tags := app.Navigator.SetupKeybindings()
-	// TODO: replace this section
-	if len(navigables) >= 1 {
-		app.Navigate(navigables[0].GetTag())
-	}
+	//navigables := app.GetNavigables()
+	//app.Navigator.GetNavigationTree(navigables)
+	//tags := app.Navigator.SetupKeybindings()
+	//// TODO: replace this section
+	//if len(navigables) >= 1 {
+	//	app.Navigate(navigables[0].GetTag())
+	//}
 }
 
 func (app *App) Navigate(tag rune) {
-	previousWidget, pOk := app.Navigator.Current.Element.(DamaWidget)
-	if app.Navigator.Navigate(tag) {
-		app.UpdateNavigator()
-		widget, ok := app.Navigator.Current.Element.(DamaWidget)
-		if pOk {
-			previousEventMap := previousWidget.GetEventMap()
-			previousKeybindings := previousWidget.GetKeybindings()
-			for key, _ := range previousKeybindings {
-				delete(app.Keybindings, key)
-			}
+	//previousWidget, pOk := app.Navigator.Current.Element.(DamaWidget)
+	//if app.Navigator.Navigate(tag) {
+	//	app.UpdateNavigator()
+	//	widget, ok := app.Navigator.Current.Element.(DamaWidget)
+	//	if pOk {
+	//		previousEventMap := previousWidget.GetEventMap()
+	//		previousKeybindings := previousWidget.GetKeybindings()
+	//		for key, _ := range previousKeybindings {
+	//			delete(app.Keybindings, key)
+	//		}
 
-			for key, _ := range previousEventMap {
-				delete(app.EventMap, key)
-			}
-		}
+	//		for key, _ := range previousEventMap {
+	//			delete(app.EventMap, key)
+	//		}
+	//	}
 
-		if ok {
-			elementEventMap := widget.GetEventMap()
-			elementKeybindings := widget.GetKeybindings()
-			for key, value := range elementKeybindings {
-				app.SetKeybinding(key, value)
-			}
+	//	if ok {
+	//		elementEventMap := widget.GetEventMap()
+	//		elementKeybindings := widget.GetKeybindings()
+	//		for key, value := range elementKeybindings {
+	//			app.SetKeybinding(key, value)
+	//		}
 
-			for key, value := range elementEventMap {
-				app.SetEventCallback(key, value)
-			}
-		}
-	}
+	//		for key, value := range elementEventMap {
+	//			app.SetEventCallback(key, value)
+	//		}
+	//	}
+	//}
 }
 
 func (app *App) UpdateNavigator() {
-	tags := app.Navigator.SetupKeybindings()
+	//tags := app.Navigator.SetupKeybindings()
 }
 
 func (app *App) GetParent() *Container {
 	return nil
 }
 
-func (app *App) GetNavigator() *Navigator {
+func (app *App) GetNavigator() Navigator {
 	return app.Navigator
 }
 
