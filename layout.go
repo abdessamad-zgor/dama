@@ -2,7 +2,7 @@ package dama
 
 import (
 	"errors"
-	"github.com/abdessamad-zgor/dama/traits"
+	dtraits "github.com/abdessamad-zgor/dama/traits"
 )
 
 type DamaLayout interface {
@@ -39,10 +39,10 @@ type BaseLayout struct {
 	Elements  map[BasePosition]DamaElement
 }
 
-type BasePosition = traits.Direction
+type BasePosition = dtraits.Direction
 
 const (
-	Center BasePosition = "center"
+	Center dtraits.Direction = "center"
 )
 
 func (layout *GridLayout) AddElement(element DamaElement, position Position) error {
@@ -75,22 +75,22 @@ func (layout *BaseLayout) getBoxForPosition(position BasePosition) (int, int, in
 		y = (layout.Container.Y + layout.Container.Height/5)
 		width = (layout.Container.Width / 5 * 3)
 		height = (layout.Container.Height / 5 * 3)
-	case Left:
+	case dtraits.Left:
 		x = (layout.Container.X)
 		y = (layout.Container.Y) + (layout.Container.Height / 5)
 		width = (layout.Container.Width / 5) * 3
 		height = (layout.Container.Height / 5) * 3
-	case Right:
+	case dtraits.Right:
 		x = (layout.Container.X) + (layout.Container.Width/5)*4
 		y = (layout.Container.Y) + (layout.Container.Height / 5)
 		width = (layout.Container.Width / 5) * 3
 		height = (layout.Container.Height / 5) * 3
-	case Top:
+	case dtraits.Top:
 		x = (layout.Container.X)
 		y = (layout.Container.Y)
 		width = layout.Container.Width
 		height = (layout.Container.Height / 5)
-	case Bottom:
+	case dtraits.Bottom:
 		x = (layout.Container.X)
 		y = (layout.Container.Y) + (layout.Container.Height/5)*4
 		width = layout.Container.Width

@@ -6,25 +6,26 @@ import (
 	"github.com/abdessamad-zgor/dama/keystroke"
 )
 
-type KeystrokeEvent struct {
+type KeyEvent struct {
 	Keystroke  string
 	RecievedAt time.Time
 }
 
-func ToKeytrokeEvent(event tcell.EventKey) KeystrokeEvent {
-	key := event.Key()
+func ToKeyEvent(event tcell.Event) KeyEvent {
+	ke, _ := event.(*tcell.EventKey)
+	key := ke.Key()
 	switch key {
 	case tcell.KeyRune:
-		char := event.Rune()
-		return KeystrokeEvent{
+		char := ke.Rune()
+		return KeyEvent{
 			string(char),
-			event.When(),
+			ke.When(),
 		}
 	default:
 		eventString, _ := keystroke.TcellKeyToString[key]
-		return KeystrokeEvent{
+		return KeyEvent{
 			eventString,
-			event.When(),
+			ke.When(),
 		}
 	}
 }

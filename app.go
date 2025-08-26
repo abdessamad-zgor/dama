@@ -5,8 +5,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/abdessamad-zgor/dama/event"
-	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -85,6 +83,9 @@ func (app *App) Draw() {
 	app.Screen.Clear()
 	app.Container.Render(app.Screen)
 	app.Screen.Show()
+}
+
+func (app *App) Resize() {
 }
 
 func (app *App) Exit() {

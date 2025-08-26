@@ -1,27 +1,40 @@
 package dama
 
 import (
+	"time"
 	devent "github.com/abdessamad-zgor/dama/event"
 	dutils "github.com/abdessamad-zgor/dama/utils"
-	"github.com/abdessamad-zgor/dama/keystroke"
 	"github.com/gdamore/tcell/v2"
 )
 
 type EventManager struct {
 	App 				*App
 	Buffer  			string
-	KeystrokeChannel 	chan devent.KeystrokeEvent
+	KeyChannel 			chan devent.KeyEvent
 	AppEventChannel     chan devent.AppEvent
 	Events 				dutils.EList[devent.DamaEvent]
 }
 
 func NewEventManager() EventManager {
+	var excludeFn dutils.ExcludeFn[devent.DamaEvent]= func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
+		exists := false
+		for _, _item := range itemList.Items() {
+			if item == _item {
+				exists = true
+				break
+			}
+		}
+		if exists {
+			return -1
+		}
+		return itemList.Length()
+	}
 	em := EventManager {
 		nil,
 		"",
-		make(chan devent.KeystrokeEvent),
+		make(chan devent.KeyEvent),
 		make(chan devent.AppEvent),
-		dutils.NewEList[devent.DamaEvent](),
+		dutils.NewEList[devent.DamaEvent](excludeFn),
 	}
 	return em
 }
@@ -30,8 +43,8 @@ func (em *EventManager) RegisterEvents() {
 	current := &em.App.Navigator.Current
 	em.Events.Empty()
 	for current != nil {
-		currentWidget, ok := current.Element.(*Widget)
-		for _, e := range current.Events {
+		currentWidget, _ := current.Element.(*Widget)
+		for _, e := range currentWidget.Events.Items() {
 			em.Events.Add(e)
 		}
 		current = current.Parent
@@ -40,12 +53,12 @@ func (em *EventManager) RegisterEvents() {
 
 func (em *EventManager) HandleTcellEvents() {
 	for {
-		event := tcell.PollEvent()
+		event := em.App.Screen.PollEvent()
 		switch event.(type) {
-		case tcell.EventKey:
-			keystrokeEvent := devent.ToKeystrokeEvent(event)
-			em.KeystrokeChannel <- keystrokeEvent
-		case tcell.EventResize:
+		case *tcell.EventKey:
+			keyEvent := devent.ToKeyEvent(event)
+			em.KeyChannel <- keyEvent
+		case *tcell.EventResize:
 			em.App.Resize()
 		}
 	}
@@ -55,43 +68,46 @@ func (em *EventManager) EventLoop() {
 	go em.HandleTcellEvents()
 	for {
 		select {
-			case keystrokeEvent := <- em.KeystrokeChannel:
-				em.Buffer = em.Buffer + keystrokeEvent.Keystroke
+			case keyEvent := <- em.KeyChannel:
+				em.Buffer = em.Buffer + keyEvent.Keystroke
 				em.HandleKeybindings()
 			case appEvent := <- em.AppEventChannel:
-				
+				em.HandleAppEvent(appEvent)	
 		}
 	}
 }
 
 func (em *EventManager) HandleKeybindings() {
-	fullMatches := []devent.Event{}
-	partialMatches := []devent.Event{}
+	fulls := []devent.DamaEvent{}
+	partials := []devent.DamaEvent{}
 	buffer := em.Buffer
 	for _, e := range em.Events.Items() {
-		// just filter on event type
-		if kb, ok := e.Detail.(*devent.Keybinding); ok && kb.Matcher(em.Buffer).IsFull() {
-			fullMatches = append(fullMatches, e)
+		// this could panic
+		kb := e.Detail.Keybinding
+		if kb != nil && kb.Matcher(em.Buffer).IsFull() {
+			fulls = append(fulls, e)
 		}
-		if ok && kb.Matcher(em.Buffer).IsPartial() {
-			partialMatches = append(partialMatches, e)
+		if kb != nil && kb.Matcher(em.Buffer).IsPartial() {
+			partials = append(partials, e)
 		}
 	}
-	dutils.Assert(fullMatches <= 1, "there should be at most 1 full match when handling keybindings")
-	if len(fullMatches) == 1 && len(partialMatches) == 0 {
-		kb, ok := fullMatches.Detail.(*devent.Keybinding);
-		kb.Callback(e.Detail)
+	dutils.Assert(len(fulls) <= 1, "there should be at most 1 full match when handling keybindings")
+	if len(fulls) == 1 && len(partials) == 0 {
+		e := fulls[0]
+		kb := e.Detail.Keybinding
+		kb.Handler(e.Detail)
 	}
 
 	if len(partials) > 0 {
-		time.Wait(300)
+		time.Sleep(300 * time.Millisecond)
 		if buffer == em.Buffer && len(fulls) == 1 {
-			kb, ok := fullMatches.Detail.(*devent.Keybinding);
-			kb.Callback(e.Detail)
+			e := fulls[0]
+			kb := e.Detail.Keybinding
+			kb.Handler(e.Detail)
 		}
 	}
 }
 
-func (em *EventManager) HandleAppEvents() {
+func (em *EventManager) HandleAppEvent(event devent.AppEvent) {
 	// later baby, not now
 }

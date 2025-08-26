@@ -3,6 +3,7 @@ package dama
 import (
 	devent "github.com/abdessamad-zgor/dama/event"
 	dutils "github.com/abdessamad-zgor/dama/utils"
+	dkeystroke "github.com/abdessamad-zgor/dama/keystroke"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -41,18 +42,19 @@ func (widget *Widget) GetBox() Box {
 }
 
 func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
-	patternMatcher, err := keystroke.GetMatcher(pattern)
+	patternMatcher, err := dkeystroke.GetMatcher(pattern)
 	if err != nil {
 		panic(err)
 	}
-	keybinding := devent.Event{
+	keybinding := devent.DamaEvent{
 		devent.DKeybinding,
 		devent.EventDetail{
-			devent.Keybinding{
+			&devent.Keybinding{
 				pattern,
 				patternMatcher,
 				cb,
 			},
+			nil,
 		},
 	}
 
@@ -60,7 +62,7 @@ func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
 }
 
 func (widget *Widget) SetAppEvent(eventName devent.AppEventName, cb devent.Callback) {
-	appevent := devent.Event{
+	appevent := devent.DamaEvent{
 		devent.DAppEvent,
 		devent.EventDetail{
 			nil,

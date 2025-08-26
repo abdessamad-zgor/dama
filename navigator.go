@@ -8,24 +8,24 @@ import (
 
 type NavigationItem struct {
 	Parent   *NavigationItem
-	Element  DamaElement
-	Children *[]NavigationItem
-}
+		Element  DamaElement
+		Children *[]NavigationItem
+	}
 
-type IndexItem struct {
-	Path string
-	Item NavigationItem
-}
+	type IndexItem struct {
+		Path string
+		Item NavigationItem
+	}
 
-type Navigator struct {
-	Root        NavigationItem
-	Index       []IndexItem
-	Current     NavigationItem
-	CurrentPath string
-}
+	type Navigator struct {
+		Root        NavigationItem
+		Index       []IndexItem
+		Current     NavigationItem
+		CurrentPath string
+	}
 
-func NewNavigator() *Navigator {
-	navigator := new(Navigator)
+	func NewNavigator() Navigator {
+	navigator := Navigator{}
 	navigator.CurrentPath = ""
 	navigator.Index = []IndexItem{}
 	return navigator
@@ -51,10 +51,9 @@ func getNavigationTree(elements []DamaElement) []NavigationItem {
 	return navigationItems
 }
 
-func (navigator *Navigator) indexItems() {
+func (navigator Navigator) indexItems() {
 	stack := []NavigationItem{}
 	current_item := navigator.Root
-	// logger.Logger.Println("Navigator root: ", current_item)
 
 	stack = append(stack, current_item)
 	for len(stack) != 0 {
@@ -66,7 +65,6 @@ func (navigator *Navigator) indexItems() {
 		if parent != nil {
 			prefix = string(parent.Element.GetTag()) + prefix
 		}
-		// logger.Logger.Println("index: ", navigator.Index, " current_item: ", current_item)
 		if current_item.Element.IsNavigable() {
 			navigator.Index = append(navigator.Index, IndexItem{prefix + string(current_item.Element.GetTag()), current_item})
 		}
@@ -78,13 +76,13 @@ func (navigator *Navigator) indexItems() {
 	}
 }
 
-func (navigator *Navigator) GetNavigationTree(elements []DamaElement) {
+func (navigator Navigator) GetNavigationTree(elements []DamaElement) {
 	rootChildren := getNavigationTree(elements)
 	navigator.Root.Children = &rootChildren
 	navigator.indexItems()
 }
 
-func (navigator *Navigator) SetupKeybindings() []rune {
+func (navigator Navigator) SetupKeybindings() []rune {
 	tags := []rune{}
 	for _, item := range navigator.Index {
 		tag := item.Item.Element.GetTag()
@@ -95,7 +93,7 @@ func (navigator *Navigator) SetupKeybindings() []rune {
 	return tags
 }
 
-func (navigator *Navigator) SearchIndex(tag rune) *IndexItem {
+func (navigator Navigator) SearchIndex(tag rune) *IndexItem {
 	var indexItem *IndexItem = nil
 	for _, item := range navigator.Index {
 		siblingPath := navigator.CurrentPath
@@ -115,7 +113,7 @@ func (navigator *Navigator) SearchIndex(tag rune) *IndexItem {
 	return indexItem
 }
 
-func (navigator *Navigator) Navigate(tag rune) bool {
+func (navigator Navigator) Navigate(tag rune) bool {
 	indexItem := navigator.SearchIndex(tag)
 
 	if indexItem != nil {
