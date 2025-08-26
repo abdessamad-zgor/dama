@@ -10,11 +10,11 @@ func TestNavigator(t *testing.T) {
 	widget1 := dama.NewWidget()
 	widget1.SetTag('A')
 	widget1.SetTitle("Widget 1")
-	app.AddElement(widget1, GridPosition{0, 0, 1, 1})
+	app.AddElement(widget1, dama.GridPosition{0, 0, 1, 1})
 	widget2 := dama.NewWidget()
 	widget2.SetTag('B')
 	widget2.SetTitle("Widget 2")
-	app.AddElement(widget2, GridPosition{1, 1, 1, 1})
+	app.AddElement(widget2, dama.GridPosition{1, 1, 1, 1})
 
 	go app.Start()
 	app.Exit()

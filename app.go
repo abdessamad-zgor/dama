@@ -49,7 +49,7 @@ func NewApp() (*App, error) {
 		NewNavigator(),
 		NewEventManager(),
 	}
-	app.Navigator.Root.Element = app 
+	app.Navigator.App = app 
 	app.EventManager.App = app
 	screen, err := initAppScreen()
 	if err != nil {
@@ -67,11 +67,16 @@ func NewApp() (*App, error) {
 	return app, nil
 }
 
+func (app *App) Init() {
+	app.Navigator.GetNavigationTree()
+	app.EventManager.EventLoop()
+}
+
 func (app *App) Start() {
 	app.Screen.SetStyle(tcell.StyleDefault)
-	app.SetupNavigation()
-	app.Draw()
+	app.Init()
 	go app.EventManager.EventLoop()
+	app.Draw()
 	_ = <-app.ExitChannel
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
@@ -90,51 +95,6 @@ func (app *App) Resize() {
 
 func (app *App) Exit() {
 	app.ExitChannel <- 0
-}
-
-func (app *App) SetupNavigation() {
-	//navigables := app.GetNavigables()
-	//app.Navigator.GetNavigationTree(navigables)
-	//tags := app.Navigator.SetupKeybindings()
-	//// TODO: replace this section
-	//if len(navigables) >= 1 {
-	//	app.Navigate(navigables[0].GetTag())
-	//}
-}
-
-func (app *App) Navigate(tag rune) {
-	//previousWidget, pOk := app.Navigator.Current.Element.(DamaWidget)
-	//if app.Navigator.Navigate(tag) {
-	//	app.UpdateNavigator()
-	//	widget, ok := app.Navigator.Current.Element.(DamaWidget)
-	//	if pOk {
-	//		previousEventMap := previousWidget.GetEventMap()
-	//		previousKeybindings := previousWidget.GetKeybindings()
-	//		for key, _ := range previousKeybindings {
-	//			delete(app.Keybindings, key)
-	//		}
-
-	//		for key, _ := range previousEventMap {
-	//			delete(app.EventMap, key)
-	//		}
-	//	}
-
-	//	if ok {
-	//		elementEventMap := widget.GetEventMap()
-	//		elementKeybindings := widget.GetKeybindings()
-	//		for key, value := range elementKeybindings {
-	//			app.SetKeybinding(key, value)
-	//		}
-
-	//		for key, value := range elementEventMap {
-	//			app.SetEventCallback(key, value)
-	//		}
-	//	}
-	//}
-}
-
-func (app *App) UpdateNavigator() {
-	//tags := app.Navigator.SetupKeybindings()
 }
 
 func (app *App) GetParent() *Container {

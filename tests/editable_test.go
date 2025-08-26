@@ -32,6 +32,6 @@ func TestEditbale(t *testing.T) {
     }    
 
     if cursor.Column != len("world") || cursor.Line != 1 {
-        t.Error("editable does not position the cursor correctely", *cursor)
+        t.Error("editable does not position the cursor correctely", cursor)
     }
 } 
