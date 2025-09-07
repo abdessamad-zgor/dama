@@ -14,7 +14,6 @@ type DamaContainer interface {
 	DamaElement
 	GetLayout() DamaLayout
 	SetLayout(layout DamaLayout) error
-	GetNavigables() []DamaElement
 }
 
 type Container struct {
@@ -72,15 +71,4 @@ func (container *Container) Render(screen tcell.Screen) {
 	for _, element := range elements {
 		element.Render(screen)
 	}
-}
-
-func (container *Container) GetNavigables() []DamaElement {
-	elements := container.GetElements()
-	navigables := []DamaElement{}
-	for _, element := range elements {
-		if element.IsNavigable() {
-			navigables = append(navigables, element)
-		}
-	}
-	return navigables
 }

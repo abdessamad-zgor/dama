@@ -13,19 +13,29 @@ type EventManager struct {
 	KeyChannel 			chan devent.KeyEvent
 	AppEventChannel     chan devent.AppEvent
 	Events 				dutils.EList[devent.DamaEvent]
+	GlobalEvents		dutils.List[devent.DamaEvent]
 }
 
 func NewEventManager() EventManager {
-	var excludeFn dutils.ExcludeFn[devent.DamaEvent]= func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
-		exists := false
+	var excludeFn dutils.ExcludeFn[devent.DamaEvent] = func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
+		insertable := true
+		toRemove := []devent.DamaEvent{}
 		for _, _item := range itemList.Items() {
-			if item == _item {
-				exists = true
-				break
+			if item.IsKeybinding() && _item.IsKeybinding() {
+				if _item.Detail.Keybinding.Matcher(item.Detail.Keybinding.Pattern).IsFull() {
+					insertable = false
+				}
+				if item.Detail.Keybinding.Matcher(_item.Detail.Keybinding.Pattern).IsFull() {
+					insertable = true
+					toRemove = append(toRemove, _item)
+				}
+				if !insertable {
+					return -1
+				}
 			}
 		}
-		if exists {
-			return -1
+		for _, _item := range toRemove {
+			itemList.Remove(_item)
 		}
 		return itemList.Length()
 	}
@@ -35,19 +45,26 @@ func NewEventManager() EventManager {
 		make(chan devent.KeyEvent),
 		make(chan devent.AppEvent),
 		dutils.NewEList[devent.DamaEvent](excludeFn),
+		dutils.NewList[devent.DamaEvent](),
 	}
 	return em
 }
 
 func (em *EventManager) RegisterEvents() {
-	current := &em.App.Navigator.Current
+	globals := em.GlobalEvents
+	navKeybindings := em.App.Navigator.GetNavigationKeybindings()
+	current := em.App.Navigator.current
 	em.Events.Empty()
-	for current != nil {
-		currentWidget, _ := current.Element.(*Widget)
-		for _, e := range currentWidget.Events.Items() {
-			em.Events.Add(e)
-		}
-		current = current.Parent
+	currentWidget, _ := current.element.(*Widget)
+
+	for _, e := range globals.Items() {
+		em.Events.Add(e)
+	}
+	for _, e := range navKeybindings.Items() {
+		em.Events.Add(e)
+	}
+	for _, e := range currentWidget.Events.Items() {
+		em.Events.Add(e)
 	}
 }
 
@@ -108,6 +125,14 @@ func (em *EventManager) HandleKeybindings() {
 	}
 }
 
-func (em *EventManager) HandleAppEvent(event devent.AppEvent) {
-	// later baby, not now
+func (em *EventManager) HandleAppEvent(event devent.AppEventName) {
+	events := []devent.DamaEvent{}
+	for _, event := range em.Items() {
+		if event.IsAppEvent() && event.Detail.AppEvent.Name == eventName {
+			events = append(events, event)
+		}
+	}
+	for _, appevent := range events {
+		appevent.Detail.AppEvent.Callback(appevent.Detail)
+	}
 }

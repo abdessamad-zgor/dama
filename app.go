@@ -4,7 +4,8 @@ import (
 	_ "fmt"
 	"os"
 	"testing"
-
+	devent "github.com/abdessamad-zgor/dama/event"
+	dkeystroke "github.com/abdessamad-zgor/dama/keystroke"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -13,6 +14,7 @@ type DamaApp interface {
 	Start()
 	Exit()
 	GetNavigator() Navigator
+	SetKeybinding(pattern string, callback devent.Callback)
 }
 
 type App struct {
@@ -44,13 +46,11 @@ func NewApp() (*App, error) {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 	app := &App{
 		NewContainer(),
-		make(chan int),
-		nil,
-		NewNavigator(),
-		NewEventManager(),
+		ExitChannel: make(chan int),
+		Screen: nil,
 	}
-	app.Navigator.App = app 
-	app.EventManager.App = app
+	app.Navigator = NewNavigator(app)
+	app.EventManager = NewEventManager(app)
 	screen, err := initAppScreen()
 	if err != nil {
 		return nil, err
@@ -67,9 +67,28 @@ func NewApp() (*App, error) {
 	return app, nil
 }
 
-func (app *App) Init() {
-	app.Navigator.GetNavigationTree()
-	app.EventManager.EventLoop()
+func (app *App) SetKeybinding(pattern string, cb devent.Callback) {
+	patternMatcher, err := dkeystroke.GetMatcher(pattern)
+	if err != nil {
+		panic(err)
+	}
+	keybinding := devent.DamaEvent{
+		devent.DKeybinding,
+		devent.EventDetail{
+			&devent.Keybinding{
+				pattern,
+				patternMatcher,
+				cb,
+			},
+			nil,
+		},
+	}
+
+	app.EventManager.GlobalEvents.Add(keybinding)
+}
+
+func (app *App) DispatchEvent(eventName devent.AppEventName) {
+	app.EventManager.AppEventChannel <- eventName
 }
 
 func (app *App) Start() {
@@ -100,6 +119,7 @@ func (app *App) Exit() {
 func (app *App) GetParent() *Container {
 	return nil
 }
+
 
 func (app *App) GetNavigator() Navigator {
 	return app.Navigator

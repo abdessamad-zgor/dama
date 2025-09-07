@@ -130,6 +130,102 @@ func (elist EList[V]) Length() int {
 	return elist.items.Length()
 }
 
+type Node[T comparable] struct {
+	Id			int
+	Parent		*Node
+	Value		T
+	Children	[]Node[T]
+}
+
+type Tree[T comparable] struct {
+	Root	*Node
+}
+
+func NewTree[T comparable](root T) Tree[T] {
+	rootNode := Node[T] {
+		iota,
+		nil,
+		root,
+		make([]Node[T], 0),
+	}
+	return Tree[T] {
+		&rootNode,
+	}
+}
+
+func (tree Tree[T]) Subtree(value T) Tree[T] {
+	nodeNode := tree.FindNode(node)
+	subtreeRoot := Node[T] {
+		iota,
+		nil,
+		nodeNode.Value,
+		nodeNode.Children,
+	}
+	subtree := Tree[T] {
+		&subtreeRoot,
+	}
+	return subtree
+}
+
+func (tree Tree[T]) Flatten() []Node[T] {
+	current := *tree.Root
+	flatTree := []Node[T]{current}
+	paths := current.Children
+	for len(paths) > 0 {
+		current = paths[len(paths) - 1]
+		paths = paths[:len(paths) - 1]
+		if len(current.Children) > 0 {
+			paths = append(paths, current.Children...)
+		}
+		flatTree = append(flatTree, current)
+	}
+	return flatTree
+}
+
+func (tree Tree[T]) FindNode(value T) *Node[T] {
+	flatTree := tree.Flatten()
+	for i, node := range flatTree {
+		if node.Value == value {
+			return &flatTree[i]
+		}
+	} 
+	return nil
+}
+
+func (tree Tree[T]) AddNode(parent T, child T) {
+	parentNode := tree.FindNode(parent)
+	childNode :=  Node[T] {
+		iota,
+		parentNode,
+		child,
+		make([]Node[T], 0),
+	}
+	parentNode.Children = append(parentNode.Children, childNode)
+}
+
+func (tree Tree[T]) Remove(value T) {
+	nodeNode := tree.FindNode(value)
+	parentNode := nodeNode.Parent
+	i := slices.IndexFunc(parentNode.Children, func (child Node[T]) bool {
+		return child.Value = value
+	})
+	if i >= 0 {
+		parentNode.Children = append(parentNode.Children[:i], parentNode.Children[i+1:]...)
+		parentNode.Children = append(parentNode.Children, nodeNode.Children...)
+	}
+}
+
+func (tree Tree[T]) RemoveSubtree(value T) {
+	valueNode := tree.FindNode(value)
+	parentNode := nodeNode.Parent
+	i := slices.IndexFunc(parentNode.Children, func (child Node[T]) bool {
+		return child.Value = value
+	})
+	if i >= 0 {
+		parentNode.Children = append(parentNode.Children[:i], parentNode.Children[i+1:]...)
+	}
+}
+
 func Assert(condition bool, elseerror string) {
 	if !condition {
 		panic(errors.New(elseerror))
