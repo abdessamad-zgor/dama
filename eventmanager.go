@@ -11,12 +11,12 @@ type EventManager struct {
 	App 				*App
 	Buffer  			string
 	KeyChannel 			chan devent.KeyEvent
-	AppEventChannel     chan devent.AppEvent
+	AppEventChannel     chan devent.AppEventName
 	Events 				dutils.EList[devent.DamaEvent]
 	GlobalEvents		dutils.List[devent.DamaEvent]
 }
 
-func NewEventManager() EventManager {
+func NewEventManager(app *App) EventManager {
 	var excludeFn dutils.ExcludeFn[devent.DamaEvent] = func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
 		insertable := true
 		toRemove := []devent.DamaEvent{}
@@ -40,10 +40,10 @@ func NewEventManager() EventManager {
 		return itemList.Length()
 	}
 	em := EventManager {
-		nil,
+		app,
 		"",
 		make(chan devent.KeyEvent),
-		make(chan devent.AppEvent),
+		make(chan devent.AppEventName),
 		dutils.NewEList[devent.DamaEvent](excludeFn),
 		dutils.NewList[devent.DamaEvent](),
 	}
@@ -60,7 +60,7 @@ func (em *EventManager) RegisterEvents() {
 	for _, e := range globals.Items() {
 		em.Events.Add(e)
 	}
-	for _, e := range navKeybindings.Items() {
+	for _, e := range navKeybindings {
 		em.Events.Add(e)
 	}
 	for _, e := range currentWidget.Events.Items() {
@@ -89,7 +89,7 @@ func (em *EventManager) EventLoop() {
 				em.Buffer = em.Buffer + keyEvent.Keystroke
 				em.HandleKeybindings()
 			case appEvent := <- em.AppEventChannel:
-				em.HandleAppEvent(appEvent)	
+			em.HandleAppEvent(appEvent)	
 		}
 	}
 }
@@ -125,14 +125,14 @@ func (em *EventManager) HandleKeybindings() {
 	}
 }
 
-func (em *EventManager) HandleAppEvent(event devent.AppEventName) {
+func (em *EventManager) HandleAppEvent(eventName devent.AppEventName) {
 	events := []devent.DamaEvent{}
-	for _, event := range em.Items() {
+	for _, event := range em.Events.Items() {
 		if event.IsAppEvent() && event.Detail.AppEvent.Name == eventName {
 			events = append(events, event)
 		}
 	}
 	for _, appevent := range events {
-		appevent.Detail.AppEvent.Callback(appevent.Detail)
+		appevent.Detail.AppEvent.Handler(appevent.Detail)
 	}
 }

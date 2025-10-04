@@ -1,9 +1,9 @@
 package dama
 
 import (
-	"slices"
+	_ "slices"
 
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/abdessamad-zgor/dama/logger"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	devent "github.com/abdessamad-zgor/dama/event"
 	keystroke "github.com/abdessamad-zgor/dama/keystroke"
@@ -18,10 +18,10 @@ type Navigator struct {
 	App		*App
 	tree	dutils.Tree[DamaElement]
 	current	IndexItem
-	index	List[IndexItem]
+	index	dutils.List[IndexItem]
 }
 
-func NewNavigator(app DamaApp) Navigator {
+func NewNavigator(app *App) Navigator {
 	navigator := Navigator{
 		app,
 		dutils.NewTree[DamaElement](app),
@@ -29,13 +29,13 @@ func NewNavigator(app DamaApp) Navigator {
 			"",
 			app,
 		},
-		NewList[IndexItem](),
+		dutils.NewList[IndexItem](),
 	}
 	return navigator
 }
 
 func (navigator Navigator) GetNavigationTree() {
-	current := *navigator.tree.Root.Value
+	current := navigator.tree.Root.Value
 	currentCont, ok := current.(*Container)
 	paths := []DamaElement{}
 	if ok {
@@ -62,7 +62,7 @@ func (navigator Navigator) GetNavigationTree() {
 
 func (navigator Navigator) Index() {
 	elementNodes := navigator.tree.Flatten()
-	navigables := []Node[DamaElement]{}
+	navigables := []dutils.Node[DamaElement]{}
 	for _, elementNode := range elementNodes {
 		if elementNode.Value.IsNavigable() {
 			navigables = append(navigables, elementNode)
@@ -72,10 +72,13 @@ func (navigator Navigator) Index() {
 		path := string(navigable.Value.GetTag())
 		parent := navigable.Parent
 		for parent != nil {
-			path = parent.Value.GetTag() + path
+			path = string(parent.Value.GetTag()) + path
 			parent = parent.Parent
 		}
-		navigator.index.Add(navigable.Value)
+		navigator.index.Add(IndexItem{
+			path,
+			navigable.Value,
+		})
 	}
 }
 
@@ -83,37 +86,44 @@ func (navigator Navigator) Navigate(tag rune) {
 	var element *IndexItem = nil
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
 	for _, e := range navigator.index.Items() {
-		if e.path == basePath + tag || e.path == navigator.current.path + tag {
-			element = e
+		if e.path == basePath + string(tag) || e.path == navigator.current.path + string(tag) {
+			element = &e
 			break;
 		}
 	}
 	if element != nil {
 		element.element.Focus()
-		navigator.element.Blur()
+		navigator.current.element.Blur()
 		navigator.current = *element
 	}
 }
 
-func (navigator Navigator) GetNagigationKeybindings() devent.Keybinding[] {
-	keybindings := []devent.Keybinding{}
+func (navigator Navigator) GetNavigationKeybindings() []devent.DamaEvent {
+	keybindings := []devent.DamaEvent{}
 	reachables := []IndexItem{}
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
-	for _, iItem := range navigator.index {
+	for _, iItem := range navigator.index.Items() {
 		if navigator.current.path == iItem.path[:len(iItem.path) - 1] || basePath == iItem.path[:len(iItem.path) - 1] {
 			reachables = append(reachables, iItem)
 		}
 	}
 	for _, reachable := range reachables {
 		matcher, _ := keystroke.GetMatcher(string(reachable.element.GetTag()))
-		keybindings = append(keybindings, devent.Keybinding {
-			string(reachable.element.GetTag()),
-			matcher,
-			func (event devent.Event) {
-				_ = event
-				navigator.Navigate(reachable.element.GetTag())
-			},
-		})
+		keybindings = append(keybindings, 
+			devent.DamaEvent{
+				devent.DKeybinding,
+				devent.EventDetail{
+					&devent.Keybinding {
+						string(reachable.element.GetTag()),
+						matcher,
+						func (event devent.EventDetail) {
+							_ = event
+							navigator.Navigate(reachable.element.GetTag())
+						},
+					},
+					nil,
+				},
+			})
 	}
 	return keybindings
 }

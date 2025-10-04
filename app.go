@@ -46,8 +46,10 @@ func NewApp() (*App, error) {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 	app := &App{
 		NewContainer(),
-		ExitChannel: make(chan int),
-		Screen: nil,
+		make(chan int),
+		nil,
+		Navigator{},
+		EventManager{},
 	}
 	app.Navigator = NewNavigator(app)
 	app.EventManager = NewEventManager(app)
@@ -93,7 +95,7 @@ func (app *App) DispatchEvent(eventName devent.AppEventName) {
 
 func (app *App) Start() {
 	app.Screen.SetStyle(tcell.StyleDefault)
-	app.Init()
+	//app.Init()
 	go app.EventManager.EventLoop()
 	app.Draw()
 	_ = <-app.ExitChannel

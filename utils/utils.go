@@ -2,10 +2,18 @@ package utils
 
 import (
 	"errors"
+	"slices"
 )
 
 type List[V comparable] struct {
 	items []V
+}
+
+var _index int = 0
+
+func Id() int {
+	_index += 1
+	return _index
 }
 
 func NewList[V comparable]() List[V] {
@@ -132,18 +140,18 @@ func (elist EList[V]) Length() int {
 
 type Node[T comparable] struct {
 	Id			int
-	Parent		*Node
+	Parent		*Node[T]
 	Value		T
 	Children	[]Node[T]
 }
 
 type Tree[T comparable] struct {
-	Root	*Node
+	Root	*Node[T]
 }
 
 func NewTree[T comparable](root T) Tree[T] {
 	rootNode := Node[T] {
-		iota,
+		Id(),
 		nil,
 		root,
 		make([]Node[T], 0),
@@ -154,9 +162,9 @@ func NewTree[T comparable](root T) Tree[T] {
 }
 
 func (tree Tree[T]) Subtree(value T) Tree[T] {
-	nodeNode := tree.FindNode(node)
+	nodeNode := tree.FindNode(value)
 	subtreeRoot := Node[T] {
-		iota,
+		Id(),
 		nil,
 		nodeNode.Value,
 		nodeNode.Children,
@@ -195,7 +203,7 @@ func (tree Tree[T]) FindNode(value T) *Node[T] {
 func (tree Tree[T]) AddNode(parent T, child T) {
 	parentNode := tree.FindNode(parent)
 	childNode :=  Node[T] {
-		iota,
+		Id(),
 		parentNode,
 		child,
 		make([]Node[T], 0),
@@ -207,7 +215,7 @@ func (tree Tree[T]) Remove(value T) {
 	nodeNode := tree.FindNode(value)
 	parentNode := nodeNode.Parent
 	i := slices.IndexFunc(parentNode.Children, func (child Node[T]) bool {
-		return child.Value = value
+		return child.Value == value
 	})
 	if i >= 0 {
 		parentNode.Children = append(parentNode.Children[:i], parentNode.Children[i+1:]...)
@@ -217,9 +225,9 @@ func (tree Tree[T]) Remove(value T) {
 
 func (tree Tree[T]) RemoveSubtree(value T) {
 	valueNode := tree.FindNode(value)
-	parentNode := nodeNode.Parent
+	parentNode := valueNode.Parent
 	i := slices.IndexFunc(parentNode.Children, func (child Node[T]) bool {
-		return child.Value = value
+		return child.Value == value
 	})
 	if i >= 0 {
 		parentNode.Children = append(parentNode.Children[:i], parentNode.Children[i+1:]...)
