@@ -7,10 +7,12 @@ import (
 
 func TestNavigator(t *testing.T) {
 	app.SetLayout(dama.NewGridLayout(2, 2))
+
 	widget1 := dama.NewWidget()
 	widget1.SetTag('A')
 	widget1.SetTitle("Widget 1")
 	app.AddElement(widget1, dama.GridPosition{0, 0, 1, 1})
+
 	widget2 := dama.NewWidget()
 	widget2.SetTag('B')
 	widget2.SetTitle("Widget 2")
@@ -19,11 +21,11 @@ func TestNavigator(t *testing.T) {
 	go app.Start()
 	app.Exit()
 
-	if len(app.GetNavigator().Index) != 2 {
-		t.Log("app.Navigator.Index = ", len(app.GetNavigator().Index))
+	if app.GetNavigator().GetIndex().Length() != 2 {
+		t.Error("app.Navigator.Index = ", app.GetNavigator().GetIndex().Length())
 	}
 
-	if app.GetNavigator().Current.Element.GetTag() != 'A' {
-		t.Log("Wrong current tag bro, we got " + string(app.GetNavigator().Current.Element.GetTag()) + " while it should be 'A'")
+	if app.GetNavigator().GetCurrent().GetElement().GetTag() != 'A' {
+		t.Error("Wrong current tag bro, we got " + string(app.GetNavigator().GetCurrent().GetElement().GetTag()) + " while it should be 'A'")
 	}
 }

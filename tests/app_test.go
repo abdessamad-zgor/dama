@@ -36,7 +36,7 @@ func TestAppRender(t *testing.T) {
 	width, height := app.GetBox().Width, app.GetBox().Height
 	logger.Logger.Println("width: ", width, " height: ", height)
 	if width <= 0 || height <= 0 {
-		t.Fatalf("failed to get screen width and height, %d, %d", app.GetBox().Width, app.GetBox().Height)
+		t.Errorf("failed to get screen width and height, %d, %d", app.GetBox().Width, app.GetBox().Height)
 	}
 }
 

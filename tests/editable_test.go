@@ -3,11 +3,10 @@ package tests
 import (
 	"testing"
 
-	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/abdessamad-zgor/dama/traits"
 )
 
-func TestEditbale(t *testing.T) {
+func TestEditable(t *testing.T) {
     editable := traits.NewEditable()
 
     editable.AddRune('h')
@@ -25,10 +24,8 @@ func TestEditbale(t *testing.T) {
     cursor := editable.Cursor
     contents := editable.Contents
 
-    logger.Logger.Println("contents: ", contents, " cursor: ", cursor)
-
     if contents != "hello\nworld" {
-        t.Error("editable does not insert runes correctely", contents)
+        t.Error("editable does not insert runes correctly", contents)
     }    
 
     if cursor.Column != len("world") || cursor.Line != 1 {

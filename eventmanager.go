@@ -16,7 +16,7 @@ type EventManager struct {
 	GlobalEvents		dutils.List[devent.DamaEvent]
 }
 
-func NewEventManager(app *App) EventManager {
+func NewEventManager(app *App) *EventManager {
 	var excludeFn dutils.ExcludeFn[devent.DamaEvent] = func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
 		insertable := true
 		toRemove := []devent.DamaEvent{}
@@ -39,7 +39,7 @@ func NewEventManager(app *App) EventManager {
 		}
 		return itemList.Length()
 	}
-	em := EventManager {
+	em := &EventManager {
 		app,
 		"",
 		make(chan devent.KeyEvent),
@@ -82,6 +82,7 @@ func (em *EventManager) HandleTcellEvents() {
 }
 
 func (em *EventManager) EventLoop() {
+	em.App.Navigator.Setup()
 	go em.HandleTcellEvents()
 	for {
 		select {

@@ -13,7 +13,8 @@ type DamaApp interface {
 	DamaContainer
 	Start()
 	Exit()
-	GetNavigator() Navigator
+	GetNavigator() *Navigator
+	GetEventManager() *EventManager
 	SetKeybinding(pattern string, callback devent.Callback)
 }
 
@@ -21,8 +22,8 @@ type App struct {
 	*Container
 	ExitChannel  	chan int
 	Screen       	tcell.Screen
-	Navigator 		Navigator
-	EventManager	EventManager
+	Navigator 		*Navigator
+	EventManager	*EventManager
 }
 
 func initAppScreen() (tcell.Screen, error) {
@@ -48,8 +49,8 @@ func NewApp() (*App, error) {
 		NewContainer(),
 		make(chan int),
 		nil,
-		Navigator{},
-		EventManager{},
+		nil,
+		nil,
 	}
 	app.Navigator = NewNavigator(app)
 	app.EventManager = NewEventManager(app)
@@ -122,8 +123,11 @@ func (app *App) GetParent() *Container {
 	return nil
 }
 
-
-func (app *App) GetNavigator() Navigator {
+func (app *App) GetNavigator() *Navigator {
 	return app.Navigator
+}
+
+func (app *App) GetEventManager() *EventManager {
+	return app.EventManager
 }
 

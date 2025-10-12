@@ -2,6 +2,8 @@ package dama
 
 import (
 	_ "slices"
+	_ "fmt"
+	_ "reflect"
 
 	_ "github.com/abdessamad-zgor/dama/logger"
 	dutils "github.com/abdessamad-zgor/dama/utils"
@@ -14,6 +16,14 @@ type IndexItem struct {
 	element	DamaElement
 }
 
+func (item IndexItem) GetElement() DamaElement {
+	return item.element
+}
+
+func (item IndexItem) GetPath() string {
+	return item.path
+}
+
 type Navigator struct {
 	App		*App
 	tree	dutils.Tree[DamaElement]
@@ -21,8 +31,8 @@ type Navigator struct {
 	index	dutils.List[IndexItem]
 }
 
-func NewNavigator(app *App) Navigator {
-	navigator := Navigator{
+func NewNavigator(app *App) *Navigator {
+	navigator := &Navigator{
 		app,
 		dutils.NewTree[DamaElement](app),
 		IndexItem {
@@ -34,12 +44,12 @@ func NewNavigator(app *App) Navigator {
 	return navigator
 }
 
-func (navigator Navigator) GetNavigationTree() {
+func (navigator *Navigator) GetNavigationTree() {
 	current := navigator.tree.Root.Value
-	currentCont, ok := current.(*Container)
+	root, ok := current.(*App)
 	paths := []DamaElement{}
 	if ok {
-		elements := currentCont.GetElements()
+		elements := root.GetElements()
 		for _, element := range elements {
 			navigator.tree.AddNode(current, element)
 		}
@@ -47,20 +57,20 @@ func (navigator Navigator) GetNavigationTree() {
 		
 		for len(paths) > 0 {
 			current = paths[len(paths) - 1]
-			currentCont, ok = current.(*Container)
+			currentCont, ok := current.(*Container)
 			if ok {
 				elements = currentCont.GetElements()
 				for _, element := range elements {
 					navigator.tree.AddNode(current, element)
 				}
-				paths = paths[:len(paths) - 1]
-				paths = append(paths, elements...)
 			}
+			paths = paths[:len(paths) - 1]
+			paths = append(paths, elements...)
 		}
 	}
 }
 
-func (navigator Navigator) Index() {
+func (navigator *Navigator) Index() {
 	elementNodes := navigator.tree.Flatten()
 	navigables := []dutils.Node[DamaElement]{}
 	for _, elementNode := range elementNodes {
@@ -82,7 +92,12 @@ func (navigator Navigator) Index() {
 	}
 }
 
-func (navigator Navigator) Navigate(tag rune) {
+func (navigator *Navigator) Setup() {
+	navigator.GetNavigationTree()
+	navigator.Index()
+}
+
+func (navigator *Navigator) Navigate(tag rune) {
 	var element *IndexItem = nil
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
 	for _, e := range navigator.index.Items() {
@@ -98,7 +113,7 @@ func (navigator Navigator) Navigate(tag rune) {
 	}
 }
 
-func (navigator Navigator) GetNavigationKeybindings() []devent.DamaEvent {
+func (navigator *Navigator) GetNavigationKeybindings() []devent.DamaEvent {
 	keybindings := []devent.DamaEvent{}
 	reachables := []IndexItem{}
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
@@ -126,4 +141,12 @@ func (navigator Navigator) GetNavigationKeybindings() []devent.DamaEvent {
 			})
 	}
 	return keybindings
+}
+
+func (navigator *Navigator) GetIndex() dutils.List[IndexItem] {
+	return navigator.index
+}
+
+func (navigator *Navigator) GetCurrent() IndexItem {
+	return navigator.current
 }

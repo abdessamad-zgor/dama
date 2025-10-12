@@ -6,7 +6,7 @@ import (
 )
 
 type List[V comparable] struct {
-	items []V
+	items *[]V
 }
 
 var _index int = 0
@@ -17,47 +17,47 @@ func Id() int {
 }
 
 func NewList[V comparable]() List[V] {
-	items := make([]V, 1)
+	items := make([]V, 0)
 	list := List[V] {
-		items,
+		&items,
 	}
 	return list
 }
 
 func (list List[T]) Add(element T) {
-	list.items = append(list.items, element)
+	*list.items = append(*list.items, element)
 }
 
 func (list List[T]) Remove(element T) {
 	ielem := 0
-	for i, elem := range list.items {
+	for i, elem := range *list.items {
 		if elem == element {
 			ielem = i
 			break
 		}
 	}
-	list.items = append(list.items[0:ielem], list.items[ielem + 1:]...)
+	*(list.items) = append((*list.items)[0:ielem], (*list.items)[ielem + 1:]...)
 }
 
 func (list List[T]) Insert(item T, index int) {
 	if index >= 0 && index <= list.Length() {
 		clist := make([]T, list.Length())
-		copy(clist, list.items)
-		list.items = append(clist[:index], item)
-		list.items = append(list.items, clist[index:]...)
+		copy(clist, *(list.items))
+		*(list.items) = append(clist[:index], item)
+		*(list.items) = append(*(list.items), clist[index:]...)
 	}
 }
 
 func (list List[T]) Empty() {
-	list.items = make([]T, 0)
+	*(list.items) = make([]T, 0)
 }
 
 func (list List[T]) Items() []T {
-	return list.items
+	return *(list.items)
 }
 
 func (list List[T]) Length() int {
-	return len(list.items)
+	return len(*list.items)
 }
 
 type VList[V comparable] struct {
