@@ -45,7 +45,7 @@ func NewNavigator(app *App) *Navigator {
 }
 
 func (navigator *Navigator) GetNavigationTree() {
-	current := navigator.tree.Root.Value
+	current := navigator.tree.Root.GetValue()
 	root, ok := current.(*App)
 	paths := []DamaElement{}
 	if ok {
@@ -74,20 +74,20 @@ func (navigator *Navigator) Index() {
 	elementNodes := navigator.tree.Flatten()
 	navigables := []dutils.Node[DamaElement]{}
 	for _, elementNode := range elementNodes {
-		if elementNode.Value.IsNavigable() {
+		if elementNode.GetValue().IsNavigable() {
 			navigables = append(navigables, elementNode)
 		}
 	}
 	for _, navigable := range navigables {
-		path := string(navigable.Value.GetTag())
+		path := string(navigable.GetValue().GetTag())
 		parent := navigable.Parent
 		for parent != nil {
-			path = string(parent.Value.GetTag()) + path
+			path = string(parent.GetValue().GetTag()) + path
 			parent = parent.Parent
 		}
 		navigator.index.Add(IndexItem{
 			path,
-			navigable.Value,
+			navigable.GetValue(),
 		})
 	}
 }

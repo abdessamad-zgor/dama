@@ -34,11 +34,11 @@ func TestTree(t *testing.T) {
 	tree.AddNode(0, 2)
 
 	node := tree.FindNode(2)
-	node.Value = 4
+	node.SetValue(4)
 
 	nnode := tree.FindNode(4)
 
-	if nnode.Value != 4 {
+	if nnode.GetValue() != 4 {
 		t.Errorf("expected value 2, found %d", nnode.Value)
 	}
 }
