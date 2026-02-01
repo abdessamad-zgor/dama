@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"errors"
+	_ "errors"
 	"slices"
 )
 
@@ -90,7 +90,7 @@ func (tree Tree[T]) AddNode(parent T, child T) {
 		&child,
 		make([]*Node[T], 0),
 	}
-	parentNode.Children = append(parentNode.Children, childNode)
+	parentNode.Children = append(parentNode.Children, &childNode)
 }
 
 func (tree Tree[T]) Remove(value T) {

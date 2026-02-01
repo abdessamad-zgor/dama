@@ -75,7 +75,7 @@ func (navigator *Navigator) Index() {
 	navigables := []dutils.Node[DamaElement]{}
 	for _, elementNode := range elementNodes {
 		if elementNode.GetValue().IsNavigable() {
-			navigables = append(navigables, elementNode)
+			navigables = append(navigables, *elementNode)
 		}
 	}
 	for _, navigable := range navigables {
