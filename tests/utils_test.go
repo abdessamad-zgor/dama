@@ -37,8 +37,10 @@ func TestTree(t *testing.T) {
 	node.SetValue(4)
 
 	nnode := tree.FindNode(4)
+	flattened := tree.Flatten()
 
 	if nnode.GetValue() != 4 {
 		t.Errorf("expected value 2, found %d", nnode.Value)
 	}
+	t.Log("flattened tree: ", flattened)
 }

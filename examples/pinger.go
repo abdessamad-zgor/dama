@@ -4,8 +4,15 @@ import (
 	"fmt"
 
 	"github.com/abdessamad-zgor/dama"
-	"github.com/abdessamad-zgor/dama/elements"
+	"github.com/abdessamad-zgor/dama/traits"
 )
+
+type Input struct {
+	dama.DamaWidget
+	traits.Editable
+}
+
+
 
 func main() {
 	app, err := dama.NewApp()
@@ -13,11 +20,20 @@ func main() {
 		panic(fmt.Sprintf("failed to initialize app due to : %v\n", err))
 	}
 
-	url := elements.NewInput()
+	url := Input {
+		dama.NewWidget(),
+		traits.NewEditable(),
+	}
 	url.SetTag('U')
 	url.SetTitle("URL")
+	url.SetKeybinding("<char>", func (event dama.EventDetail) {
 
-	output := elements.NewTextArea()
+	})
+
+	output := Input {
+		dama.NewWidget(),
+		traits.NewEditable(),
+	}
 	output.SetTag('O')
 	output.SetTitle("Output")
 

@@ -18,8 +18,7 @@ func TestNavigator(t *testing.T) {
 	widget2.SetTitle("Widget 2")
 	app.AddElement(widget2, dama.GridPosition{1, 1, 1, 1})
 
-	go app.Start()
-	app.Exit()
+	app.GetNavigator().Setup()
 
 	if app.GetNavigator().GetIndex().Length() != 2 {
 		t.Error("app.Navigator.Index = ", app.GetNavigator().GetIndex().Length())

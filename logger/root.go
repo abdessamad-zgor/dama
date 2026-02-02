@@ -23,7 +23,14 @@ func init() {
 		if err != nil {
 			panic(err)
 		}
-		Logger = log.New(logFile, "", log.Ltime|log.Ldate|log.Lshortfile)
+		Logger = log.New(logFile, "", log.Ltime|log.Ldate)
 	}
 }
 
+func Log(v ...any) {
+	if Logger != nil {
+		//pc, file, line, _ := runtime.Caller(1)
+		//callerFunc := runtime.FuncForPC(pc)
+		Logger.Print(v...)
+	}
+}

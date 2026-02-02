@@ -36,6 +36,7 @@ func (list List[T]) Insert(item T, index int) {
 	}
 }
 
+
 func (list List[T]) Empty() {
 	*(list.items) = make([]T, 0)
 }

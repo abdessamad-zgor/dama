@@ -5,7 +5,7 @@ import (
 	_ "fmt"
 	_ "reflect"
 
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/logger"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	devent "github.com/abdessamad-zgor/dama/event"
 	keystroke "github.com/abdessamad-zgor/dama/keystroke"
@@ -46,10 +46,12 @@ func NewNavigator(app *App) *Navigator {
 
 func (navigator *Navigator) GetNavigationTree() {
 	current := navigator.tree.Root.GetValue()
+	logger.Log("Get root of navigation tree: ", current)
 	root, ok := current.(*App)
 	paths := []DamaElement{}
 	if ok {
 		elements := root.GetElements()
+		logger.Log("Getting root elements, found ", len(elements))
 		for _, element := range elements {
 			navigator.tree.AddNode(current, element)
 		}
@@ -58,6 +60,7 @@ func (navigator *Navigator) GetNavigationTree() {
 		for len(paths) > 0 {
 			current = paths[len(paths) - 1]
 			currentCont, ok := current.(*Container)
+			elements = []DamaElement{}
 			if ok {
 				elements = currentCont.GetElements()
 				for _, element := range elements {
@@ -71,7 +74,9 @@ func (navigator *Navigator) GetNavigationTree() {
 }
 
 func (navigator *Navigator) Index() {
+	logger.Log("Indexing navigation tree")
 	elementNodes := navigator.tree.Flatten()
+	logger.Log("Got flattened elements tree: ", elementNodes)
 	navigables := []dutils.Node[DamaElement]{}
 	for _, elementNode := range elementNodes {
 		if elementNode.GetValue().IsNavigable() {
@@ -93,8 +98,11 @@ func (navigator *Navigator) Index() {
 }
 
 func (navigator *Navigator) Setup() {
+	logger.Log("setup navigation")
 	navigator.GetNavigationTree()
 	navigator.Index()
+	navigator.current = navigator.index.Items()[0]
+	navigator.current.element.Focus()
 }
 
 func (navigator *Navigator) Navigate(tag rune) {

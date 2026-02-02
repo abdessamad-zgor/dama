@@ -1,1 +1,9 @@
-2026/02/01 15:30:24 app_test.go:37: width:  80  height:  25
+2026/02/01 21:53:06 Found special pattern: char
+2026/02/01 21:53:06 Getting matcher pattern.[[<char> <char> char  char ]]
+2026/02/01 21:53:06 matcher pattern: {(\w)* [] [] [0] 1}
+2026/02/01 21:53:06 Found special pattern: num
+2026/02/01 21:53:06 Getting matcher pattern.[[<num> <num> num  num ]]
+2026/02/01 21:53:06 matcher pattern: {(\d+)* [] [0] [] 1}
+2026/02/01 21:53:06 Found special pattern: text
+2026/02/01 21:53:06 Getting matcher pattern.[[<text> <text> text  text ]]
+2026/02/01 21:53:06 matcher pattern: {(\w+)* [0] [] [] 1}

@@ -47,12 +47,13 @@ func (match Match) IsNone() bool {
 func GetMatcherPattern(matches [][]string) MatcherPatternResult {
 	var matcherPattern bytes.Buffer
 	result := MatcherPatternResult{}
+	logger.Log("Getting matcher pattern.", matches)
 	for i, match := range matches {
 		specialChar := match[1]
 		if specialChar != "" && match[4] == "" {
 			matcherPattern.WriteString(`(`+specialChar+`)*`)
 			result.all += 1
-		}else {
+		} else {
 			if match[4] == "text" {
 				matcherPattern.WriteString(`(\w+)*`)
 				result.texts = append(result.texts, i)
@@ -95,7 +96,8 @@ func GetMatcher(pattern string) (Matcher, error) {
 		for _, match := range matches {
 			specialPattern := match[4]
 			if specialPattern != "" {
-				if specialPattern != "text" || specialPattern != "num" || specialPattern != "char" {
+				logger.Log("Found special pattern: ", specialPattern)
+				if specialPattern != "text" && specialPattern != "num" && specialPattern != "char" {
 					isSpecial := slices.ContainsFunc(SpecialCharacters, func(value string) bool {
 						return value[1:len(value)-1] == specialPattern
 					})
@@ -107,7 +109,7 @@ func GetMatcher(pattern string) (Matcher, error) {
 		}
 
 		matcherPattern := GetMatcherPattern(matches)
-		logger.Logger.Println("matcher pattern: ", matcherPattern)
+		logger.Log("matcher pattern: ", matcherPattern)
 
 		matcher := func (keystrokes string) Match {
 			match := Match{}
@@ -141,7 +143,6 @@ func GetMatcher(pattern string) (Matcher, error) {
 		}
 
 		return matcher, nil
-	} else {
-		return noOp, errors.New(fmt.Sprintf("%s is not a valid keybinding pattern.", pattern))
 	}
+	return noOp, errors.New(fmt.Sprintf("%s is not a valid keybinding pattern.", pattern))
 }
