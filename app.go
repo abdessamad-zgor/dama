@@ -5,8 +5,9 @@ import (
 	"os"
 	"testing"
 	devent "github.com/abdessamad-zgor/dama/event"
-	dkeystroke "github.com/abdessamad-zgor/dama/keystroke"
+	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/gdamore/tcell/v2"
+	"github.com/abdessamad-zgor/dama/logger"
 )
 
 type DamaApp interface {
@@ -14,8 +15,9 @@ type DamaApp interface {
 	Start()
 	Exit()
 	GetNavigator() *Navigator
+	GetScreen() tcell.Screen
 	GetEventManager() *EventManager
-	SetKeybinding(pattern string, callback devent.Callback)
+	SetKeybinding(pattern string, callback devent.KeybindingCallback)
 }
 
 type App struct {
@@ -70,8 +72,8 @@ func NewApp() (*App, error) {
 	return app, nil
 }
 
-func (app *App) SetKeybinding(pattern string, cb devent.Callback) {
-	patternMatcher, err := dkeystroke.GetMatcher(pattern)
+func (app *App) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
+	patternMatcher, err := dkeybinding.GetMatcher(pattern)
 	if err != nil {
 		panic(err)
 	}
@@ -95,10 +97,12 @@ func (app *App) DispatchEvent(eventName devent.AppEventName) {
 }
 
 func (app *App) Start() {
+	logger.Log("Starting App")
 	app.Screen.SetStyle(tcell.StyleDefault)
 	//app.Init()
-	go app.EventManager.EventLoop()
+	go app.EventManager.StartEventLoop()
 	app.Draw()
+	logger.Log("App drawn")
 	_ = <-app.ExitChannel
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
@@ -116,6 +120,7 @@ func (app *App) Resize() {
 }
 
 func (app *App) Exit() {
+	app.EventManager.Wg.Wait()
 	app.ExitChannel <- 0
 }
 
@@ -131,3 +136,6 @@ func (app *App) GetEventManager() *EventManager {
 	return app.EventManager
 }
 
+func (app *App) GetScreen() tcell.Screen {
+	return app.Screen
+}

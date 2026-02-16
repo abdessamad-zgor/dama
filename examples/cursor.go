@@ -38,18 +38,16 @@ func main() {
 	quit := make(chan struct{})
 	go func(s tcell.Screen) {
 		for {
-			logger.Logger.Println("before failure")
 			s.Show()
-			logger.Logger.Println("after failure")
 			ev := s.PollEvent()
 			switch ev := ev.(type) {
 			case *tcell.EventKey:
 				key := ev.Key()
+				logger.Log("key: ", key, fmt.Sprintf(", event: %+v", ev))
 				switch key {
 				case tcell.KeyRune:
-					logger.Logger.Println("key: ", key)
 				case tcell.KeyEscape, tcell.KeyEnter, tcell.KeyCtrlC:
-					logger.Logger.Println("key: ", key)
+					logger.Log("key: ", key)
 					close(quit)
 					return
 				case tcell.KeyCtrlL:

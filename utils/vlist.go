@@ -1,5 +1,9 @@
 package utils
 
+import (
+	"github.com/abdessamad-zgor/dama/logger"
+)
+
 type VList[V comparable] struct {
 	items	*map[string]List[V]
 	current string
@@ -7,6 +11,7 @@ type VList[V comparable] struct {
 
 func NewVList[V comparable]() VList[V] {
 	_default := make(map[string]List[V])
+	_default[""] = NewList[V]()
 	vlist := VList[V] {
 		&_default,
 		"",
@@ -31,6 +36,7 @@ func (vlist VList[V]) RemoveView(key string) {
 }
 
 func (vlist VList[V]) Length() int {
+	logger.Log((*(vlist.items))[vlist.current])
 	return ((*vlist.items)[vlist.current]).Length()
 }
 

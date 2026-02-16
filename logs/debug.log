@@ -1,9 +1,143 @@
-2026/02/01 21:53:06 Found special pattern: char
-2026/02/01 21:53:06 Getting matcher pattern.[[<char> <char> char  char ]]
-2026/02/01 21:53:06 matcher pattern: {(\w)* [] [] [0] 1}
-2026/02/01 21:53:06 Found special pattern: num
-2026/02/01 21:53:06 Getting matcher pattern.[[<num> <num> num  num ]]
-2026/02/01 21:53:06 matcher pattern: {(\d+)* [] [0] [] 1}
-2026/02/01 21:53:06 Found special pattern: text
-2026/02/01 21:53:06 Getting matcher pattern.[[<text> <text> text  text ]]
-2026/02/01 21:53:06 matcher pattern: {(\w+)* [0] [] [] 1}
+keybinding/parser.go:72: matcher pattern: *
+app.go:100: Starting App
+eventmanager.go:96: Starting App Event Loop
+navigator.go:102: Setup navigation
+navigator.go:49: Get root of navigation tree: &{0xc000100990 0xc0000720e0 0xc000134680 0xc0001049c0 0xc00015c0a0}
+navigator.go:54: Getting root elements, found 1
+navigator.go:77: Indexing navigation tree
+navigator.go:79: Got flattened elements tree: [0xc000100a20 0xc0000aa090]
+navigator.go:98: Finished indexing navigation tree: {0xc00000e018}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:80: Starting tcell event loop.
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323840614723318 ext:1591818 loc:0x762dc0} mod:0 key:256 ch:72}
+eventmanager.go:103: Key Sent: {H 2026-02-16 14:21:05.60649855 +0000 +00 m=+0.001591818}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+app.go:105: App drawn
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:H Buffer:H CatchAll:map[0:72]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched:H Buffer:H CatchAll:map[0:72]}
+eventmanager.go:133: full keybinding matchs: [{keybinding {0xc000032880 <nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:137: Found one full keybinding: {keybinding {0xc000032880 <nil>}}
+nt_test.go:18: From keybinding callback: {Pattern:* Matched:H Buffer:H CatchAll:map[0:72]}
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323841189462405 ext:502589183 loc:0x762dc0} mod:0 key:256 ch:101}
+eventmanager.go:103: Key Sent: {e 2026-02-16 14:21:06.107495813 +0000 +00 m=+0.502589183}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:e Buffer:e CatchAll:map[0:101]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched:e Buffer:e CatchAll:map[0:101]}
+eventmanager.go:133: full keybinding matchs: [{keybinding {0xc000032880 <nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:137: Found one full keybinding: {keybinding {0xc000032880 <nil>}}
+nt_test.go:18: From keybinding callback: {Pattern:* Matched:e Buffer:e CatchAll:map[0:101]}
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323841690536395 ext:1003663224 loc:0x762dc0} mod:0 key:256 ch:108}
+eventmanager.go:103: Key Sent: {l 2026-02-16 14:21:06.608569803 +0000 +00 m=+1.003663224}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:133: full keybinding matchs: [{keybinding {0xc000032880 <nil>}}]
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:137: Found one full keybinding: {keybinding {0xc000032880 <nil>}}
+nt_test.go:18: From keybinding callback: {Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323842265252894 ext:1504637850 loc:0x762dc0} mod:0 key:256 ch:108}
+eventmanager.go:103: Key Sent: {l 2026-02-16 14:21:07.109544478 +0000 +00 m=+1.504637850}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:133: full keybinding matchs: [{keybinding {0xc000032880 <nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:137: Found one full keybinding: {keybinding {0xc000032880 <nil>}}
+nt_test.go:18: From keybinding callback: {Pattern:* Matched:l Buffer:l CatchAll:map[0:108]}
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323842766332912 ext:2005717913 loc:0x762dc0} mod:0 key:256 ch:111}
+eventmanager.go:103: Key Sent: {o 2026-02-16 14:21:07.610624496 +0000 +00 m=+2.005717913}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:o CatchAll:map[]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:29: IsPartial(): match={Pattern:A Matched: Buffer:o CatchAll:map[]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323843341117232 ext:2506760375 loc:0x762dc0} mod:0 key:256 ch:32}
+eventmanager.go:103: Key Sent: {  2026-02-16 14:21:08.111666992 +0000 +00 m=+2.506760375}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched: Buffer:o  CatchAll:map[]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched: Buffer:o  CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323843842255910 ext:3007899039 loc:0x762dc0} mod:0 key:256 ch:87}
+eventmanager.go:103: Key Sent: {W 2026-02-16 14:21:08.61280567 +0000 +00 m=+3.007899039}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched: Buffer:o W CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched: Buffer:o W CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323844417189717 ext:3509091070 loc:0x762dc0} mod:0 key:256 ch:111}
+eventmanager.go:103: Key Sent: {o 2026-02-16 14:21:09.113997653 +0000 +00 m=+3.509091070}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:o Wo CatchAll:map[]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:29: IsPartial(): match={Pattern:A Matched: Buffer:o Wo CatchAll:map[]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323844918330776 ext:4010232095 loc:0x762dc0} mod:0 key:256 ch:114}
+eventmanager.go:103: Key Sent: {r 2026-02-16 14:21:09.615138712 +0000 +00 m=+4.010232095}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched: Buffer:o Wor CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched: Buffer:o Wor CatchAll:map[]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323845493270259 ext:4511429741 loc:0x762dc0} mod:0 key:256 ch:108}
+eventmanager.go:103: Key Sent: {l 2026-02-16 14:21:10.116336371 +0000 +00 m=+4.511429741}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:o Worl CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:A Matched: Buffer:o Worl CatchAll:map[]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323845994485262 ext:5012644810 loc:0x762dc0} mod:0 key:256 ch:100}
+eventmanager.go:103: Key Sent: {d 2026-02-16 14:21:10.617551374 +0000 +00 m=+5.012644810}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched: Buffer:o World CatchAll:map[]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:29: IsPartial(): match={Pattern:* Matched: Buffer:o World CatchAll:map[]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []
+eventmanager.go:83: Recieved tcell event&{t:{wall:14005323846568956789 ext:5513374355 loc:0x762dc0} mod:0 key:256 ch:33}
+eventmanager.go:103: Key Sent: {! 2026-02-16 14:21:11.118281077 +0000 +00 m=+5.513374355}
+keybinding/parser.go:72: matcher pattern: A
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:* CatchAll:map[]}
+keybinding/parser.go:24: IsFull(): match={Pattern:* Matched:A Buffer:A CatchAll:map[0:65]}
+eventmanager.go:76: Registred events: [{Type:keybinding Detail:{Keybinding:0xc000032880 AppEvent:<nil>}}]
+keybinding/parser.go:24: IsFull(): match={Pattern:A Matched: Buffer:o World! CatchAll:map[]}
+keybinding/parser.go:29: IsPartial(): match={Pattern:A Matched: Buffer:o World! CatchAll:map[]}
+eventmanager.go:133: full keybinding matchs: []
+eventmanager.go:134: partial keybinding matchs: []

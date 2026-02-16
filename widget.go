@@ -3,15 +3,15 @@ package dama
 import (
 	devent "github.com/abdessamad-zgor/dama/event"
 	dutils "github.com/abdessamad-zgor/dama/utils"
-	dkeystroke "github.com/abdessamad-zgor/dama/keystroke"
+	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/gdamore/tcell/v2"
 )
 
 type DamaWidget interface {
 	GetParent() *Container
 
-	SetKeybinding(pattern string, callback devent.Callback)
-	SetAppEvent(eventname devent.AppEventName, callback devent.Callback)
+	SetKeybinding(pattern string, callback devent.KeybindingCallback)
+	SetAppEvent(eventname devent.AppEventName, callback devent.AppEventCallback)
 	DamaElement
 }
 
@@ -41,8 +41,8 @@ func (widget *Widget) GetBox() Box {
 	return box
 }
 
-func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
-	patternMatcher, err := dkeystroke.GetMatcher(pattern)
+func (widget *Widget) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
+	patternMatcher, err := dkeybinding.GetMatcher(pattern)
 	if err != nil {
 		panic(err)
 	}
@@ -61,7 +61,7 @@ func (widget *Widget) SetKeybinding(pattern string, cb devent.Callback) {
 	widget.Events.Add(keybinding)
 }
 
-func (widget *Widget) SetAppEvent(eventName devent.AppEventName, cb devent.Callback) {
+func (widget *Widget) SetAppEvent(eventName devent.AppEventName, cb devent.AppEventCallback) {
 	appevent := devent.DamaEvent{
 		devent.DAppEvent,
 		devent.EventDetail{

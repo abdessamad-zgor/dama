@@ -1,19 +1,21 @@
 package logger
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path"
+	"path/filepath"
 	"runtime"
-	"testing"
+	_"testing"
 )
 
 var Logger *log.Logger
 
 func init() {
-	_, ok := os.LookupEnv("DEBUG")
-    isTesting := testing.Testing()
-	if ok || isTesting {
+	//_, ok := os.LookupEnv("DEBUG")
+    //isTesting := testing.Testing()
+	//if ok || isTesting {
 		//cwd, err := os.Getwd()
         _,  loggerPackageRoot, _, ok := runtime.Caller(0)
 		if !ok {
@@ -23,14 +25,17 @@ func init() {
 		if err != nil {
 			panic(err)
 		}
-		Logger = log.New(logFile, "", log.Ltime|log.Ldate)
-	}
+		Logger = log.New(logFile, "", 0)
+	//}
 }
 
 func Log(v ...any) {
 	if Logger != nil {
-		//pc, file, line, _ := runtime.Caller(1)
-		//callerFunc := runtime.FuncForPC(pc)
-		Logger.Print(v...)
+		_, file, line, _ := runtime.Caller(1)
+		rootDir, _ := os.Getwd()
+		relativeFilePath, _ := filepath.Rel(rootDir, file)
+		toLog := []any{fmt.Sprintf("%s:%d: ", relativeFilePath[3:], line)}
+		toLog = append(toLog, v...)
+		Logger.Print(toLog...)
 	}
 }

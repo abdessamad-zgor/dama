@@ -27,6 +27,22 @@ func TestList(t *testing.T) {
 	}
 }
 
+
+func TestVList(t *testing.T) {
+	list := utils.NewVList[int]()
+
+	if list.Length() != 0 {
+		t.Errorf("expected length to be 0, found %d", list.Length())
+	}
+
+	list.Add(1)
+	list.Add(2)
+
+	if list.Length() != 2 {
+		t.Errorf("expected length to be 2, found %d", list.Length())
+	}
+}
+
 func TestTree(t *testing.T) {
 	tree := utils.NewTree[int](0)
 

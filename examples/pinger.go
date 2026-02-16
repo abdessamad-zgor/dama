@@ -26,7 +26,7 @@ func main() {
 	}
 	url.SetTag('U')
 	url.SetTitle("URL")
-	url.SetKeybinding("<char>", func (event dama.EventDetail) {
+	url.SetKeybinding("<char>", func (match keybinding.Match) {
 
 	})
 

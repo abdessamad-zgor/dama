@@ -8,7 +8,7 @@ import (
 	"github.com/abdessamad-zgor/dama/logger"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	devent "github.com/abdessamad-zgor/dama/event"
-	keystroke "github.com/abdessamad-zgor/dama/keystroke"
+	keybinding "github.com/abdessamad-zgor/dama/keybinding"
 )
 
 type IndexItem struct {
@@ -95,10 +95,11 @@ func (navigator *Navigator) Index() {
 			navigable.GetValue(),
 		})
 	}
+	logger.Log("Finished indexing navigation tree: ", navigator.index)
 }
 
 func (navigator *Navigator) Setup() {
-	logger.Log("setup navigation")
+	logger.Log("Setup navigation")
 	navigator.GetNavigationTree()
 	navigator.Index()
 	navigator.current = navigator.index.Items()[0]
@@ -131,7 +132,7 @@ func (navigator *Navigator) GetNavigationKeybindings() []devent.DamaEvent {
 		}
 	}
 	for _, reachable := range reachables {
-		matcher, _ := keystroke.GetMatcher(string(reachable.element.GetTag()))
+		matcher, _ := keybinding.GetMatcher(string(reachable.element.GetTag()))
 		keybindings = append(keybindings, 
 			devent.DamaEvent{
 				devent.DKeybinding,
@@ -139,8 +140,8 @@ func (navigator *Navigator) GetNavigationKeybindings() []devent.DamaEvent {
 					&devent.Keybinding {
 						string(reachable.element.GetTag()),
 						matcher,
-						func (event devent.EventDetail) {
-							_ = event
+						func (match keybinding.Match) {
+							_ = match
 							navigator.Navigate(reachable.element.GetTag())
 						},
 					},

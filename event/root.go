@@ -3,7 +3,7 @@ package event
 import (
 	"time"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/keystroke"
+	"github.com/abdessamad-zgor/dama/keybinding"
 )
 
 type EventType string
@@ -13,7 +13,8 @@ const (
 	DKeybinding EventType = "keybinding"
 )
 
-type Callback = func (event EventDetail)
+type KeybindingCallback = func (match keybinding.Match)
+type AppEventCallback = func ()
 
 type DamaEvent struct {
 	Type	EventType
@@ -30,18 +31,18 @@ type AppEventName string
 type AppEvent struct {
 	Name	AppEventName
 	Payload any
-	Handler	Callback
+	Handler	AppEventCallback
 }
 
 type KeyEvent struct {
-	Keystroke  string
-	RecievedAt time.Time
+	Key			string
+	RecievedAt	time.Time
 }
 
 type Keybinding struct {
 	Pattern		string
-	Matcher		keystroke.Matcher
-	Handler     Callback
+	Matcher		keybinding.Matcher
+	Handler     KeybindingCallback
 }
 
 func ToKeyEvent(event tcell.Event) KeyEvent {
@@ -55,7 +56,7 @@ func ToKeyEvent(event tcell.Event) KeyEvent {
 			ke.When(),
 		}
 	default:
-		eventString, _ := keystroke.TcellKeyToString[key]
+		eventString, _ := keybinding.TcellKeyToString[key]
 		return KeyEvent {
 			eventString,
 			ke.When(),
