@@ -29,7 +29,7 @@ func TestList(t *testing.T) {
 
 
 func TestVList(t *testing.T) {
-	list := utils.NewVList[int]()
+	list := utils.NewVList[int, int](1, 2, 3)
 
 	if list.Length() != 0 {
 		t.Errorf("expected length to be 0, found %d", list.Length())

@@ -59,16 +59,19 @@ func NewEventManager(app *App) *EventManager {
 
 func (em *EventManager) RegisterEvents() {
 	globals := em.GlobalEvents
-	navKeybindings := em.App.Navigator.GetNavigationKeybindings()
 	current := em.App.Navigator.current
 	em.Events.Empty()
 	currentWidget, _ := current.element.(*Widget)
+	//modalKeybindings := currentWidget.GetModalKeybindings()
 
 	for _, e := range globals.Items() {
 		em.Events.Add(e)
 	}
-	for _, e := range navKeybindings {
-		em.Events.Add(e)
+	if currentWidget.GetMode() == devent.NormalMode {
+		navKeybindings := em.App.Navigator.GetNavigationKeybindings()
+		for _, e := range navKeybindings {
+			em.Events.Add(e)
+		}
 	}
 	for _, e := range currentWidget.Events.Items() {
 		em.Events.Add(e)
@@ -96,8 +99,8 @@ func (em *EventManager) StartEventLoop() {
 	logger.Log("Starting App Event Loop")
 	em.App.Navigator.Setup()
 	go em.HandleTcellEvents()
+	em.RegisterEvents()
 	for {
-		em.RegisterEvents()
 		select {
 			case keyEvent := <- em.KeyChannel:
 				logger.Log("Key Sent: ", keyEvent)
@@ -132,17 +135,17 @@ func (em *EventManager) HandleKeybindings() {
 	// if there are no other keybindings that could match the 
 	logger.Log("full keybinding matchs: ", fulls)
 	logger.Log("partial keybinding matchs: ", partials)
-	if len(fulls) == 1 && len(partials) == 0 {
-		e := fulls[0]
-		logger.Log("Found one full keybinding: ", e)
-		kb := e.Detail.Keybinding
-		kb.Handler(kb.Matcher(em.Buffer))
-		em.Buffer = ""
-	}
+	if len(fulls) == 1 {
+		if len(partials) == 0 {
+			e := fulls[0]
+			logger.Log("Found one full keybinding: ", e)
+			kb := e.Detail.Keybinding
+			kb.Handler(kb.Matcher(em.Buffer))
+			em.Buffer = ""
+		}
 
-	if len(partials) > 0 {
 		time.Sleep(300 * time.Millisecond)
-		if buffer == em.Buffer && len(fulls) == 1 {
+		if buffer == em.Buffer {
 			e := fulls[0]
 			logger.Log("Found one full keybinding after wait: ", e)
 			kb := e.Detail.Keybinding

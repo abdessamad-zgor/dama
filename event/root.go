@@ -13,6 +13,14 @@ const (
 	DKeybinding EventType = "keybinding"
 )
 
+type Mode string
+
+const (
+	InsertMode Mode = "insert"
+	NormalMode Mode = "normal"
+	VisualMode Mode = "visual"
+)
+
 type KeybindingCallback = func (match keybinding.Match)
 type AppEventCallback = func ()
 
