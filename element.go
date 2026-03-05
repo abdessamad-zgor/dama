@@ -5,8 +5,8 @@ import (
 	"github.com/gdamore/tcell/v2"
 )
 
-type DamaElement interface {
-	dtraits.DamaStyle
+type Element interface {
+	dtraits.Style
 	Render(screen tcell.Screen)
 	GetBox() Box
 	SetBox(x int, y int, width int, height int)
@@ -22,7 +22,7 @@ type DamaElement interface {
 	IsFocused() bool
 }
 
-type Element struct {
+type element_s struct {
 	X     	int
 	Y      	int
 	Width  	int
@@ -30,44 +30,46 @@ type Element struct {
 	Tag    	rune
 	Title  	string
 	Focused	bool
-	dtraits.Styling
+	dtraits.Style
 }
 
-func (element *Element) Render(screen tcell.Screen) {
+func (element *element_s) Render(screen tcell.Screen) {
 
 }
 
-func (element *Element) RenderTag(screen tcell.Screen) {
+func (element *element_s) RenderTag(screen tcell.Screen) {
 	if element.Tag != rune(0) {
 		offset := 2
 		tagText := "["+string(element.Tag)+"]"
-		color := tcell.ColorDefault
-		if element.Style.Border != nil {
-			color = element.Style.Border.Color
+		style := tcell.StyleDefault
+		elementStyle := element.GetStyleProperties()
+		if borderColor, ok := elementStyle.GetBorderColor(); ok {
+			style = style.Foreground(borderColor)
 		}
 		for i, char := range tagText {
-			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, tcell.StyleDefault.Foreground(color))
+			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, style)
 		}
 	}
 }
 
-func (element *Element) RenderTitle(screen tcell.Screen) {
+func (element *element_s) RenderTitle(screen tcell.Screen) {
 	if element.Title != "" {
 		offset := 2
 		if element.Tag != rune(0) {
 			offset += 4
 		}
-		color := tcell.ColorDefault
-		if element.Style.Border != nil {
-			color = element.Style.Border.Color
+		style := tcell.StyleDefault
+		elementStyle := element.GetStyleProperties()
+		if borderColor, ok := elementStyle.GetBorderColor(); ok {
+			style = style.Foreground(borderColor)
 		}
 		for i, char := range element.Title {
-			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, tcell.StyleDefault.Foreground(color))
+			screen.SetContent(int(element.X) + offset + i, int(element.Y), char, nil, style)
 		}
 	}	
 }
 
-func (element *Element) GetBox() Box {
+func (element *element_s) GetBox() Box {
 	return Box{
 		element.X,
 		element.Y,
@@ -77,41 +79,41 @@ func (element *Element) GetBox() Box {
 	}
 }
 
-func (element *Element) SetBox(x int, y int, width int, height int) {
+func (element *element_s) SetBox(x int, y int, width int, height int) {
 	element.X = x
 	element.Y = y
 	element.Width = width
 	element.Height = height
 }
 
-func (element *Element) SetTag(tag rune) {
+func (element *element_s) SetTag(tag rune) {
 	element.Tag = tag
 }
 
-func (element *Element) SetTitle(title string) {
+func (element *element_s) SetTitle(title string) {
 	element.Title = title
 }
 
-func (element *Element) GetTag() rune {
+func (element *element_s) GetTag() rune {
 	return element.Tag
 }
 
-func (element *Element) GetTitle() string {
+func (element *element_s) GetTitle() string {
 	return element.Title
 }
 
-func (element *Element) IsNavigable() bool {
+func (element *element_s) IsNavigable() bool {
 	return element.Tag != rune(0) && element.Title != ""
 }
 
-func (element *Element) Focus() {
+func (element *element_s) Focus() {
 
 }
 
-func (element *Element) Blur() {
+func (element *element_s) Blur() {
 
 }
 
-func (element *Element) IsFocused() bool {
+func (element *element_s) IsFocused() bool {
 	return element.Focused
 }

@@ -9,34 +9,35 @@ import (
 	"github.com/gdamore/tcell/v2"
 )
 
-type DamaContainer interface {
-	DamaLayout
-	DamaElement
-	GetLayout() DamaLayout
-	SetLayout(layout DamaLayout) error
+type Container interface {
+	Layout
+	Element
+	GetLayout() Layout
+	SetLayout(layout Layout) error
+	GetElements() []Element
 }
 
-type Container struct {
-	*Element
-	Parent DamaContainer
-	Layout DamaLayout
+type container_s struct {
+	Element
+	Parent Container
+	Layout Layout
 }
 
-func NewContainer() *Container {
-	container := new(Container)
-	container.Element = new(Element)
+func NewContainer() Container {
+	container := new(container_s)
+	container.Element = new(element_s)
 	layout := new(BaseLayout)
-	layout.Elements = make(map[BasePosition]DamaElement)
+	layout.Elements = make(map[BasePosition]Element)
 	layout.Container = container
 	container.Layout = layout
 	return container
 }
 
-func (container *Container) GetLayout() DamaLayout {
+func (container *container_s) GetLayout() Layout {
 	return container.Layout
 }
 
-func (container *Container) SetLayout(layout DamaLayout) error {
+func (container *container_s) SetLayout(layout Layout) error {
 	glayout, gOk := layout.(*GridLayout)
 	blayout, bOk := layout.(*BaseLayout)
 	if gOk {
@@ -52,21 +53,21 @@ func (container *Container) SetLayout(layout DamaLayout) error {
 	}
 }
 
-func (container *Container) GetElements() []DamaElement {
+func (container *container_s) GetElements() []Element {
 	return container.Layout.GetElements()
 }
 
-func (container *Container) AddElement(element DamaElement, position Position) error {
+func (container *container_s) AddElement(element Element, position Position) error {
 	return container.Layout.AddElement(element, position)
 }
 
-func (container *Container) GetBox() Box {
+func (container *container_s) GetBox() Box {
 	box := container.Element.GetBox()
 	box.Element = container
 	return box
 }
 
-func (container *Container) Render(screen tcell.Screen) {
+func (container *container_s) Render(screen tcell.Screen) {
 	elements := container.GetElements()
 	for _, element := range elements {
 		element.Render(screen)

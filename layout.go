@@ -5,25 +5,25 @@ import (
 	dtraits "github.com/abdessamad-zgor/dama/traits"
 )
 
-type DamaLayout interface {
-	GetElements() []DamaElement
-	AddElement(element DamaElement, position Position) error
+type Layout interface {
+	GetElements() []Element
+	AddElement(element Element, position Position) error
 }
 
 type Position interface{}
 
 type GridLayout struct {
-	Container *Container
+	Container *container_s
 	Columns   int
 	Rows      int
-	Elements  map[GridPosition]DamaElement
+	Elements  map[GridPosition]Element
 }
 
 func NewGridLayout(columns int, rows int) *GridLayout {
 	grid := new(GridLayout)
 	grid.Columns = int(columns)
 	grid.Rows = int(rows)
-	grid.Elements = make(map[GridPosition]DamaElement)
+	grid.Elements = make(map[GridPosition]Element)
 	return grid
 }
 
@@ -35,8 +35,8 @@ type GridPosition struct {
 }
 
 type BaseLayout struct {
-	Container *Container
-	Elements  map[BasePosition]DamaElement
+	Container *container_s
+	Elements  map[BasePosition]Element
 }
 
 type BasePosition = dtraits.Direction
@@ -45,7 +45,7 @@ const (
 	Center dtraits.Direction = "center"
 )
 
-func (layout *GridLayout) AddElement(element DamaElement, position Position) error {
+func (layout *GridLayout) AddElement(element Element, position Position) error {
 	gridPosition, ok := position.(GridPosition)
 	if !ok {
 		return errors.New("position is not of type GridPosition")
@@ -55,10 +55,11 @@ func (layout *GridLayout) AddElement(element DamaElement, position Position) err
 		return errors.New("widget position is out of bounds")
 	}
 
-	x := (layout.Container.X) + int(layout.Container.Width/layout.Columns)*gridPosition.Column
-	y := (layout.Container.Y) + int(layout.Container.Height/layout.Rows)*gridPosition.Row
-	width := int(layout.Container.Width/layout.Columns) * gridPosition.ColumnSpan
-	height := int(layout.Container.Height/layout.Rows) * gridPosition.RowSpan
+	cont := layout.Container.GetBox()
+	x := (cont.X) + int(cont.Width/layout.Columns)*gridPosition.Column
+	y := (cont.Y) + int(cont.Height/layout.Rows)*gridPosition.Row
+	width := int(cont.Width/layout.Columns) * gridPosition.ColumnSpan
+	height := int(cont.Height/layout.Rows) * gridPosition.RowSpan
 
 	element.SetBox(x, y, width, height)
 
@@ -68,39 +69,40 @@ func (layout *GridLayout) AddElement(element DamaElement, position Position) err
 
 
 func (layout *BaseLayout) getBoxForPosition(position BasePosition) (int, int, int, int) {
+	cont := layout.Container.GetBox()
 	x, y, width, height := (0), (0), (0), (0)
 	switch position {
 	case Center:
-		x = (layout.Container.X + layout.Container.Width/5)
-		y = (layout.Container.Y + layout.Container.Height/5)
-		width = (layout.Container.Width / 5 * 3)
-		height = (layout.Container.Height / 5 * 3)
+		x = (cont.X + cont.Width/5)
+		y = (cont.Y + cont.Height/5)
+		width = (cont.Width / 5 * 3)
+		height = (cont.Height / 5 * 3)
 	case dtraits.Left:
-		x = (layout.Container.X)
-		y = (layout.Container.Y) + (layout.Container.Height / 5)
-		width = (layout.Container.Width / 5) * 3
-		height = (layout.Container.Height / 5) * 3
+		x = (cont.X)
+		y = (cont.Y) + (cont.Height / 5)
+		width = (cont.Width / 5) * 3
+		height = (cont.Height / 5) * 3
 	case dtraits.Right:
-		x = (layout.Container.X) + (layout.Container.Width/5)*4
-		y = (layout.Container.Y) + (layout.Container.Height / 5)
-		width = (layout.Container.Width / 5) * 3
-		height = (layout.Container.Height / 5) * 3
+		x = (cont.X) + (cont.Width/5)*4
+		y = (cont.Y) + (cont.Height / 5)
+		width = (cont.Width / 5) * 3
+		height = (cont.Height / 5) * 3
 	case dtraits.Top:
-		x = (layout.Container.X)
-		y = (layout.Container.Y)
-		width = layout.Container.Width
-		height = (layout.Container.Height / 5)
+		x = (cont.X)
+		y = (cont.Y)
+		width = cont.Width
+		height = (cont.Height / 5)
 	case dtraits.Bottom:
-		x = (layout.Container.X)
-		y = (layout.Container.Y) + (layout.Container.Height/5)*4
-		width = layout.Container.Width
-		height = (layout.Container.Height / 5)
+		x = (cont.X)
+		y = (cont.Y) + (cont.Height/5)*4
+		width = cont.Width
+		height = (cont.Height / 5)
 	}
 
 	return x, y, width, height
 }
 
-func (layout *BaseLayout) shrinkAt(element DamaElement, position BasePosition) {
+func (layout *BaseLayout) shrinkAt(element Element, position BasePosition) {
 	for keyPosition, elementAtPosition := range layout.Elements {
 		if elementAtPosition == element {
 			box := element.GetBox()
@@ -132,7 +134,7 @@ func (layout *BaseLayout) isPositionFree(position BasePosition) bool {
 	return !ok
 }
 
-func (layout *BaseLayout) expandTo(element DamaElement, position BasePosition) {
+func (layout *BaseLayout) expandTo(element Element, position BasePosition) {
 	for _, elementAtPosition := range layout.Elements {
 		if elementAtPosition == element {
 			box := element.GetBox()
@@ -157,7 +159,7 @@ func (layout *BaseLayout) expandTo(element DamaElement, position BasePosition) {
 	}
 }
 
-func (layout *BaseLayout) AddElement(element DamaElement, position Position) error {
+func (layout *BaseLayout) AddElement(element Element, position Position) error {
 	basePosition, ok := position.(BasePosition)
 	if !ok {
 		return errors.New("position is not of type BasePosition")
@@ -184,16 +186,16 @@ func (layout *BaseLayout) AddElement(element DamaElement, position Position) err
 	return nil
 }
 
-func (layout *GridLayout) GetElements() []DamaElement {
-	elements := []DamaElement{}
+func (layout *GridLayout) GetElements() []Element {
+	elements := []Element{}
 	for _, w := range layout.Elements {
 		elements = append(elements, w)
 	}
 	return elements
 }
 
-func (layout *BaseLayout) GetElements() []DamaElement {
-	elements := []DamaElement{}
+func (layout *BaseLayout) GetElements() []Element {
+	elements := []Element{}
 	for _, w := range layout.Elements {
 		elements = append(elements, w)
 	}

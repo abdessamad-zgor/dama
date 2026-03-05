@@ -11,7 +11,7 @@ import (
 )
 
 type EventManager struct {
-	App 				*App
+	App 				App
 	Wg					sync.WaitGroup
 	Buffer  			string
 	KeyChannel 			chan devent.KeyEvent
@@ -20,7 +20,7 @@ type EventManager struct {
 	GlobalEvents		dutils.List[devent.DamaEvent]
 }
 
-func NewEventManager(app *App) *EventManager {
+func NewEventManager(app App) *EventManager {
 	var wg sync.WaitGroup
 	var excludeFn dutils.ExcludeFn[devent.DamaEvent] = func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
 		insertable := true
@@ -59,21 +59,21 @@ func NewEventManager(app *App) *EventManager {
 
 func (em *EventManager) RegisterEvents() {
 	globals := em.GlobalEvents
-	current := em.App.Navigator.current
+	current := em.App.GetNavigator().GetCurrent()
 	em.Events.Empty()
-	currentWidget, _ := current.element.(*Widget)
+	currentWidget, _ := current.element.(Widget)
 	//modalKeybindings := currentWidget.GetModalKeybindings()
 
 	for _, e := range globals.Items() {
 		em.Events.Add(e)
 	}
 	if currentWidget.GetMode() == devent.NormalMode {
-		navKeybindings := em.App.Navigator.GetNavigationKeybindings()
+		navKeybindings := em.App.GetNavigator().GetNavigationKeybindings()
 		for _, e := range navKeybindings {
 			em.Events.Add(e)
 		}
 	}
-	for _, e := range currentWidget.Events.Items() {
+	for _, e := range currentWidget.GetEvents().Items() {
 		em.Events.Add(e)
 	}
 	logger.Log(fmt.Sprintf("Registred events: %+v", em.Events.Items()))
@@ -82,7 +82,7 @@ func (em *EventManager) RegisterEvents() {
 func (em *EventManager) HandleTcellEvents() {
 	logger.Log("Starting tcell event loop.")
 	for {
-		event := em.App.Screen.PollEvent()
+		event := em.App.GetScreen().PollEvent()
 		logger.Log("Recieved tcell event", fmt.Sprintf("%+v", event))
 		switch event.(type) {
 		case *tcell.EventKey:
@@ -97,7 +97,7 @@ func (em *EventManager) HandleTcellEvents() {
 
 func (em *EventManager) StartEventLoop() {
 	logger.Log("Starting App Event Loop")
-	em.App.Navigator.Setup()
+	em.App.GetNavigator().Setup()
 	go em.HandleTcellEvents()
 	em.RegisterEvents()
 	for {

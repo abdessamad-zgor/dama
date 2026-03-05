@@ -13,10 +13,10 @@ import (
 
 type IndexItem struct {
 	path	string
-	element	DamaElement
+	element	Element
 }
 
-func (item IndexItem) GetElement() DamaElement {
+func (item IndexItem) GetElement() Element {
 	return item.element
 }
 
@@ -25,16 +25,16 @@ func (item IndexItem) GetPath() string {
 }
 
 type Navigator struct {
-	App		*App
-	tree	dutils.Tree[DamaElement]
+	App		App
+	tree	dutils.Tree[Element]
 	current	IndexItem
 	index	dutils.List[IndexItem]
 }
 
-func NewNavigator(app *App) *Navigator {
+func NewNavigator(app App) *Navigator {
 	navigator := &Navigator{
 		app,
-		dutils.NewTree[DamaElement](app),
+		dutils.NewTree[Element](app),
 		IndexItem {
 			"",
 			app,
@@ -47,8 +47,8 @@ func NewNavigator(app *App) *Navigator {
 func (navigator *Navigator) GetNavigationTree() {
 	current := navigator.tree.Root.GetValue()
 	logger.Log("Get root of navigation tree: ", current)
-	root, ok := current.(*App)
-	paths := []DamaElement{}
+	root, ok := current.(App)
+	paths := []Element{}
 	if ok {
 		elements := root.GetElements()
 		logger.Log("Getting root elements, found ", len(elements))
@@ -59,8 +59,8 @@ func (navigator *Navigator) GetNavigationTree() {
 		
 		for len(paths) > 0 {
 			current = paths[len(paths) - 1]
-			currentCont, ok := current.(*Container)
-			elements = []DamaElement{}
+			currentCont, ok := current.(Container)
+			elements = []Element{}
 			if ok {
 				elements = currentCont.GetElements()
 				for _, element := range elements {
@@ -77,7 +77,7 @@ func (navigator *Navigator) Index() {
 	logger.Log("Indexing navigation tree")
 	elementNodes := navigator.tree.Flatten()
 	logger.Log("Got flattened elements tree: ", elementNodes)
-	navigables := []dutils.Node[DamaElement]{}
+	navigables := []dutils.Node[Element]{}
 	for _, elementNode := range elementNodes {
 		if elementNode.GetValue().IsNavigable() {
 			navigables = append(navigables, *elementNode)

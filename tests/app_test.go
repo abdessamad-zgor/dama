@@ -9,7 +9,7 @@ import (
 	"github.com/abdessamad-zgor/dama"
 )
 
-var app dama.DamaApp
+var app dama.App
 
 func TestMain(m *testing.M) {
 	setup()
@@ -27,7 +27,7 @@ func setup() {
 }
 
 func teardown() {
-	app = new(dama.App)
+	app, _ = dama.NewApp()
 }
 
 func TestAppRender(t *testing.T) {

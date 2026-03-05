@@ -5,98 +5,101 @@ import (
 	"github.com/gdamore/tcell/v2"
 )
 
-var DefaultStyle Style = Style{}
+type PropertyName string
 
-type Spacing struct {
-	Top    int
-	Bottom int
-	Left   int
-	Right  int
+const (
+	BorderColor 	PropertyName 	= "border-color"
+	BorderBold 		PropertyName 	= "border-bold"
+	Background		PropertyName	= "background"
+	Foreground		PropertyName	= "foreground"
+	TextBold		PropertyName	= "text-bold"
+	TextItalic		PropertyName	= "text-italic"
+)
+
+type StyleProperties map[PropertyName]any
+
+type Style interface {
+	BorderColor(color tcell.Color) Style
+	BorderBold(bold bool) Style
+	Background(color tcell.Color) Style
+	Foreground(color tcell.Color) Style
+	TextBold(bold bool) Style
+	TextItalic(italic bool) Style
+
+	GetStyleProperties() StyleProperties
 }
 
-type Border struct {
-	Color tcell.Color
-	Bold  bool
+func NewStyle() Style {
+	var style StyleProperties = make(map[PropertyName]any)
+	return &style
 }
 
-type Style struct {
-	Border     *Border
-	Padding    Spacing
-	Margin     Spacing
-	Background tcell.Color
-	Foreground tcell.Color
-	Bold       bool
-	Italic     bool
+func (props *StyleProperties) BorderColor(color tcell.Color) Style {
+	(*props)[BorderColor] = color
+	return props
 }
 
-type DamaStyle interface {
-	BorderColor(color tcell.Color) DamaStyle
-	BorderBold(bold bool) DamaStyle
-	Padding(padding Spacing) DamaStyle
-	Margin(margin Spacing) DamaStyle
-	Background(color tcell.Color) DamaStyle
-	Foreground(color tcell.Color) DamaStyle
-	Bold(bold bool) DamaStyle
-	Italic(italic bool) DamaStyle
-
-	GetStyle() Style
-	SetStyle(style Style)
+func (props *StyleProperties) BorderBold(bold bool) Style {
+	(*props)[BorderBold] = bold
+	return props
 }
 
-type Styling struct {
-	Style Style
+func (props *StyleProperties) Background(color tcell.Color) Style {
+	(*props)[Background] = color
+	return props
 }
 
-func (styling *Styling) BorderColor(color tcell.Color) DamaStyle {
-	if styling.Style.Border == nil {
-		styling.Style.Border = new(Border)
-	}
-	styling.Style.Border.Color = color
-	return styling
+func (props *StyleProperties) Foreground(color tcell.Color) Style {
+	(*props)[Foreground] = color
+	return props
 }
 
-func (styling *Styling) BorderBold(bold bool) DamaStyle {
-	if styling.Style.Border == nil {
-		styling.Style.Border = new(Border)
-	}
-	styling.Style.Border.Bold = bold
-	return styling
+func (props *StyleProperties) TextBold(bold bool) Style {
+	(*props)[TextBold] = bold
+	return props
 }
 
-func (styling *Styling) Padding(padding Spacing) DamaStyle {
-	styling.Style.Padding = padding
-	return styling
+func (props *StyleProperties) TextItalic(italic bool) Style {
+	(*props)[TextItalic] = italic
+	return props
 }
 
-func (styling *Styling) Margin(margin Spacing) DamaStyle {
-	styling.Style.Margin = margin
-	return styling
+func (props *StyleProperties) GetStyleProperties() StyleProperties {
+	return *props
 }
 
-func (styling *Styling) Background(color tcell.Color) DamaStyle {
-	styling.Style.Background = color
-	return styling
+func (props StyleProperties) GetBorderColor() (tcell.Color, bool) {
+	value, ok := props[BorderColor]
+	avalue, _ := value.(tcell.Color)
+	return avalue, ok
 }
 
-func (styling *Styling) Foreground(color tcell.Color) DamaStyle {
-	styling.Style.Foreground = color
-	return styling
+func (props StyleProperties) GetBorderBold() (bool, bool)  {
+	value, ok := props[BorderBold]
+	avalue, _ := value.(bool)
+	return avalue, ok
 }
 
-func (styling *Styling) Bold(bold bool) DamaStyle {
-	styling.Style.Bold = bold
-	return styling
+func (props StyleProperties) GetBackground(color tcell.Color) (tcell.Color, bool) {
+	value, ok := props[Background]
+	avalue, _ := value.(tcell.Color)
+	return avalue, ok
 }
 
-func (styling *Styling) Italic(italic bool) DamaStyle {
-	styling.Style.Italic = italic
-	return styling
+func (props StyleProperties) GetForeground(color tcell.Color) (tcell.Color, bool) {
+	value, ok := props[Foreground]
+	avalue, _ := value.(tcell.Color)
+	return avalue, ok
 }
 
-func (styling *Styling) GetStyle() Style {
-	return styling.Style
+func (props StyleProperties) GetTextBold(bold bool) (bool, bool) {
+	value, ok := props[TextBold]
+	avalue, _ := value.(bool)
+	return avalue, ok
 }
 
-func (styling *Styling) SetStyle(style Style) {
-	styling.Style = style
+func (props StyleProperties) GetTextItalic(italic bool) (bool, bool) {
+	value, ok := props[TextItalic]
+	avalue, _ := value.(bool)
+	return avalue, ok
 }

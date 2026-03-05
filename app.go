@@ -10,18 +10,19 @@ import (
 	"github.com/abdessamad-zgor/dama/logger"
 )
 
-type DamaApp interface {
-	DamaContainer
+type App interface {
+	Container
 	Start()
 	Exit()
+	Resize()
 	GetNavigator() *Navigator
 	GetScreen() tcell.Screen
 	GetEventManager() *EventManager
 	SetKeybinding(pattern string, callback devent.KeybindingCallback)
 }
 
-type App struct {
-	*Container
+type app struct {
+	Container
 	ExitChannel  	chan int
 	Screen       	tcell.Screen
 	Navigator 		*Navigator
@@ -45,9 +46,9 @@ func initAppScreen() (tcell.Screen, error) {
 	return screen, nil
 }
 
-func NewApp() (*App, error) {
+func NewApp() (App, error) {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
-	app := &App{
+	app := &app{
 		NewContainer(),
 		make(chan int),
 		nil,
@@ -65,14 +66,11 @@ func NewApp() (*App, error) {
 	}
 	app.Screen = screen
 	width, height := app.Screen.Size()
-	app.X = 0
-	app.Y = 0
-	app.Width = (width)
-	app.Height = (height)
+	app.SetBox(0, 0, width, height)
 	return app, nil
 }
 
-func (app *App) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
+func (app *app) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
 	patternMatcher, err := dkeybinding.GetMatcher(pattern)
 	if err != nil {
 		panic(err)
@@ -92,11 +90,11 @@ func (app *App) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
 	app.EventManager.GlobalEvents.Add(keybinding)
 }
 
-func (app *App) DispatchEvent(eventName devent.AppEventName) {
+func (app *app) DispatchEvent(eventName devent.AppEventName) {
 	app.EventManager.AppEventChannel <- eventName
 }
 
-func (app *App) Start() {
+func (app *app) Start() {
 	logger.Log("Starting App")
 	app.Screen.SetStyle(tcell.StyleDefault)
 	//app.Init()
@@ -110,32 +108,32 @@ func (app *App) Start() {
 	}
 }
 
-func (app *App) Draw() {
+func (app *app) Draw() {
 	app.Screen.Clear()
 	app.Container.Render(app.Screen)
 	app.Screen.Show()
 }
 
-func (app *App) Resize() {
+func (app *app) Resize() {
 }
 
-func (app *App) Exit() {
+func (app *app) Exit() {
 	app.EventManager.Wg.Wait()
 	app.ExitChannel <- 0
 }
 
-func (app *App) GetParent() *Container {
+func (app *app) GetParent() *Container {
 	return nil
 }
 
-func (app *App) GetNavigator() *Navigator {
+func (app *app) GetNavigator() *Navigator {
 	return app.Navigator
 }
 
-func (app *App) GetEventManager() *EventManager {
+func (app *app) GetEventManager() *EventManager {
 	return app.EventManager
 }
 
-func (app *App) GetScreen() tcell.Screen {
+func (app *app) GetScreen() tcell.Screen {
 	return app.Screen
 }
