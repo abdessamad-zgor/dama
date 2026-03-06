@@ -67,14 +67,16 @@ func (em *EventManager) RegisterEvents() {
 	for _, e := range globals.Items() {
 		em.Events.Add(e)
 	}
-	if currentWidget.GetMode() == devent.NormalMode {
-		navKeybindings := em.App.GetNavigator().GetNavigationKeybindings()
-		for _, e := range navKeybindings {
+	if currentWidget != nil {
+		if currentWidget.GetMode() == devent.NormalMode {
+			navKeybindings := em.App.GetNavigator().GetNavigationKeybindings()
+			for _, e := range navKeybindings {
+				em.Events.Add(e)
+			}
+		}
+		for _, e := range currentWidget.GetEvents().Items() {
 			em.Events.Add(e)
 		}
-	}
-	for _, e := range currentWidget.GetEvents().Items() {
-		em.Events.Add(e)
 	}
 	logger.Log(fmt.Sprintf("Registred events: %+v", em.Events.Items()))
 }

@@ -102,8 +102,11 @@ func (navigator *Navigator) Setup() {
 	logger.Log("Setup navigation")
 	navigator.GetNavigationTree()
 	navigator.Index()
-	navigator.current = navigator.index.Items()[0]
-	navigator.current.element.Focus()
+	items := navigator.index.Items()
+	if len(items) > 0 {
+		navigator.current = navigator.index.Items()[0]
+		navigator.current.element.Focus()
+	} 
 }
 
 func (navigator *Navigator) Navigate(tag rune) {
