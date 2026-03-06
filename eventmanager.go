@@ -45,6 +45,7 @@ func NewEventManager(app App) *EventManager {
 		}
 		return itemList.Length()
 	}
+
 	em := &EventManager {
 		app,
 		wg,
@@ -125,15 +126,15 @@ func (em *EventManager) HandleKeybindings() {
 	for _, e := range em.Events.Items() {
 		if e.IsKeybinding() {
 			kb := e.Detail.Keybinding
-			if kb.Matcher(em.Buffer).IsFull() {
+			if kb.Matcher(buffer).IsFull() {
 				fulls = append(fulls, e)
 			}
-			if kb.Matcher(em.Buffer).IsPartial() {
+			if kb.Matcher(buffer).IsPartial() {
 				partials = append(partials, e)
 			}
 		}
 	}
-	//dutils.Assert(len(fulls) <= 1, "there should be at most 1 full match when handling keybindings")
+	// dutils.Assert(len(fulls) <= 1, "there should be at most 1 full match when handling keybindings")
 	// if there are no other keybindings that could match the 
 	logger.Log("full keybinding matchs: ", fulls)
 	logger.Log("partial keybinding matchs: ", partials)
