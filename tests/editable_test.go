@@ -21,8 +21,8 @@ func TestEditable(t *testing.T) {
     editable.AddRune('l')
     editable.AddRune('d')
 
-    cursor := editable.Cursor
-    contents := editable.Contents
+    cursor := editable.GetCursor()
+    contents := editable.GetContents()
 
     if contents != "hello\nworld" {
         t.Error("editable does not insert runes correctly", contents)

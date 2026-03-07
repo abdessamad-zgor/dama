@@ -41,10 +41,6 @@ type BaseLayout struct {
 
 type BasePosition = dtraits.Direction
 
-const (
-	Center dtraits.Direction = "center"
-)
-
 func (layout *GridLayout) AddElement(element Element, position Position) error {
 	gridPosition, ok := position.(GridPosition)
 	if !ok {
@@ -72,7 +68,7 @@ func (layout *BaseLayout) getBoxForPosition(position BasePosition) (int, int, in
 	cont := layout.Container.GetBox()
 	x, y, width, height := (0), (0), (0), (0)
 	switch position {
-	case Center:
+	case dtraits.Center:
 		x = (cont.X + cont.Width/5)
 		y = (cont.Y + cont.Height/5)
 		width = (cont.Width / 5 * 3)

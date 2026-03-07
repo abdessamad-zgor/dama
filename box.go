@@ -1,7 +1,8 @@
 package dama
 
 import (
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"fmt"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -14,6 +15,7 @@ type Box struct {
 }
 
 func (box Box) Render(screen tcell.Screen) {
+	logger.Log(fmt.Sprintf("Element box: %+v", box.Element))
 	boxStyle := box.Element.GetStyleProperties()
 
 	borderStyle := tcell.StyleDefault

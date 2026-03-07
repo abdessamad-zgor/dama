@@ -33,8 +33,10 @@ type element_s struct {
 	dtraits.Style
 }
 
-func (element *element_s) Render(screen tcell.Screen) {
-
+func NewElement() Element {
+	element := new(element_s)
+	element.Style = dtraits.NewStyle()
+	return element
 }
 
 func (element *element_s) RenderTag(screen tcell.Screen) {
@@ -75,7 +77,7 @@ func (element *element_s) GetBox() Box {
 		element.Y,
 		element.Width,
 		element.Height,
-		nil,
+		element,
 	}
 }
 
@@ -84,6 +86,12 @@ func (element *element_s) SetBox(x int, y int, width int, height int) {
 	element.Y = y
 	element.Width = width
 	element.Height = height
+}
+
+func (element *element_s) Render(screen tcell.Screen) {
+	element.GetBox().Render(screen)
+	element.RenderTag(screen)
+	element.RenderTitle(screen)
 }
 
 func (element *element_s) SetTag(tag rune) {

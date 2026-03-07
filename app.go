@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 	devent "github.com/abdessamad-zgor/dama/event"
-	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
+	_ "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/gdamore/tcell/v2"
 	"github.com/abdessamad-zgor/dama/logger"
 )
@@ -71,22 +71,7 @@ func NewApp() (App, error) {
 }
 
 func (app *app) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
-	patternMatcher, err := dkeybinding.GetMatcher(pattern)
-	if err != nil {
-		panic(err)
-	}
-	keybinding := devent.DamaEvent{
-		devent.DKeybinding,
-		devent.EventDetail{
-			&devent.Keybinding{
-				pattern,
-				patternMatcher,
-				cb,
-			},
-			nil,
-		},
-	}
-
+	keybinding := devent.KeybindingToEvent(pattern, cb)
 	app.EventManager.GlobalEvents.Add(keybinding)
 }
 
@@ -97,10 +82,8 @@ func (app *app) DispatchEvent(eventName devent.AppEventName) {
 func (app *app) Start() {
 	logger.Log("Starting App")
 	app.Screen.SetStyle(tcell.StyleDefault)
-	//app.Init()
 	go app.EventManager.StartEventLoop()
-	app.Draw()
-	logger.Log("App drawn")
+	logger.Log("App rendered")
 	_ = <-app.ExitChannel
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
@@ -108,9 +91,9 @@ func (app *app) Start() {
 	}
 }
 
-func (app *app) Draw() {
+func (app *app) Render(screen tcell.Screen) {
 	app.Screen.Clear()
-	app.Container.Render(app.Screen)
+	app.Container.Render(screen)
 	app.Screen.Show()
 }
 

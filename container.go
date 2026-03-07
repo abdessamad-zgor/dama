@@ -5,7 +5,7 @@ import (
 	"fmt"
 	_ "reflect"
 
-	_ "github.com/abdessamad-zgor/dama/logger"
+	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -25,7 +25,7 @@ type container_s struct {
 
 func NewContainer() Container {
 	container := new(container_s)
-	container.Element = new(element_s)
+	container.Element = NewElement()
 	layout := new(BaseLayout)
 	layout.Elements = make(map[BasePosition]Element)
 	layout.Container = container
@@ -70,6 +70,7 @@ func (container *container_s) GetBox() Box {
 func (container *container_s) Render(screen tcell.Screen) {
 	elements := container.GetElements()
 	for _, element := range elements {
+		logger.Log(element)
 		element.Render(screen)
 	}
 }

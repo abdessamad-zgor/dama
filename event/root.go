@@ -72,6 +72,40 @@ func ToKeyEvent(event tcell.Event) KeyEvent {
 	}
 }
 
+func KeybindingToEvent(pattern string, callback KeybindingCallback) DamaEvent {
+	patternMatcher, err := keybinding.GetMatcher(pattern)
+	if err != nil {
+		panic(err)
+	}
+	kb := DamaEvent{
+		DKeybinding,
+		EventDetail{
+			&Keybinding{
+				pattern,
+				patternMatcher,
+				callback,
+			},
+			nil,
+		},
+	}
+	return kb
+}
+
+func AppEventToEvent(eventName AppEventName, callback AppEventCallback) DamaEvent {
+	appevent := DamaEvent{
+		DAppEvent,
+		EventDetail{
+			nil,
+			&AppEvent{
+				eventName,
+				nil,
+				callback,
+			},
+		},
+	}
+	return appevent
+}
+
 func (event DamaEvent) IsKeybinding() bool {
 	return event.Type == DKeybinding
 }

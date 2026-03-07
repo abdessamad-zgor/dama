@@ -4,42 +4,31 @@ import (
 	"strings"
 )
 
-type EditMode string
-
-const (
-	NoMode 		EditMode = "no-mode"
-	InsertMode 	EditMode = "insert"
-)
-
 type Cursor struct {
 	Column int
 	Line   int
 }
 
-type DamaEditable interface {
-	RemoveRune()
+type Editable interface {
 	AddRune(char rune)
+	RemoveRune()
 	GetCursor() Cursor
 	MoveCursor(direction Direction)
 	GetContents() string
     GetLines() []string
-	SetMode(mode EditMode)
-	GetMode() EditMode
 }
 
-type Editable struct {
+type editable_s struct {
 	Cursor   Cursor
 	Contents string
-	Mode     EditMode
 }
 
-func NewEditable() *Editable {
-	editable := Editable{}
-	editable.Mode = NoMode
+func NewEditable() Editable {
+	editable := editable_s{}
 	return &editable
 }
 
-func (editable *Editable) RemoveRune() {
+func (editable *editable_s) RemoveRune() {
 	i, line := editable.Cursor.Column, editable.Cursor.Line
 	content := editable.Contents
 	lines := strings.Split(content, "\n")
@@ -51,7 +40,7 @@ func (editable *Editable) RemoveRune() {
 	editable.Cursor.Column -= 1
 }
 
-func (editable *Editable) AddRune(char rune) {
+func (editable *editable_s) AddRune(char rune) {
 	i, line := editable.Cursor.Column, editable.Cursor.Line
 	content := editable.Contents
 	lines := strings.Split(content, "\n")
@@ -72,11 +61,11 @@ func (editable *Editable) AddRune(char rune) {
 	}
 }
 
-func (editable *Editable) GetCursor() Cursor {
+func (editable *editable_s) GetCursor() Cursor {
 	return editable.Cursor
 }
 
-func (editable *Editable) MoveCursor(direction Direction) {
+func (editable *editable_s) MoveCursor(direction Direction) {
 	cursor := editable.Cursor
 	lines := strings.Split(editable.Contents, "\n")
 	switch direction {
@@ -105,19 +94,11 @@ func (editable *Editable) MoveCursor(direction Direction) {
 	}
 }
 
-func (editable *Editable) GetContents() string {
+func (editable *editable_s) GetContents() string {
     return editable.Contents
 }
 
-func (editable *Editable) GetLines() []string {
+func (editable *editable_s) GetLines() []string {
 	lines := strings.Split(editable.Contents, "\n")
 	return lines
-}
-
-func (editable *Editable) SetMode(mode EditMode) {
-	editable.Mode = mode
-}
-
-func (editable *Editable) GetMode() EditMode {
-	return editable.Mode
 }

@@ -7,6 +7,7 @@ const (
 	Right  Direction = "right"
 	Top    Direction = "top"
 	Bottom Direction = "bottom"
+	Center Direction = "center"
 )
 
 type Viewport struct {

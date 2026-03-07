@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"time"
 	"sync"
+	"slices"
 	devent "github.com/abdessamad-zgor/dama/event"
+	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	"github.com/gdamore/tcell/v2"
 	"github.com/abdessamad-zgor/dama/logger"
@@ -16,35 +18,12 @@ type EventManager struct {
 	Buffer  			string
 	KeyChannel 			chan devent.KeyEvent
 	AppEventChannel     chan devent.AppEventName
-	Events 				dutils.EList[devent.DamaEvent]
+	Events 				dutils.List[devent.DamaEvent]
 	GlobalEvents		dutils.List[devent.DamaEvent]
 }
 
 func NewEventManager(app App) *EventManager {
 	var wg sync.WaitGroup
-	var excludeFn dutils.ExcludeFn[devent.DamaEvent] = func (itemList dutils.List[devent.DamaEvent], item devent.DamaEvent) int {
-		insertable := true
-		toRemove := []devent.DamaEvent{}
-		for _, _item := range itemList.Items() {
-			if item.IsKeybinding() && _item.IsKeybinding() {
-				// more conditions should be introduced to allow for the keybinding with the narrower Pattern to be accepted
-				// this whole exclusion principle needs to be rethinked
-				if _item.Detail.Keybinding.Matcher(item.Detail.Keybinding.Pattern).IsFull() {
-					insertable = false
-				} else if item.Detail.Keybinding.Matcher(_item.Detail.Keybinding.Pattern).IsFull() {
-					insertable = true
-					toRemove = append(toRemove, _item)
-				}
-				if !insertable {
-					return -1
-				}
-			}
-		}
-		for _, _item := range toRemove {
-			itemList.Remove(_item)
-		}
-		return itemList.Length()
-	}
 
 	em := &EventManager {
 		app,
@@ -52,7 +31,7 @@ func NewEventManager(app App) *EventManager {
 		"",
 		make(chan devent.KeyEvent),
 		make(chan devent.AppEventName),
-		dutils.NewEList[devent.DamaEvent](excludeFn),
+		dutils.NewList[devent.DamaEvent](),
 		dutils.NewList[devent.DamaEvent](),
 	}
 	return em
@@ -63,20 +42,82 @@ func (em *EventManager) RegisterEvents() {
 	current := em.App.GetNavigator().GetCurrent()
 	em.Events.Empty()
 	currentWidget, _ := current.element.(Widget)
-	//modalKeybindings := currentWidget.GetModalKeybindings()
+	events := dutils.NewList[devent.DamaEvent]()
+	// mode switching keybindings
+	logger.Log(fmt.Sprintf("current widget: %+v", currentWidget))
+	modes := currentWidget.GetEventModes() 
+	if len(modes) > 1 {
+		var keybinding devent.DamaEvent
+		if currentWidget.GetMode() == devent.InsertMode {
+			keybinding = devent.KeybindingToEvent("<Esc>", func (match dkeybinding.Match) {
+				_ = match
+				currentWidget.SetMode(devent.NormalMode)
+			})
+			em.Events.Add(keybinding)
+		}
+		if currentWidget.GetMode() == devent.NormalMode {
+			if slices.Contains(modes, devent.InsertMode) {
+				keybinding = devent.KeybindingToEvent("i", func (match dkeybinding.Match) {
+					_ = match
+					currentWidget.SetMode(devent.InsertMode)
+				})
+				em.Events.Add(keybinding)
+			}
+			if slices.Contains(modes, devent.InsertMode) {
+				keybinding = devent.KeybindingToEvent("v", func (match dkeybinding.Match) {
+					_ = match
+					currentWidget.SetMode(devent.VisualMode)
+				})
+				em.Events.Add(keybinding)
+			}
+			// exit keybinding
+			keybinding = devent.KeybindingToEvent("<C-C>", func (match dkeybinding.Match) {
+				_ = match
+				em.App.Exit()
+			})
+			em.Events.Add(keybinding)
+		}
+		if currentWidget.GetMode() == devent.VisualMode {
+			keybinding = devent.KeybindingToEvent("<Esc>", func (match dkeybinding.Match) {
+				_ = match
+				currentWidget.SetMode(devent.NormalMode)
+			})
+			em.Events.Add(keybinding)
+		} 
+	}
 
 	for _, e := range globals.Items() {
-		em.Events.Add(e)
+		events.Add(e)
 	}
 	if currentWidget != nil {
 		if currentWidget.GetMode() == devent.NormalMode {
 			navKeybindings := em.App.GetNavigator().GetNavigationKeybindings()
 			for _, e := range navKeybindings {
-				em.Events.Add(e)
+				events.Add(e)
 			}
 		}
 		for _, e := range currentWidget.GetEvents().Items() {
-			em.Events.Add(e)
+			events.Add(e)
+		}
+	}
+	for _, item := range events.Items() {
+		toRemove := []devent.DamaEvent{}
+		for _, _item := range em.Events.Items() {
+			if item.IsKeybinding() && _item.IsKeybinding() {
+				if _item.Detail.Keybinding.Matcher(item.Detail.Keybinding.Pattern).IsFull() {
+					break
+				} else if item.Detail.Keybinding.Matcher(_item.Detail.Keybinding.Pattern).IsFull() {
+					em.Events.Add(item)
+					toRemove = append(toRemove, _item)
+					break
+				}
+			}
+		}
+		for _, _item := range toRemove {
+			em.Events.Remove(_item)
+		}
+		if len(toRemove) == 0 {
+			em.Events.Add(item)
 		}
 	}
 	logger.Log(fmt.Sprintf("Registred events: %+v", em.Events.Items()))
@@ -103,6 +144,7 @@ func (em *EventManager) StartEventLoop() {
 	em.App.GetNavigator().Setup()
 	go em.HandleTcellEvents()
 	em.RegisterEvents()
+	em.App.Render(em.App.GetScreen())
 	for {
 		select {
 			case keyEvent := <- em.KeyChannel:
@@ -115,6 +157,7 @@ func (em *EventManager) StartEventLoop() {
 				em.Wg.Add(1)
 				go em.HandleAppEvent(appEvent)	
 		}
+		em.App.Render(em.App.GetScreen())
 	}
 }
 

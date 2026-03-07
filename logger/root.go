@@ -34,7 +34,10 @@ func Log(v ...any) {
 		_, file, line, _ := runtime.Caller(1)
 		rootDir, _ := os.Getwd()
 		relativeFilePath, _ := filepath.Rel(rootDir, file)
-		toLog := []any{fmt.Sprintf("%s:%d: ", relativeFilePath[3:], line)}
+		if relativeFilePath[:3] == "../" {
+			relativeFilePath = relativeFilePath[3:]
+		}
+		toLog := []any{fmt.Sprintf("%s:%d: ", relativeFilePath, line)}
 		toLog = append(toLog, v...)
 		Logger.Print(toLog...)
 	}

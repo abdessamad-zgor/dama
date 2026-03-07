@@ -5,6 +5,7 @@ import (
 	"testing"
 	"time"
 	"github.com/abdessamad-zgor/dama"
+	"github.com/abdessamad-zgor/dama/traits"
 	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 	"github.com/abdessamad-zgor/dama/keybinding"
@@ -17,7 +18,7 @@ func TestKeybindingEvent(t *testing.T) {
 	widget1.SetKeybinding("*", func (e keybinding.Match) {
 		logger.Log(fmt.Sprintf("From keybinding callback: %+v", e))
 	})
-	app.AddElement(widget1, dama.Center)
+	app.AddElement(widget1, traits.Center)
 	go app.Start()
 	word := "Hello World!"
 	for _, letter := range word {
