@@ -1,11 +1,13 @@
 package dama
 
 import (
+	"fmt"
 	"maps"
 	"slices"
 	devent "github.com/abdessamad-zgor/dama/event"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	_ "github.com/abdessamad-zgor/dama/keybinding"
+	"github.com/abdessamad-zgor/dama/logger"
 	_ "github.com/gdamore/tcell/v2"
 )
 
@@ -60,6 +62,7 @@ func (widget *widget_s) SetModeKeybinding(mode devent.Mode, pattern string, call
 		widget.Events[mode] = dutils.NewList[devent.DamaEvent]()
 	}
 	widget.Events[mode].Add(keybinding)
+	logger.Log(fmt.Sprintf("widget events: %+v", widget.Events))
 }
 
 func (widget *widget_s) SetMode(mode devent.Mode) {

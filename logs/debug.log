@@ -1,4 +1,5 @@
 keybinding/parser.go:72: matcher pattern: *
+widget.go:65: widget events: map[insert:{items:0xc000350060}]
 keybinding/parser.go:72: matcher pattern: <Up>
 keybinding/parser.go:72: matcher pattern: <Down>
 keybinding/parser.go:72: matcher pattern: <Left>
@@ -9,130 +10,74 @@ keybinding/parser.go:72: matcher pattern: <Left>
 keybinding/parser.go:72: matcher pattern: <Right>
 app.go:83: Starting App
 app.go:86: App rendered
-eventmanager.go:143: Starting App Event Loop
+eventmanager.go:146: Starting App Event Loop
 navigator.go:102: Setup navigation
-navigator.go:49: Get root of navigation tree: &{0xc000070060 0xc00007a000 0xc000012080 0xc00007c040 0xc000078050}
+navigator.go:49: Get root of navigation tree: &{0xc0000a8630 0xc0000960e0 0xc0000aa1b0 0xc0000ac1c0 0xc00010a0a0}
 navigator.go:54: Getting root elements, found 2
 navigator.go:77: Indexing navigation tree
-navigator.go:79: Got flattened elements tree: [0xc0000700f0 0xc0003ee090 0xc0003ee060]
-navigator.go:98: Finished indexing navigation tree: {0xc00000e018}
-eventmanager.go:47: current widget: {Widget:0xc00007c140 Editable:0xc00002e540}
+navigator.go:79: Got flattened elements tree: [0xc0000a86c0 0xc00007c090 0xc00007c060]
+navigator.go:98: Finished indexing navigation tree: {0xc00013c000}
+eventmanager.go:47: current widget: {Widget:0xc000354080 Editable:0xc00035c320}, title: Output, Tag: O
+eventmanager.go:49: modes: [normal], len: 1
+eventmanager.go:130: Starting tcell event loop.
+eventmanager.go:133: Recieved tcell event&{t:{wall:14007117301744328477 ext:3209521 loc:0x6a6980} ws:{Width:168 Height:37 PixelWidth:0 PixelHeight:0}}
+keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: O
 keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:127: Starting tcell event loop.
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:U CatchAll:map[]}
-eventmanager.go:130: Recieved tcell event&{t:{wall:14007089999425365831 ext:2091129 loc:0x6a5980} ws:{Width:135 Height:29 PixelWidth:0 PixelHeight:0}}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:O CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<Up> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:O CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<Up> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:U CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<Down> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:O CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<Down> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:U CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<Down> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<Up> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<Left> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:O CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<Left> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:U CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<Left> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<Up> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<Left> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<Down> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<Right> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:O CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<Right> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:U CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<Right> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<Up> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<Right> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<Down> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<Right> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<Left> CatchAll:map[]}
-eventmanager.go:123: Registred events: [{Type:keybinding Detail:{Keybinding:0xc0003e6180 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003e6220 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e5c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e660 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e6e0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e760 AppEvent:<nil>}}]
-container.go:73: {0xc00007c0c0 0xc00002e240}
-box.go:18: Element box: &{X:0 Y:0 Width:135 Height:5 Tag:85 Title:URL Focused:false Style:0xc000046058}
-container.go:73: {0xc00007c140 0xc00002e540}
-box.go:18: Element box: &{X:27 Y:5 Width:81 Height:15 Tag:79 Title:Output Focused:false Style:0xc000046088}
-eventmanager.go:130: Recieved tcell event&{t:{wall:14007090004736064405 ext:4944080738 loc:0x6a5980} mod:2 key:3 ch:3}
-eventmanager.go:151: Key Sent: {<C-C> 2026-03-07 15:15:34.087538581 +0000 +00 m=+4.944080738}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:O Matched: Buffer:<C-C> CatchAll:map[]}
-container.go:73: {0xc00007c0c0 0xc00002e240}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:0 Y:0 Width:135 Height:5 Tag:85 Title:URL Focused:false Style:0xc000046058}
-keybinding/parser.go:29: IsPartial(): match={Pattern:U Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<C-C> CatchAll:map[]}
-container.go:73: {0xc00007c140 0xc00002e540}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Up> Matched: Buffer:<C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:27 Y:5 Width:81 Height:15 Tag:79 Title:Output Focused:false Style:0xc000046088}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Down> Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Left> Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Right> Matched: Buffer:<C-C> CatchAll:map[]}
-eventmanager.go:182: full keybinding matchs: []
-eventmanager.go:183: partial keybinding matchs: []
-eventmanager.go:130: Recieved tcell event&{t:{wall:14007090005365252266 ext:5573268551 loc:0x6a5980} mod:2 key:3 ch:3}
-eventmanager.go:151: Key Sent: {<C-C> 2026-03-07 15:15:34.716726442 +0000 +00 m=+5.573268551}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:O Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-container.go:73: {0xc00007c0c0 0xc00002e240}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:U Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:0 Y:0 Width:135 Height:5 Tag:85 Title:URL Focused:false Style:0xc000046058}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-container.go:73: {0xc00007c140 0xc00002e540}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:27 Y:5 Width:81 Height:15 Tag:79 Title:Output Focused:false Style:0xc000046088}
-eventmanager.go:182: full keybinding matchs: []
-eventmanager.go:183: partial keybinding matchs: []
-eventmanager.go:130: Recieved tcell event&{t:{wall:14007090005635747777 ext:5843763965 loc:0x6a5980} mod:2 key:3 ch:3}
-eventmanager.go:151: Key Sent: {<C-C> 2026-03-07 15:15:34.987221953 +0000 +00 m=+5.843763965}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:O Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-container.go:73: {0xc00007c0c0 0xc00002e240}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:0 Y:0 Width:135 Height:5 Tag:85 Title:URL Focused:false Style:0xc000046058}
-keybinding/parser.go:29: IsPartial(): match={Pattern:U Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-container.go:73: {0xc00007c140 0xc00002e540}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-box.go:18: Element box: &{X:27 Y:5 Width:81 Height:15 Tag:79 Title:Output Focused:false Style:0xc000046088}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C><C-C> CatchAll:map[]}
-eventmanager.go:182: full keybinding matchs: []
-eventmanager.go:183: partial keybinding matchs: []
-eventmanager.go:130: Recieved tcell event&{t:{wall:14007090032686579852 ext:30977308725 loc:0x6a5980} mod:0 key:256 ch:105}
-eventmanager.go:151: Key Sent: {i 2026-03-07 15:16:00.120766604 +0000 +00 m=+30.977308725}
-container.go:73: {0xc00007c0c0 0xc00002e240}
-box.go:18: Element box: &{X:0 Y:0 Width:135 Height:5 Tag:85 Title:URL Focused:false Style:0xc000046058}
-container.go:73: {0xc00007c140 0xc00002e540}
-keybinding/parser.go:24: IsFull(): match={Pattern:O Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-box.go:18: Element box: &{X:27 Y:5 Width:81 Height:15 Tag:79 Title:Output Focused:false Style:0xc000046088}
-keybinding/parser.go:29: IsPartial(): match={Pattern:O Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:U Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:U Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Up> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Down> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Left> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:24: IsFull(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-keybinding/parser.go:29: IsPartial(): match={Pattern:<Right> Matched: Buffer:<C-C><C-C><C-C>i CatchAll:map[]}
-eventmanager.go:182: full keybinding matchs: []
-eventmanager.go:183: partial keybinding matchs: []
+eventmanager.go:126: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002e1c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e320 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c3a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c4c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c540 AppEvent:<nil>}}]
+container.go:73: {0xc000354000 0xc00035c000}
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc000358000}
+container.go:73: {0xc000354080 0xc00035c320}
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc000358030}
+eventmanager.go:133: Recieved tcell event&{t:{wall:14007117303621346076 ext:1732743650 loc:0x6a6980} mod:2 key:3 ch:3}
+eventmanager.go:154: Key Sent: {<C-C> 2026-03-07 22:19:18.160686876 +0000 +00 m=+1.732743650}
+eventmanager.go:186: full keybinding matchs: [{keybinding {0xc00002e1c0 <nil>}}]
+eventmanager.go:187: partial keybinding matchs: []
+container.go:73: {0xc000354000 0xc00035c000}
+eventmanager.go:191: Found one full keybinding: {keybinding {0xc00002e1c0 <nil>}}
+eventmanager.go:86: before exit signal sent
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc000358000}
+eventmanager.go:88: Exit signal sent
+container.go:73: {0xc000354080 0xc00035c320}
+app.go:88: Exit signal recieved,  exiting
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc000358030}
+eventmanager.go:47: current widget: {Widget:0xc000354080 Editable:0xc00035c320}, title: Output, Tag: O
+eventmanager.go:49: modes: [normal], len: 1
+keybinding/parser.go:72: matcher pattern: <C-C>
+keybinding/parser.go:72: matcher pattern: O
+keybinding/parser.go:72: matcher pattern: U
+eventmanager.go:126: Registred events: [{Type:keybinding Detail:{Keybinding:0xc0000b0a20 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0000b0ae0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0000b0b80 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c3a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c4c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00035c540 AppEvent:<nil>}}]
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+eventmanager.go:133: Recieved tcell event<nil>
+app.go:93: App exited, screen fini

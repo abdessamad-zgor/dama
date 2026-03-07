@@ -85,9 +85,12 @@ func (app *app) Start() {
 	go app.EventManager.StartEventLoop()
 	logger.Log("App rendered")
 	_ = <-app.ExitChannel
+	logger.Log("Exit signal recieved,  exiting")
+	app.EventManager.Wg.Wait()
 	_, ok := app.Screen.(tcell.SimulationScreen)
 	if !ok {
 		app.Screen.Fini()
+		logger.Log("App exited, screen fini")
 	}
 }
 
@@ -101,7 +104,6 @@ func (app *app) Resize() {
 }
 
 func (app *app) Exit() {
-	app.EventManager.Wg.Wait()
 	app.ExitChannel <- 0
 }
 

@@ -21,12 +21,12 @@ type Match struct {
 }
 
 func (match Match) IsFull() bool {
-	logger.Log(fmt.Sprintf("IsFull(): match=%+v", match))
+	//logger.Log(fmt.Sprintf("IsFull(): match=%+v", match))
 	return len(match.Matched) > 0 && len(match.Matched) == len(match.Buffer) && len(match.Matched) == len(match.Pattern)
 }
 
 func (match Match) IsPartial() bool {
-	logger.Log(fmt.Sprintf("IsPartial(): match=%+v", match))
+	//logger.Log(fmt.Sprintf("IsPartial(): match=%+v", match))
 	return len(match.Matched) > 0 && len(match.Matched) == len(match.Buffer) && len(match.Matched) < len(match.Pattern)
 }
 

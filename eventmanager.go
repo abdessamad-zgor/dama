@@ -44,8 +44,9 @@ func (em *EventManager) RegisterEvents() {
 	currentWidget, _ := current.element.(Widget)
 	events := dutils.NewList[devent.DamaEvent]()
 	// mode switching keybindings
-	logger.Log(fmt.Sprintf("current widget: %+v", currentWidget))
+	logger.Log(fmt.Sprintf("current widget: %+v, title: %s, Tag: %c", currentWidget, currentWidget.GetTitle(), currentWidget.GetTag()))
 	modes := currentWidget.GetEventModes() 
+	logger.Log(fmt.Sprintf("modes: %+v, len: %d", modes, len(modes)))
 	if len(modes) > 1 {
 		var keybinding devent.DamaEvent
 		if currentWidget.GetMode() == devent.InsertMode {
@@ -70,12 +71,6 @@ func (em *EventManager) RegisterEvents() {
 				})
 				em.Events.Add(keybinding)
 			}
-			// exit keybinding
-			keybinding = devent.KeybindingToEvent("<C-C>", func (match dkeybinding.Match) {
-				_ = match
-				em.App.Exit()
-			})
-			em.Events.Add(keybinding)
 		}
 		if currentWidget.GetMode() == devent.VisualMode {
 			keybinding = devent.KeybindingToEvent("<Esc>", func (match dkeybinding.Match) {
@@ -85,6 +80,14 @@ func (em *EventManager) RegisterEvents() {
 			em.Events.Add(keybinding)
 		} 
 	}
+	// exit keybinding
+	keybinding := devent.KeybindingToEvent("<C-C>", func (match dkeybinding.Match) {
+		_ = match
+		logger.Log("before exit signal sent")
+		em.App.Exit()
+		logger.Log("Exit signal sent")
+	})
+	em.Events.Add(keybinding)
 
 	for _, e := range globals.Items() {
 		events.Add(e)
@@ -158,6 +161,7 @@ func (em *EventManager) StartEventLoop() {
 				go em.HandleAppEvent(appEvent)	
 		}
 		em.App.Render(em.App.GetScreen())
+		em.RegisterEvents()
 	}
 }
 
@@ -198,6 +202,8 @@ func (em *EventManager) HandleKeybindings() {
 			kb.Handler(kb.Matcher(em.Buffer))
 			em.Buffer = ""
 		}
+	}else if len(fulls) == 0 && len(partials) == 0 {
+		em.Buffer = ""
 	}
 }
 
