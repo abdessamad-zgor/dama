@@ -118,9 +118,9 @@ func (navigator *Navigator) Navigate(tag rune) {
 			break;
 		}
 	}
-	if element != nil {
-		element.element.Focus()
+	if element != nil && navigator.current.element != element.element {
 		navigator.current.element.Blur()
+		element.element.Focus()
 		navigator.current = *element
 	}
 }

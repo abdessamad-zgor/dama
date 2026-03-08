@@ -83,7 +83,6 @@ func (em *EventManager) RegisterEvents() {
 	// exit keybinding
 	keybinding := devent.KeybindingToEvent("<C-C>", func (match dkeybinding.Match) {
 		_ = match
-		logger.Log("before exit signal sent")
 		em.App.Exit()
 		logger.Log("Exit signal sent")
 	})

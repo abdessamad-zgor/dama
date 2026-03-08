@@ -8,7 +8,7 @@ import (
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	_ "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/abdessamad-zgor/dama/logger"
-	_ "github.com/gdamore/tcell/v2"
+	"github.com/gdamore/tcell/v2"
 )
 
 type Widget interface {
@@ -67,6 +67,13 @@ func (widget *widget_s) SetModeKeybinding(mode devent.Mode, pattern string, call
 
 func (widget *widget_s) SetMode(mode devent.Mode) {
 	widget.Mode = mode
+	if mode == devent.InsertMode {
+		widget.BorderColor(tcell.ColorTeal)
+	} else if mode == devent.NormalMode {
+		widget.BorderColor(tcell.ColorLime)
+	} else if mode == devent.VisualMode {
+		widget.BorderColor(tcell.ColorYellow)
+	}
 }
 
 func (widget *widget_s) GetMode() devent.Mode {

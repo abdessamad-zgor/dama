@@ -115,11 +115,13 @@ func (element *element_s) IsNavigable() bool {
 }
 
 func (element *element_s) Focus() {
-
+	element.Focused = true
+	element.BorderColor(tcell.ColorLime)
 }
 
 func (element *element_s) Blur() {
-
+	element.Focused = false
+	element.BorderColor(tcell.ColorWhite)
 }
 
 func (element *element_s) IsFocused() bool {

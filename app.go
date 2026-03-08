@@ -95,6 +95,7 @@ func (app *app) Start() {
 }
 
 func (app *app) Render(screen tcell.Screen) {
+	app.EventManager.Wg.Wait()
 	app.Screen.Clear()
 	app.Container.Render(screen)
 	app.Screen.Show()
