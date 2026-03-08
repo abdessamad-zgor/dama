@@ -191,6 +191,7 @@ func (em *EventManager) HandleKeybindings() {
 			kb := e.Detail.Keybinding
 			kb.Handler(kb.Matcher(em.Buffer))
 			em.Buffer = ""
+			return
 		}
 
 		time.Sleep(300 * time.Millisecond)
