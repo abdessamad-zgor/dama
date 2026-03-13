@@ -125,8 +125,8 @@ func (navigator *Navigator) Navigate(tag rune) {
 	}
 }
 
-func (navigator *Navigator) GetNavigationKeybindings() []devent.DamaEvent {
-	keybindings := []devent.DamaEvent{}
+func (navigator *Navigator) GetNavigationKeybindings() []devent.Event {
+	keybindings := []devent.Event{}
 	reachables := []IndexItem{}
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
 	for _, iItem := range navigator.index.Items() {
@@ -136,21 +136,15 @@ func (navigator *Navigator) GetNavigationKeybindings() []devent.DamaEvent {
 	}
 	for _, reachable := range reachables {
 		matcher, _ := keybinding.GetMatcher(string(reachable.element.GetTag()))
-		keybindings = append(keybindings, 
-			devent.DamaEvent{
-				devent.DKeybinding,
-				devent.EventDetail{
-					&devent.Keybinding {
-						string(reachable.element.GetTag()),
-						matcher,
-						func (match keybinding.Match) {
-							_ = match
-							navigator.Navigate(reachable.element.GetTag())
-						},
-					},
-					nil,
-				},
-			})
+		keybindings = append(keybindings, devent.Keybinding {
+			devent.NormalMode,
+			string(reachable.element.GetTag()),
+			matcher,
+			func (match keybinding.Match) {
+				_ = match
+				navigator.Navigate(reachable.element.GetTag())
+			},
+		})	
 	}
 	return keybindings
 }

@@ -6,7 +6,7 @@ import (
 	"slices"
 	devent "github.com/abdessamad-zgor/dama/event"
 	dutils "github.com/abdessamad-zgor/dama/utils"
-	_ "github.com/abdessamad-zgor/dama/keybinding"
+	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/abdessamad-zgor/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
@@ -14,32 +14,40 @@ import (
 type Widget interface {
 	GetParent() Container
 
-	SetKeybinding(pattern string, callback devent.KeybindingCallback)
-	SetModeKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback)
+	SetKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback)
 	SetMode(mode devent.Mode)
 	GetMode() devent.Mode
-	GetEvents() dutils.List[devent.DamaEvent]
-	GetEventModes() []devent.Mode
+	GetModeEvents() []devent.Event
+	GetWidgetModes() []devent.Mode
 	SetAppEvent(eventname devent.AppEventName, callback devent.AppEventCallback)
+	GetTraits() []Trait
 	Element
 }
 
 type widget_s struct {
 	Element
 	Parent      Container
-	Events 		map[devent.Mode]dutils.List[devent.DamaEvent]
+	Events 		dutils.List[devent.Event]
 	Mode		devent.Mode
+	Traits		[]Trait
 }
 
-func NewWidget() Widget {
-	wdg := widget_s {
+func NewWidget(traits ...Trait) Widget {
+	wdg := &widget_s {
 		NewElement(),
 		nil,
-		make(map[devent.Mode]dutils.List[devent.DamaEvent]),
+		dutils.NewList[devent.Event](),
 		devent.NormalMode,
+		traits,
 	}
-
-	return &wdg
+	for _, trait := range traits {
+		traitKeybindings := trait.GetTraitKeybindings()
+		for _, _keybinding := range traitKeybindings {
+			keybinding, _ := _keybinding.ToKeybinding()
+			wdg.SetKeybinding(keybinding.Mode, keybinding.Pattern, keybinding.Handler)
+		}
+	}
+	return wdg
 }
 
 func (widget *widget_s) GetParent() Container {
@@ -47,7 +55,7 @@ func (widget *widget_s) GetParent() Container {
 }
 
 func (widget *widget_s) GetBox() Box {
-	box := widget.GetBox()
+	box := widget.Element.GetBox()
 	box.Element = widget
 	return box
 }
@@ -56,12 +64,37 @@ func (widget *widget_s) GetBox() Box {
 //
 //}
 
-func (widget *widget_s) SetModeKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback) {
-	keybinding := devent.KeybindingToEvent(pattern, callback)
-	if _, ok := widget.Events[mode]; !ok {
-		widget.Events[mode] = dutils.NewList[devent.DamaEvent]()
+func (widget *widget_s) SetKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback) {
+	if mode == devent.InsertMode {
+		if !slices.Contains(widget.GetWidgetModes(), devent.InsertMode) {
+			modeSwitchingKb := devent.KeybindingToEvent(mode, "<Esc>", func (match dkeybinding.Match) {
+				_ = match
+				widget.SetMode(devent.NormalMode)
+			})
+			widget.Events.Add(modeSwitchingKb)
+			modeSwitchingKb = devent.KeybindingToEvent(devent.NormalMode, "i", func (match dkeybinding.Match) {
+				_ = match
+				widget.SetMode(devent.InsertMode)
+			})
+			widget.Events.Add(modeSwitchingKb)
+		}
+	} else if mode == devent.VisualMode {
+		if !slices.Contains(widget.GetWidgetModes(), devent.VisualMode) {
+			modeSwitchingKb := devent.KeybindingToEvent(mode, "<Esc>", func (match dkeybinding.Match) {
+				_ = match
+				widget.SetMode(devent.NormalMode)
+			})
+			widget.Events.Add(modeSwitchingKb)
+			modeSwitchingKb = devent.KeybindingToEvent(devent.NormalMode, "v", func (match dkeybinding.Match) {
+				_ = match
+				widget.SetMode(devent.VisualMode)
+			})
+			widget.Events.Add(modeSwitchingKb)
+		}
+
 	}
-	widget.Events[mode].Add(keybinding)
+	keybinding := devent.KeybindingToEvent(mode, pattern, callback)
+	widget.Events.Add(keybinding)
 	logger.Log(fmt.Sprintf("widget events: %+v", widget.Events))
 }
 
@@ -80,27 +113,45 @@ func (widget *widget_s) GetMode() devent.Mode {
 	return widget.Mode
 }
 
-func (widget *widget_s) SetKeybinding(pattern string, callback devent.KeybindingCallback) {
-	keybinding := devent.KeybindingToEvent(pattern, callback)
-	if _, ok := widget.Events[devent.NormalMode]; !ok {
-		widget.Events[devent.NormalMode] = dutils.NewList[devent.DamaEvent]()
-	}
-	widget.Events[devent.NormalMode].Add(keybinding)
-}
-
 func (widget *widget_s) SetAppEvent(eventName devent.AppEventName, cb devent.AppEventCallback) {
 	appevent := devent.AppEventToEvent(eventName, cb)
-	widget.Events[widget.Mode].Add(appevent)
+	widget.Events.Add(appevent)
 }
 
-func (widget *widget_s) GetEvents() dutils.List[devent.DamaEvent] {
-	return widget.Events[widget.Mode]
+func (widget *widget_s) GetModeEvents() []devent.Event {
+	modeEvents := []devent.Event{}
+	for _, event := range widget.Events.Items() {
+		if devent.IsKeybinding(event) {
+			kb, _ := event.ToKeybinding()
+			if kb.Mode == widget.Mode {
+				modeEvents = append(modeEvents, kb)
+			}
+		} else {
+			modeEvents = append(modeEvents, event)
+		}
+	}
+	return modeEvents
 }
 
-func (widget *widget_s) GetEventModes() []devent.Mode {
-	return slices.Collect(maps.Keys(widget.Events))
+func (widget *widget_s) GetWidgetModes() []devent.Mode {
+	modes := make(map[devent.Mode]int)
+	for _, event := range widget.Events.Items() {
+		if devent.IsKeybinding(event) {
+			kb, _ := event.ToKeybinding()
+			modes[kb.Mode] = 1
+		}
+	}
+	return slices.Collect(maps.Keys(modes))
 }
 
-//func (widget *widget_s) Render(screen tcell.Screen) {
-//	widget.Render()
-//}
+func (widget *widget_s) Render(screen tcell.Screen) {
+	logger.Log("widget.Render() called")
+	widget.Element.Render(screen)
+	for _, trait := range widget.Traits {
+		trait.Render(widget, screen)
+	}
+}
+
+func (widget *widget_s) GetTraits() []Trait {
+	return widget.Traits
+}

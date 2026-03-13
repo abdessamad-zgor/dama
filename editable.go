@@ -1,8 +1,16 @@
-package traits
+package dama
 
 import (
 	"strings"
+	devent "github.com/abdessamad-zgor/dama/event"
+	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
+	"github.com/gdamore/tcell/v2"
 )
+
+type Trait interface {
+	Render(widget Widget, screen tcell.Screen)
+	GetTraitKeybindings() []devent.Event
+}
 
 type Cursor struct {
 	Column int
@@ -10,6 +18,7 @@ type Cursor struct {
 }
 
 type Editable interface {
+	Trait
 	AddRune(char rune)
 	RemoveRune()
 	GetCursor() Cursor
@@ -101,4 +110,40 @@ func (editable *editable_s) GetContents() string {
 func (editable *editable_s) GetLines() []string {
 	lines := strings.Split(editable.Contents, "\n")
 	return lines
+}
+
+func (editable *editable_s) Render(widget Widget, screen tcell.Screen) {
+	if widget.GetMode() == devent.InsertMode {
+		widgetBox := widget.GetBox()
+		screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
+		screen.ShowCursor(widgetBox.X + editable.Cursor.Column + 1, widgetBox.Y + editable.Cursor.Line + 1)
+	} else if widget.GetMode() == devent.NormalMode {
+		widgetBox := widget.GetBox()
+		screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
+		screen.ShowCursor(widgetBox.X + editable.Cursor.Column + 1, widgetBox.Y + editable.Cursor.Line + 1)
+	}
+}
+
+func (editable *editable_s) GetTraitKeybindings() []devent.Event {
+	keybindings := []devent.Event{}
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "*", func (match dkeybinding.Match) {
+		editable.AddRune([]rune(match.Matched)[0])
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Up>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Top)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Down>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Bottom)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Left>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Left)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Right>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Right)
+	}))
+	return keybindings
 }

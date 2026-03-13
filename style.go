@@ -1,4 +1,4 @@
-package traits
+package dama
 
 import (
 	_ "github.com/abdessamad-zgor/dama/logger"

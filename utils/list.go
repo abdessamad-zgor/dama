@@ -16,10 +16,10 @@ func (list List[T]) Add(element T) {
 	*list.items = append(*list.items, element)
 }
 
-func (list List[T]) Remove(element T) {
+func (list List[T]) Remove(index int) {
 	ielem := 0
-	for i, elem := range *list.items {
-		if elem == element {
+	for i, _ := range *list.items {
+		if index == i {
 			ielem = i
 			break
 		}

@@ -1,7 +1,7 @@
 package dama
 
 import (
-	_ "fmt"
+	"fmt"
 	"os"
 	"testing"
 	devent "github.com/abdessamad-zgor/dama/event"
@@ -18,7 +18,7 @@ type App interface {
 	GetNavigator() *Navigator
 	GetScreen() tcell.Screen
 	GetEventManager() *EventManager
-	SetKeybinding(pattern string, callback devent.KeybindingCallback)
+	SetKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback)
 }
 
 type app struct {
@@ -70,8 +70,8 @@ func NewApp() (App, error) {
 	return app, nil
 }
 
-func (app *app) SetKeybinding(pattern string, cb devent.KeybindingCallback) {
-	keybinding := devent.KeybindingToEvent(pattern, cb)
+func (app *app) SetKeybinding(mode devent.Mode, pattern string, cb devent.KeybindingCallback) {
+	keybinding := devent.KeybindingToEvent(mode, pattern, cb)
 	app.EventManager.GlobalEvents.Add(keybinding)
 }
 
@@ -95,9 +95,22 @@ func (app *app) Start() {
 }
 
 func (app *app) Render(screen tcell.Screen) {
+	defer func() {
+		if x := recover(); x != nil {
+			// recovering from a panic; x contains whatever was passed to panic()
+			logger.Log(fmt.Sprintf("run time panic: %v", x))
+
+			// if you just want to log the panic, panic again
+			panic(x)
+		}
+	}()
 	app.EventManager.Wg.Wait()
 	app.Screen.Clear()
 	app.Container.Render(screen)
+	//app.Screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
+	//app.Screen.ShowCursor(2,2)
+	//app.Screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
+	//app.Screen.ShowCursor(3,3)
 	app.Screen.Show()
 }
 

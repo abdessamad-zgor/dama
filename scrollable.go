@@ -1,4 +1,8 @@
-package traits
+package dama
+
+import (
+	"github.com/gdamore/tcell/v2"
+)
 
 type Direction string
 
@@ -17,20 +21,21 @@ type Viewport struct {
 	Height  int
 }
 
-type DamaScrollable interface {
+type Scrollable interface {
 	GetViewport() Viewport
 	Scroll(direction Direction)
+	Trait
 }
 
-type Scrollable struct {
+type scrollable_s struct {
 	Viewport Viewport
 }
 
-func (scrollable *Scrollable) GetViewport() Viewport {
+func (scrollable *scrollable_s) GetViewport() Viewport {
 	return scrollable.Viewport
 }
 
-func (scrollable *Scrollable) Scroll(direction Direction) {
+func (scrollable *scrollable_s) Scroll(direction Direction) {
 	switch direction {
 	case Left:
 		if scrollable.Viewport.OffsetX != scrollable.Viewport.Width {
@@ -49,4 +54,8 @@ func (scrollable *Scrollable) Scroll(direction Direction) {
 			scrollable.Viewport.OffsetY += 1
 		}
 	}
+}
+
+func (scrollable *scrollable_s) Render(widget Widget, screen tcell.Screen) {
+
 }

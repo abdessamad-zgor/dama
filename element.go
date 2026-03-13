@@ -1,12 +1,11 @@
 package dama
 
 import (
-	dtraits "github.com/abdessamad-zgor/dama/traits"
 	"github.com/gdamore/tcell/v2"
 )
 
 type Element interface {
-	dtraits.Style
+	Style
 	Render(screen tcell.Screen)
 	GetBox() Box
 	SetBox(x int, y int, width int, height int)
@@ -30,12 +29,12 @@ type element_s struct {
 	Tag    	rune
 	Title  	string
 	Focused	bool
-	dtraits.Style
+	Style
 }
 
 func NewElement() Element {
 	element := new(element_s)
-	element.Style = dtraits.NewStyle()
+	element.Style = NewStyle()
 	return element
 }
 

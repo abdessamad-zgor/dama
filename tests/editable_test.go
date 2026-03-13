@@ -3,11 +3,11 @@ package tests
 import (
 	"testing"
 
-	"github.com/abdessamad-zgor/dama/traits"
+	"github.com/abdessamad-zgor/dama"
 )
 
 func TestEditable(t *testing.T) {
-    editable := traits.NewEditable()
+    editable := dama.NewEditable()
 
     editable.AddRune('h')
     editable.AddRune('e')

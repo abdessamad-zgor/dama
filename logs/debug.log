@@ -1,268 +1,192 @@
 keybinding/parser.go:72: matcher pattern: *
-widget.go:65: widget events: map[insert:{items:0xc0003c8060}]
 keybinding/parser.go:72: matcher pattern: <Up>
 keybinding/parser.go:72: matcher pattern: <Down>
 keybinding/parser.go:72: matcher pattern: <Left>
 keybinding/parser.go:72: matcher pattern: <Right>
+keybinding/parser.go:72: matcher pattern: <Esc>
+keybinding/parser.go:72: matcher pattern: i
+keybinding/parser.go:72: matcher pattern: *
+widget.go:98: widget events: {items:0xc000350030}
+keybinding/parser.go:72: matcher pattern: <Up>
+widget.go:98: widget events: {items:0xc000350030}
+keybinding/parser.go:72: matcher pattern: <Down>
+widget.go:98: widget events: {items:0xc000350030}
+keybinding/parser.go:72: matcher pattern: <Left>
+widget.go:98: widget events: {items:0xc000350030}
+keybinding/parser.go:72: matcher pattern: <Right>
+widget.go:98: widget events: {items:0xc000350030}
+keybinding/parser.go:72: matcher pattern: *
 keybinding/parser.go:72: matcher pattern: <Up>
 keybinding/parser.go:72: matcher pattern: <Down>
 keybinding/parser.go:72: matcher pattern: <Left>
 keybinding/parser.go:72: matcher pattern: <Right>
+keybinding/parser.go:72: matcher pattern: <Esc>
+keybinding/parser.go:72: matcher pattern: i
+keybinding/parser.go:72: matcher pattern: *
+widget.go:98: widget events: {items:0xc000350180}
+keybinding/parser.go:72: matcher pattern: <Up>
+widget.go:98: widget events: {items:0xc000350180}
+keybinding/parser.go:72: matcher pattern: <Down>
+widget.go:98: widget events: {items:0xc000350180}
+keybinding/parser.go:72: matcher pattern: <Left>
+widget.go:98: widget events: {items:0xc000350180}
+keybinding/parser.go:72: matcher pattern: <Right>
+widget.go:98: widget events: {items:0xc000350180}
 app.go:83: Starting App
 app.go:86: App rendered
-eventmanager.go:145: Starting App Event Loop
+eventmanager.go:112: Starting App Event Loop
 navigator.go:102: Setup navigation
-navigator.go:49: Get root of navigation tree: &{0xc000070060 0xc00007a000 0xc000012080 0xc00007c040 0xc000078050}
+navigator.go:49: Get root of navigation tree: &{0xc0000a8630 0xc0000960e0 0xc0000aa1b0 0xc0000ac1c0 0xc00010a0a0}
 navigator.go:54: Getting root elements, found 2
 navigator.go:77: Indexing navigation tree
-navigator.go:79: Got flattened elements tree: [0xc0000700f0 0xc0000703c0 0xc000070390]
-navigator.go:98: Finished indexing navigation tree: {0xc00000e018}
-eventmanager.go:47: current widget: {Widget:0xc0003cc080 Editable:0xc0003d4320}, title: Output, Tag: O
-eventmanager.go:49: modes: [normal], len: 1
+navigator.go:79: Got flattened elements tree: [0xc0000a86c0 0xc00007c090 0xc00007c060]
+navigator.go:98: Finished indexing navigation tree: {0xc00013c000}
+eventmanager.go:47: current widget: &{Element:0xc000358000 Parent:<nil> Events:{items:0xc000350030} Mode:normal Traits:[0xc000354000]}
 keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
 keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:129: Starting tcell event loop.
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002e3c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e480 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e520 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d43a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d44c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4540 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177944661306307 ext:3369263 loc:0x6a6980} ws:{Width:168 Height:37 PixelWidth:0 PixelHeight:0}}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0003d0030}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0003d0000}
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177946372302994 ext:1566882317 loc:0x6a6980} mod:0 key:256 ch:85}
-eventmanager.go:153: Key Sent: {U 2026-03-08 14:00:36.120907922 +0000 +00 m=+1.566882317}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002e520 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002e520 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
-keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: O
+eventmanager.go:96: Starting tcell event loop.
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665228355496224 ext:1500666 loc:0x6a5a00} ws:{Width:168 Height:37 PixelWidth:0 PixelHeight:0}}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc00035a068}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc00035a000}
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665230830098116 ext:2254877273 loc:0x6a5a00} mod:0 key:256 ch:79}
+eventmanager.go:120: Key Sent: {O 2026-03-13 20:04:15.137877188 +0000 +00 m=+2.254877273}
+eventmanager.go:152: full keybinding matchs: [{normal O 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal O 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358460 Parent:<nil> Events:{items:0xc000350180} Mode:normal Traits:[0xc0003545a0]}
+keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00040c2a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c340 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c3c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c460 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c500 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177948528409578 ext:3575505414 loc:0x6a6980} mod:0 key:256 ch:105}
-eventmanager.go:153: Key Sent: {i 2026-03-08 14:00:38.129530858 +0000 +00 m=+3.575505414}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00040c2a0 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00040c2a0 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: <Esc>
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002ee40 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002eee0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d40a0 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177952100680958 ext:6926551251 loc:0x6a6980} mod:0 key:27 ch:0}
-eventmanager.go:153: Key Sent: {<Esc> 2026-03-08 14:00:41.480576766 +0000 +00 m=+6.926551251}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002ee40 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002ee40 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
-keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00040c8c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c960 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040c9e0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040ca80 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040cb20 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177953164983031 ext:7917111404 loc:0x6a6980} mod:0 key:256 ch:79}
-eventmanager.go:153: Key Sent: {O 2026-03-08 14:00:42.471137015 +0000 +00 m=+7.917111404}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00040ca80 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00040ca80 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc080 Editable:0xc0003d4320}, title: Output, Tag: O
-eventmanager.go:49: modes: [normal], len: 1
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665234697163952 ext:5900717535 loc:0x6a5a00} mod:0 key:256 ch:85}
+eventmanager.go:120: Key Sent: {U 2026-03-13 20:04:18.783717552 +0000 +00 m=+5.900717535}
+eventmanager.go:152: full keybinding matchs: [{normal U 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal U 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358000 Parent:<nil> Events:{items:0xc000350030} Mode:normal Traits:[0xc000354000]}
 keybinding/parser.go:72: matcher pattern: <C-C>
+keybinding/parser.go:72: matcher pattern: U
 keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00040cf00 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040cfc0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00040d060 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d43a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d44c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4540 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177957712494733 ext:12169655943 loc:0x6a6980} mod:0 key:256 ch:85}
-eventmanager.go:153: Key Sent: {U 2026-03-08 14:00:46.723681421 +0000 +00 m=+12.169655943}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00040d060 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00040d060 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665237348043171 ext:8330371307 loc:0x6a5a00} mod:0 key:256 ch:85}
+eventmanager.go:120: Key Sent: {U 2026-03-13 20:04:21.213371299 +0000 +00 m=+8.330371307}
+eventmanager.go:152: full keybinding matchs: [{normal U 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal U 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358000 Parent:<nil> Events:{items:0xc000350030} Mode:normal Traits:[0xc000354000]}
 keybinding/parser.go:72: matcher pattern: <C-C>
+keybinding/parser.go:72: matcher pattern: U
 keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002e360 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e400 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e480 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e520 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002e5c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177959597068589 ext:13906746084 loc:0x6a6980} mod:0 key:256 ch:79}
-eventmanager.go:153: Key Sent: {O 2026-03-08 14:00:48.460771629 +0000 +00 m=+13.906746084}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002e520 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002e520 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc080 Editable:0xc0003d4320}, title: Output, Tag: O
-eventmanager.go:49: modes: [normal], len: 1
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665239800861045 ext:10635705552 loc:0x6a5a00} mod:0 key:256 ch:79}
+eventmanager.go:120: Key Sent: {O 2026-03-13 20:04:23.518705525 +0000 +00 m=+10.635705552}
+eventmanager.go:152: full keybinding matchs: [{normal O 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal O 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358460 Parent:<nil> Events:{items:0xc000350180} Mode:normal Traits:[0xc0003545a0]}
 keybinding/parser.go:72: matcher pattern: <C-C>
+keybinding/parser.go:72: matcher pattern: U
 keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002e980 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002ea40 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002eae0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d43a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d44c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4540 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177961126415868 ext:15362351477 loc:0x6a6980} mod:0 key:256 ch:85}
-eventmanager.go:153: Key Sent: {U 2026-03-08 14:00:49.916377084 +0000 +00 m=+15.362351477}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002eae0 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002eae0 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665241153739918 ext:11914842543 loc:0x6a5a00} mod:0 key:256 ch:85}
+eventmanager.go:120: Key Sent: {U 2026-03-13 20:04:24.797842574 +0000 +00 m=+11.914842543}
+eventmanager.go:152: full keybinding matchs: [{normal U 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal U 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358000 Parent:<nil> Events:{items:0xc000350030} Mode:normal Traits:[0xc000354000]}
 keybinding/parser.go:72: matcher pattern: <C-C>
+keybinding/parser.go:72: matcher pattern: U
 keybinding/parser.go:72: matcher pattern: O
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665244664119940 ext:15130255314 loc:0x6a5a00} mod:0 key:256 ch:79}
+eventmanager.go:120: Key Sent: {O 2026-03-13 20:04:28.0132553 +0000 +00 m=+15.130255314}
+eventmanager.go:152: full keybinding matchs: [{normal O 0x527980 0x52f6e0}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal O 0x527980 0x52f6e0}
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc00035a000}
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+widget.go:148: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc00035a068}
+eventmanager.go:47: current widget: &{Element:0xc000358460 Parent:<nil> Events:{items:0xc000350180} Mode:normal Traits:[0xc0003545a0]}
+keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002eea0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002ef40 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002efc0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002f060 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002f100 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177962455585974 ext:16544038029 loc:0x6a6980} mod:0 key:256 ch:105}
-eventmanager.go:153: Key Sent: {i 2026-03-08 14:00:51.098063542 +0000 +00 m=+16.544038029}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002eea0 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002eea0 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: <Esc>
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002f4c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002f560 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d40a0 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177967849534161 ext:21569277097 loc:0x6a6980} mod:0 key:27 ch:0}
-eventmanager.go:153: Key Sent: {<Esc> 2026-03-08 14:00:56.123302609 +0000 +00 m=+21.569277097}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002f4c0 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002f4c0 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
-keybinding/parser.go:72: matcher pattern: <C-C>
 keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002f860 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002f900 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002f980 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002fa20 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002fac0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177970800228716 ext:24372488037 loc:0x6a6980} mod:0 key:256 ch:79}
-eventmanager.go:153: Key Sent: {O 2026-03-08 14:00:58.926513516 +0000 +00 m=+24.372488037}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc00002fa20 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc00002fa20 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc080 Editable:0xc0003d4320}, title: Output, Tag: O
-eventmanager.go:49: modes: [normal], len: 1
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc00002fe80 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc00002ff40 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d40e0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d43a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d44c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4540 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177971454427122 ext:24952944666 loc:0x6a6980} mod:0 key:256 ch:105}
-eventmanager.go:153: Key Sent: {i 2026-03-08 14:00:59.506970098 +0000 +00 m=+24.952944666}
-eventmanager.go:185: full keybinding matchs: []
-eventmanager.go:186: partial keybinding matchs: []
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc080 Editable:0xc0003d4320}, title: Output, Tag: O
-eventmanager.go:49: modes: [normal], len: 1
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc0003d44e0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4600 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d46a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d43a0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4440 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d44c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4540 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177974702465369 ext:27979757410 loc:0x6a6980} mod:0 key:256 ch:85}
-eventmanager.go:153: Key Sent: {U 2026-03-08 14:01:02.533782873 +0000 +00 m=+27.979757410}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc0003d46a0 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc0003d46a0 <nil>}}
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc0003d4a60 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4b00 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4b80 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4c20 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4cc0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177980901645853 ext:33736486915 loc:0x6a6980} mod:0 key:256 ch:58}
-eventmanager.go:153: Key Sent: {: 2026-03-08 14:01:08.290512413 +0000 +00 m=+33.736486915}
-eventmanager.go:185: full keybinding matchs: []
-eventmanager.go:186: partial keybinding matchs: []
-container.go:73: {0xc0003cc000 0xc0003d4000}
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-container.go:73: {0xc0003cc080 0xc0003d4320}
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:47: current widget: {Widget:0xc0003cc000 Editable:0xc0003d4000}, title: URL, Tag: U
-eventmanager.go:49: modes: [insert normal], len: 2
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: v
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:125: Registred events: [{Type:keybinding Detail:{Keybinding:0xc0003d5020 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d50c0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d5140 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d51e0 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d5280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4160 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4200 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4280 AppEvent:<nil>}} {Type:keybinding Detail:{Keybinding:0xc0003d4300 AppEvent:<nil>}}]
-eventmanager.go:132: Recieved tcell event&{t:{wall:14007177982834322599 ext:35521679969 loc:0x6a6980} mod:2 key:3 ch:3}
-eventmanager.go:153: Key Sent: {<C-C> 2026-03-08 14:01:10.075705511 +0000 +00 m=+35.521679969}
-eventmanager.go:185: full keybinding matchs: [{keybinding {0xc0003d5140 <nil>}}]
-eventmanager.go:186: partial keybinding matchs: []
-eventmanager.go:190: Found one full keybinding: {keybinding {0xc0003d5140 <nil>}}
-eventmanager.go:87: Exit signal sent
+eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52c140} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x52f6e0} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5305a0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52a7e0} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52a740} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52a6a0} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52a600}]
+eventmanager.go:99: Recieved tcell event&{t:{wall:14007665246339930440 ext:16732323984 loc:0x6a5a00} mod:2 key:3 ch:3}
+eventmanager.go:120: Key Sent: {<C-C> 2026-03-13 20:04:29.615323976 +0000 +00 m=+16.732323984}
+eventmanager.go:152: full keybinding matchs: [{normal <C-C> 0x527980 0x52c140}]
+eventmanager.go:153: partial keybinding matchs: []
+eventmanager.go:157: Found one full keybinding: {normal <C-C> 0x527980 0x52c140}
+eventmanager.go:52: Exit signal sent
 app.go:88: Exit signal recieved,  exiting
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-container.go:73: {0xc0003cc080 0xc0003d4320}
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0003d0030}
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-container.go:73: {0xc0003cc000 0xc0003d4000}
-eventmanager.go:132: Recieved tcell event<nil>
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0003d0000}
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
-eventmanager.go:132: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+container.go:73: &{0xc000358000 <nil> {0xc000350030} normal [0xc000354000]}
+eventmanager.go:99: Recieved tcell event<nil>
+widget.go:148: widget.Render() called
+eventmanager.go:99: Recieved tcell event<nil>
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc00035a000}
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+container.go:73: &{0xc000358460 <nil> {0xc000350180} normal [0xc0003545a0]}
+eventmanager.go:99: Recieved tcell event<nil>
+widget.go:148: widget.Render() called
+eventmanager.go:99: Recieved tcell event<nil>
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc00035a068}
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
+eventmanager.go:99: Recieved tcell event<nil>
 app.go:93: App exited, screen fini
-eventmanager.go:132: Recieved tcell event<nil>

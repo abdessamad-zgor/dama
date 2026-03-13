@@ -2,7 +2,6 @@ package dama
 
 import (
 	"errors"
-	dtraits "github.com/abdessamad-zgor/dama/traits"
 )
 
 type Layout interface {
@@ -39,7 +38,7 @@ type BaseLayout struct {
 	Elements  map[BasePosition]Element
 }
 
-type BasePosition = dtraits.Direction
+type BasePosition = Direction
 
 func (layout *GridLayout) AddElement(element Element, position Position) error {
 	gridPosition, ok := position.(GridPosition)
@@ -68,27 +67,27 @@ func (layout *BaseLayout) getBoxForPosition(position BasePosition) (int, int, in
 	cont := layout.Container.GetBox()
 	x, y, width, height := (0), (0), (0), (0)
 	switch position {
-	case dtraits.Center:
+	case Center:
 		x = (cont.X + cont.Width/5)
 		y = (cont.Y + cont.Height/5)
 		width = (cont.Width / 5 * 3)
 		height = (cont.Height / 5 * 3)
-	case dtraits.Left:
+	case Left:
 		x = (cont.X)
 		y = (cont.Y) + (cont.Height / 5)
 		width = (cont.Width / 5) * 3
 		height = (cont.Height / 5) * 3
-	case dtraits.Right:
+	case Right:
 		x = (cont.X) + (cont.Width/5)*4
 		y = (cont.Y) + (cont.Height / 5)
 		width = (cont.Width / 5) * 3
 		height = (cont.Height / 5) * 3
-	case dtraits.Top:
+	case Top:
 		x = (cont.X)
 		y = (cont.Y)
 		width = cont.Width
 		height = (cont.Height / 5)
-	case dtraits.Bottom:
+	case Bottom:
 		x = (cont.X)
 		y = (cont.Y) + (cont.Height/5)*4
 		width = cont.Width
