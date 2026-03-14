@@ -38,15 +38,17 @@ func NewEditable() Editable {
 }
 
 func (editable *editable_s) RemoveRune() {
-	i, line := editable.Cursor.Column, editable.Cursor.Line
+	i, line := editable.Cursor.Column - 1, editable.Cursor.Line
 	content := editable.Contents
 	lines := strings.Split(content, "\n")
 	runes := []rune(lines[line])
 	if runes[i] == '\n' {
 		editable.Cursor.Line -= 1
 	}
-	runes = append(runes[0:i-1], runes[i:]...)
+	runes = append(runes[0:i], runes[i + 1:]...)
 	editable.Cursor.Column -= 1
+	lines = append(lines[:line], string(runes))
+	editable.Contents = strings.Join(lines, "\n")
 }
 
 func (editable *editable_s) AddRune(char rune) {
@@ -83,7 +85,7 @@ func (editable *editable_s) MoveCursor(direction Direction) {
 			cursor.Column -= 1
 		}
 	case Right:
-		if cursor.Column < len(lines[cursor.Line]) - 1 {
+		if cursor.Column < len(lines[cursor.Line]) {
 			cursor.Column += 1
 		}
 	case Top:
@@ -101,6 +103,7 @@ func (editable *editable_s) MoveCursor(direction Direction) {
 			}
 		}
 	}
+	editable.Cursor = cursor
 }
 
 func (editable *editable_s) GetContents() string {
@@ -113,21 +116,27 @@ func (editable *editable_s) GetLines() []string {
 }
 
 func (editable *editable_s) Render(widget Widget, screen tcell.Screen) {
-	if widget.GetMode() == devent.InsertMode {
-		widgetBox := widget.GetBox()
-		screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
-		screen.ShowCursor(widgetBox.X + editable.Cursor.Column + 1, widgetBox.Y + editable.Cursor.Line + 1)
-	} else if widget.GetMode() == devent.NormalMode {
-		widgetBox := widget.GetBox()
-		screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
+	widgetBox := widget.GetBox()
+	if widget.IsFocused() {
+		if widget.GetMode() == devent.InsertMode {
+			screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
+		} else if widget.GetMode() == devent.NormalMode {
+			screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
+		}
 		screen.ShowCursor(widgetBox.X + editable.Cursor.Column + 1, widgetBox.Y + editable.Cursor.Line + 1)
 	}
+	text := NewText(widgetBox.X + 1, widgetBox.Y + 1, widgetBox.Width, widgetBox.Height, editable.Contents)
+	text.Render(screen)
 }
 
 func (editable *editable_s) GetTraitKeybindings() []devent.Event {
 	keybindings := []devent.Event{}
 	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "*", func (match dkeybinding.Match) {
 		editable.AddRune([]rune(match.Matched)[0])
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<BS>", func (match dkeybinding.Match) {
+		_ = match
+		editable.RemoveRune()
 	}))
 	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Up>", func (match dkeybinding.Match) {
 		_ = match
@@ -142,6 +151,22 @@ func (editable *editable_s) GetTraitKeybindings() []devent.Event {
 		editable.MoveCursor(Left)
 	}))
 	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Right>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Right)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Up>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Top)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Down>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Bottom)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Left>", func (match dkeybinding.Match) {
+		_ = match
+		editable.MoveCursor(Left)
+	}))
+	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Right>", func (match dkeybinding.Match) {
 		_ = match
 		editable.MoveCursor(Right)
 	}))

@@ -31,4 +31,16 @@ func TestEditable(t *testing.T) {
     if cursor.Column != len("world") || cursor.Line != 1 {
         t.Error("editable does not position the cursor correctely", cursor)
     }
+	
+	editable.RemoveRune()
+    cursor = editable.GetCursor()
+    contents = editable.GetContents()
+
+    if contents != "hello\nworl" {
+        t.Error("editable does not insert runes correctly", contents)
+    }    
+
+    if cursor.Column != len("worl") || cursor.Line != 1 {
+        t.Error("editable does not position the cursor correctely", cursor)
+    }
 } 

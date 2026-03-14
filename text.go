@@ -12,6 +12,16 @@ type Text struct {
 	Height 	int
 }
 
+func NewText(x int, y int, width int, height int, text string) Text {
+	return Text{
+		text,
+		x,
+		y,
+		width,
+		height,
+	}
+}
+
 func (text Text) Render(screen tcell.Screen) {
     runes := []rune(text.Text)
     line := 0

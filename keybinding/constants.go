@@ -10,7 +10,7 @@ var TcellKeyToString = map[tcell.Key]string {
 	tcell.KeyTab:            "<Tab>",
 	tcell.KeyBacktab:        "<Backtab>",
 	tcell.KeyEsc:            "<Esc>",
-	tcell.KeyBackspace2:     "<Backspace2>",
+	tcell.KeyBackspace2:     "<BS>",
 	tcell.KeyDelete:         "<Del>",
 	tcell.KeyInsert:         "<Ins>",
 	tcell.KeyUp:             "<Up>",
