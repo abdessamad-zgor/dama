@@ -86,15 +86,17 @@ func (em *EventManager) RegisterEvents() {
 		if len(toRemove) == 0 {
 			em.Events.Add(item)
 		}
-	}
-	elements := em.App.GetElements()
-	for _, element := range elements {
-		widget, ok := element.(Widget)
-		if ok && currentWidget.GetTag() != widget.GetTag() && currentWidget.GetTitle() != widget.GetTitle() {
-			for _, event := range widget.GetModeEvents() {
-				if IsAppEvent(event) {
-					appevent, _ := event.ToAppEvent()
-					em.Events.Add(appevent)
+		elements := em.App.GetElements()
+		for _, element := range elements {
+			widget, ok := element.(Widget)
+			if ok {
+				if currentWidget.GetTag() != widget.GetTag() && currentWidget.GetTitle() != widget.GetTitle() {
+					for _, event := range widget.GetModeEvents() {
+						if IsAppEvent(event) {
+							appevent, _ := event.ToAppEvent()
+							em.Events.Add(appevent)
+						}
+					}
 				}
 			}
 		}
