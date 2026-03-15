@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/constants"
+	"github.com/samazee/dama/constants"
 )
 
 type EventType string

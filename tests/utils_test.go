@@ -2,7 +2,7 @@ package tests
 
 import (
 	"testing"
-	"github.com/abdessamad-zgor/dama/utils"
+	"github.com/samazee/dama/utils"
 )
 
 func TestList(t *testing.T) {

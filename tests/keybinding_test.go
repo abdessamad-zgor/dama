@@ -2,30 +2,30 @@ package tests
 
 import (
 	"testing"
-	"github.com/abdessamad-zgor/dama/keybinding"
+	"github.com/samazee/dama"
 )
 
 func TestKeybindingParser(t *testing.T) {
-	charMatcher, err := keybinding.GetMatcher("<char>")
+	charMatcher, err := dama.GetMatcher("<char>")
 	if err != nil {
 		t.Errorf("Failed to create matcher due to %v", err)
 	}
 	match := charMatcher("abcd")
 	t.Log(match)
-	numMatcher, err := keybinding.GetMatcher("<num>")
+	numMatcher, err := dama.GetMatcher("<num>")
 	if err != nil {
 		t.Errorf("Failed to create matcher due to %v", err)
 	}
 	match = numMatcher("1234")
 	t.Log(match)
-	textMatcher, err := keybinding.GetMatcher("<text>")
+	textMatcher, err := dama.GetMatcher("<text>")
 	if err != nil {
 		t.Errorf("Failed to create matcher due to %v", err)
 	}
 	match = textMatcher("ewwwww")
 	t.Log(match)
 
-	aMatcher, err := keybinding.GetMatcher("a")
+	aMatcher, err := dama.GetMatcher("a")
 	if err != nil {
 		t.Errorf("Failed to create matcher due to %v", err)
 	}

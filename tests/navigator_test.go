@@ -2,7 +2,7 @@ package tests
 
 import (
 	"testing"
-	"github.com/abdessamad-zgor/dama"
+	"github.com/samazee/dama"
 )
 
 func TestNavigator(t *testing.T) {

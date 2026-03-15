@@ -5,9 +5,9 @@ import (
 	"time"
 	"sync"
 	_ "slices"
-	dutils "github.com/abdessamad-zgor/dama/utils"
+	dutils "github.com/samazee/dama/utils"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama/logger"
 )
 
 type EventManager struct {

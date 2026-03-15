@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/abdessamad-zgor/dama"
+	"github.com/samazee/dama"
 )
 
 func TestEditable(t *testing.T) {

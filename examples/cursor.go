@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 

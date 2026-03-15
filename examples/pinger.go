@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os/exec"
-	"github.com/abdessamad-zgor/dama"
+	"github.com/samazee/dama"
 )
 
 func main() {

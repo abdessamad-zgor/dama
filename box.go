@@ -2,7 +2,7 @@ package dama
 
 import (
 	"fmt"
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 

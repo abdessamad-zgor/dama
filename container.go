@@ -5,7 +5,7 @@ import (
 	"fmt"
 	_ "reflect"
 
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 

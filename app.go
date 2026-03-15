@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama/logger"
 )
 
 type App interface {

@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/abdessamad-zgor/dama/logger"
-	"github.com/abdessamad-zgor/dama"
+	"github.com/samazee/dama/logger"
+	"github.com/samazee/dama"
 )
 
 var app dama.App

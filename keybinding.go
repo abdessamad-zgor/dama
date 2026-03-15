@@ -7,9 +7,9 @@ import (
 	"bytes"
 	"errors"
 	_ "strconv"
-	_ "github.com/abdessamad-zgor/dama/utils"
-	"github.com/abdessamad-zgor/dama/constants"
-	"github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/samazee/dama/utils"
+	"github.com/samazee/dama/constants"
+	"github.com/samazee/dama/logger"
 )
 
 type Matcher = func (buffer string) Match

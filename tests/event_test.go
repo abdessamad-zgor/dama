@@ -4,17 +4,16 @@ import (
 	"fmt"
 	"testing"
 	"time"
-	"github.com/abdessamad-zgor/dama"
-	"github.com/abdessamad-zgor/dama/logger"
+	"github.com/samazee/dama"
+	"github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/keybinding"
 )
 
 func TestKeybindingEvent(t *testing.T) {
 	widget1 := dama.NewWidget()
 	widget1.SetTag('A')
 	widget1.SetTitle("Widget 1")
-	widget1.SetKeybinding(NormalMode, "*", func (e keybinding.Match) {
+	widget1.SetKeybinding(dama.NormalMode, "*", func (e keybinding.Match) {
 		logger.Log(fmt.Sprintf("From keybinding callback: %+v", e))
 	})
 	app.AddElement(widget1, dama.Center)

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"maps"
 	"slices"
-	dutils "github.com/abdessamad-zgor/dama/utils"
-	"github.com/abdessamad-zgor/dama/logger"
+	dutils "github.com/samazee/dama/utils"
+	"github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 

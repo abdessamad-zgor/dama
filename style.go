@@ -1,7 +1,7 @@
 package dama
 
 import (
-	_ "github.com/abdessamad-zgor/dama/logger"
+	_ "github.com/samazee/dama/logger"
 	"github.com/gdamore/tcell/v2"
 )
 

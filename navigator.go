@@ -5,8 +5,8 @@ import (
 	_ "fmt"
 	_ "reflect"
 
-	"github.com/abdessamad-zgor/dama/logger"
-	dutils "github.com/abdessamad-zgor/dama/utils"
+	"github.com/samazee/dama/logger"
+	dutils "github.com/samazee/dama/utils"
 )
 
 type IndexItem struct {
