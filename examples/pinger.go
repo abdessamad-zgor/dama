@@ -2,10 +2,8 @@ package main
 
 import (
 	"fmt"
-
+	"os/exec"
 	"github.com/abdessamad-zgor/dama"
-	_ "github.com/abdessamad-zgor/dama/keybinding"
-	_ "github.com/abdessamad-zgor/dama/event"
 )
 
 func main() {
@@ -14,12 +12,33 @@ func main() {
 		panic(fmt.Sprintf("failed to initialize app due to : %v\n", err))
 	}
 
-	url := dama.NewWidget(dama.NewEditable())
+	urlEditable := dama.NewEditable()
+	url := dama.NewWidget(urlEditable)
+	var PingUrl dama.AppEventName = "ping-url"
+	url.SetKeybinding(dama.NormalMode, "<CR>", func (match dama.Match) {
+		_ = match
+		app.DispatchEvent(PingUrl, urlEditable.GetContents())
+	})
 		
 	url.SetTag('U')
 	url.SetTitle("URL")
 
-	output := dama.NewWidget(dama.NewEditable())
+	outputEditable := dama.NewEditable()
+	output := dama.NewWidget(outputEditable)
+	output.SetAppEvent(PingUrl, func (payload any) {
+		urlString, _ := payload.(string)
+		cmd := exec.Command("ping", "-c", "1", "-W", "2", urlString)
+		outputString, err := cmd.CombinedOutput()
+		errString := ""
+		if err != nil {
+			errString = fmt.Sprintf("Command failed with error: %v, output: %s", err, string(outputString))
+		}
+		if len(errString) != 0 {
+			outputEditable.SetContents(errString)
+		} else {
+			outputEditable.SetContents(string(outputString))
+		}
+	})
 	
 	output.SetTag('O')
 	output.SetTitle("Output")

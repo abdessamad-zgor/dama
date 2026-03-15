@@ -1,20 +1,23 @@
-package event
+package dama
 
 import (
 	"errors"
 	"time"
 	"github.com/gdamore/tcell/v2"
-	"github.com/abdessamad-zgor/dama/keybinding"
+	"github.com/abdessamad-zgor/dama/constants"
 )
 
 type EventType string
+type Mode string
+type AppEventName string
+
+type AppEventCallback = func (payload any)
+type KeybindingCallback = func (match Match)
 
 const (
 	DAppEvent EventType = "app-event"
 	DKeybinding EventType = "keybinding"
 )
-
-type Mode string
 
 const (
 	InsertMode Mode = "insert"
@@ -22,21 +25,32 @@ const (
 	VisualMode Mode = "visual"
 )
 
-type KeybindingCallback = func (match keybinding.Match)
-type AppEventCallback = func ()
-
 type Event interface {
 	Type() EventType
 	ToAppEvent() (AppEvent, error)
 	ToKeybinding() (Keybinding, error)
 }
 
-type AppEventName string
-
 type AppEvent struct {
 	Name	AppEventName
-	Payload any
 	Handler	AppEventCallback
+}
+
+type AppEventDispatch struct {
+	Name	AppEventName
+	Payload	any
+}
+
+type Keybinding struct {
+	Mode		Mode
+	Pattern		string
+	Matcher		Matcher
+	Handler     KeybindingCallback
+}
+
+type KeyEvent struct {
+	Key			string
+	RecievedAt	time.Time
 }
 
 func (ae AppEvent) Type() EventType {
@@ -51,13 +65,6 @@ func (ae AppEvent) ToAppEvent() (AppEvent, error) {
 	return ae, nil
 }
 
-type Keybinding struct {
-	Mode		Mode
-	Pattern		string
-	Matcher		keybinding.Matcher
-	Handler     KeybindingCallback
-}
-
 func (kb Keybinding) Type() EventType {
 	return DKeybinding
 }
@@ -68,11 +75,6 @@ func (kb Keybinding) ToKeybinding() (Keybinding, error) {
 
 func (kb Keybinding) ToAppEvent() (AppEvent, error) {
 	return AppEvent{}, errors.New("Event is not AppEvent.")
-}
-
-type KeyEvent struct {
-	Key			string
-	RecievedAt	time.Time
 }
 
 func ToKeyEvent(event tcell.Event) KeyEvent {
@@ -86,7 +88,7 @@ func ToKeyEvent(event tcell.Event) KeyEvent {
 			ke.When(),
 		}
 	default:
-		eventString, _ := keybinding.TcellKeyToString[key]
+		eventString, _ := constants.TcellKeyToString[key]
 		return KeyEvent {
 			eventString,
 			ke.When(),
@@ -95,7 +97,7 @@ func ToKeyEvent(event tcell.Event) KeyEvent {
 }
 
 func KeybindingToEvent(mode Mode, pattern string, callback KeybindingCallback) Event {
-	patternMatcher, err := keybinding.GetMatcher(pattern)
+	patternMatcher, err := GetMatcher(pattern)
 	if err != nil {
 		panic(err)
 	}
@@ -111,7 +113,6 @@ func KeybindingToEvent(mode Mode, pattern string, callback KeybindingCallback) E
 func AppEventToEvent(eventName AppEventName, callback AppEventCallback) Event {
 	appevent := AppEvent{
 		eventName,
-		nil,
 		callback,
 	}
 	return appevent
@@ -124,3 +125,4 @@ func IsKeybinding(event Event) bool {
 func IsAppEvent(event Event) bool {
 	return event.Type() == DAppEvent
 }
+

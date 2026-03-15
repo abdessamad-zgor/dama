@@ -2,14 +2,12 @@ package dama
 
 import (
 	"strings"
-	devent "github.com/abdessamad-zgor/dama/event"
-	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/gdamore/tcell/v2"
 )
 
 type Trait interface {
 	Render(widget Widget, screen tcell.Screen)
-	GetTraitKeybindings() []devent.Event
+	GetTraitKeybindings() []Event
 }
 
 type Cursor struct {
@@ -24,6 +22,7 @@ type Editable interface {
 	GetCursor() Cursor
 	MoveCursor(direction Direction)
 	GetContents() string
+	SetContents(contents string) 
     GetLines() []string
 }
 
@@ -110,6 +109,10 @@ func (editable *editable_s) GetContents() string {
     return editable.Contents
 }
 
+func (editable *editable_s) SetContents(contents string) {
+    editable.Contents = contents
+}
+
 func (editable *editable_s) GetLines() []string {
 	lines := strings.Split(editable.Contents, "\n")
 	return lines
@@ -118,9 +121,9 @@ func (editable *editable_s) GetLines() []string {
 func (editable *editable_s) Render(widget Widget, screen tcell.Screen) {
 	widgetBox := widget.GetBox()
 	if widget.IsFocused() {
-		if widget.GetMode() == devent.InsertMode {
+		if widget.GetMode() == InsertMode {
 			screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
-		} else if widget.GetMode() == devent.NormalMode {
+		} else if widget.GetMode() == NormalMode {
 			screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
 		}
 		screen.ShowCursor(widgetBox.X + editable.Cursor.Column + 1, widgetBox.Y + editable.Cursor.Line + 1)
@@ -129,44 +132,44 @@ func (editable *editable_s) Render(widget Widget, screen tcell.Screen) {
 	text.Render(screen)
 }
 
-func (editable *editable_s) GetTraitKeybindings() []devent.Event {
-	keybindings := []devent.Event{}
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "*", func (match dkeybinding.Match) {
+func (editable *editable_s) GetTraitKeybindings() []Event {
+	keybindings := []Event{}
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "*", func (match Match) {
 		editable.AddRune([]rune(match.Matched)[0])
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<BS>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "<BS>", func (match Match) {
 		_ = match
 		editable.RemoveRune()
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Up>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(NormalMode, "<Up>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Top)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Down>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(NormalMode, "<Down>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Bottom)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Left>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(NormalMode, "<Left>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Left)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.NormalMode, "<Right>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(NormalMode, "<Right>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Right)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Up>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "<Up>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Top)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Down>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "<Down>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Bottom)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Left>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "<Left>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Left)
 	}))
-	keybindings = append(keybindings, devent.KeybindingToEvent(devent.InsertMode, "<Right>", func (match dkeybinding.Match) {
+	keybindings = append(keybindings, KeybindingToEvent(InsertMode, "<Right>", func (match Match) {
 		_ = match
 		editable.MoveCursor(Right)
 	}))

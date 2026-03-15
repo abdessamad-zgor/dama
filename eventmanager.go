@@ -5,8 +5,6 @@ import (
 	"time"
 	"sync"
 	_ "slices"
-	devent "github.com/abdessamad-zgor/dama/event"
-	dkeybinding "github.com/abdessamad-zgor/dama/keybinding"
 	dutils "github.com/abdessamad-zgor/dama/utils"
 	"github.com/gdamore/tcell/v2"
 	"github.com/abdessamad-zgor/dama/logger"
@@ -16,10 +14,10 @@ type EventManager struct {
 	App 				App
 	Wg					sync.WaitGroup
 	Buffer  			string
-	KeyChannel 			chan devent.KeyEvent
-	AppEventChannel     chan devent.AppEventName
-	Events 				dutils.List[devent.Event]
-	GlobalEvents		dutils.List[devent.Event]
+	KeyChannel 			chan KeyEvent
+	AppEventChannel     chan AppEventDispatch
+	Events 				dutils.List[Event]
+	GlobalEvents		dutils.List[Event]
 }
 
 func NewEventManager(app App) *EventManager {
@@ -29,10 +27,10 @@ func NewEventManager(app App) *EventManager {
 		app,
 		wg,
 		"",
-		make(chan devent.KeyEvent),
-		make(chan devent.AppEventName),
-		dutils.NewList[devent.Event](),
-		dutils.NewList[devent.Event](),
+		make(chan KeyEvent, 1),
+		make(chan AppEventDispatch, 1),
+		dutils.NewList[Event](),
+		dutils.NewList[Event](),
 	}
 	return em
 }
@@ -42,11 +40,11 @@ func (em *EventManager) RegisterEvents() {
 	current := em.App.GetNavigator().GetCurrent()
 	em.Events.Empty()
 	currentWidget, _ := current.element.(Widget)
-	events := dutils.NewList[devent.Event]()
+	events := dutils.NewList[Event]()
 	// mode switching keybindings
 	logger.Log(fmt.Sprintf("current widget: %+v", currentWidget))
 	// exit keybinding
-	keybinding := devent.KeybindingToEvent(devent.NormalMode, "<C-C>", func (match dkeybinding.Match) {
+	keybinding := KeybindingToEvent(NormalMode, "<C-C>", func (match Match) {
 		_ = match
 		em.App.Exit()
 		logger.Log("Exit signal sent")
@@ -57,7 +55,7 @@ func (em *EventManager) RegisterEvents() {
 		events.Add(e)
 	}
 	if currentWidget != nil {
-		if currentWidget.GetMode() == devent.NormalMode {
+		if currentWidget.GetMode() == NormalMode {
 			navKeybindings := em.App.GetNavigator().GetNavigationKeybindings()
 			for _, e := range navKeybindings {
 				events.Add(e)
@@ -70,7 +68,7 @@ func (em *EventManager) RegisterEvents() {
 	for _, item := range events.Items() {
 		toRemove := []int{}
 		for i, _item := range em.Events.Items() {
-			if devent.IsKeybinding(item) && devent.IsKeybinding(_item) {
+			if IsKeybinding(item) && IsKeybinding(_item) {
 				_itemKb, _ := _item.ToKeybinding()
 				itemKb, _ := item.ToKeybinding()
 				if _itemKb.Matcher(itemKb.Pattern).IsFull() {
@@ -89,6 +87,18 @@ func (em *EventManager) RegisterEvents() {
 			em.Events.Add(item)
 		}
 	}
+	elements := em.App.GetElements()
+	for _, element := range elements {
+		widget, ok := element.(Widget)
+		if ok && currentWidget.GetTag() != widget.GetTag() && currentWidget.GetTitle() != widget.GetTitle() {
+			for _, event := range widget.GetModeEvents() {
+				if IsAppEvent(event) {
+					appevent, _ := event.ToAppEvent()
+					em.Events.Add(appevent)
+				}
+			}
+		}
+	}
 	logger.Log(fmt.Sprintf("Registred events: %+v", em.Events.Items()))
 }
 
@@ -99,7 +109,7 @@ func (em *EventManager) HandleTcellEvents() {
 		logger.Log("Recieved tcell event", fmt.Sprintf("%+v", event))
 		switch event.(type) {
 		case *tcell.EventKey:
-			keyEvent := devent.ToKeyEvent(event)
+			keyEvent := ToKeyEvent(event)
 			em.KeyChannel <- keyEvent
 		case *tcell.EventResize:
 			em.App.Resize()
@@ -133,11 +143,11 @@ func (em *EventManager) StartEventLoop() {
 
 func (em *EventManager) HandleKeybindings() {
 	defer em.Wg.Done()
-	fulls := []devent.Keybinding{}
-	partials := []devent.Keybinding{}
+	fulls := []Keybinding{}
+	partials := []Keybinding{}
 	buffer := em.Buffer
 	for _, e := range em.Events.Items() {
-		if devent.IsKeybinding(e) {
+		if IsKeybinding(e) {
 			kb, _ := e.ToKeybinding()
 			if kb.Matcher(buffer).IsFull() {
 				fulls = append(fulls, kb)
@@ -147,8 +157,6 @@ func (em *EventManager) HandleKeybindings() {
 			}
 		}
 	}
-	// dutils.Assert(len(fulls) <= 1, "there should be at most 1 full match when handling keybindings")
-	// if there are no other keybindings that could match the 
 	logger.Log("full keybinding matchs: ", fulls)
 	logger.Log("partial keybinding matchs: ", partials)
 	if len(fulls) == 1 {
@@ -172,16 +180,18 @@ func (em *EventManager) HandleKeybindings() {
 	}
 }
 
-func (em *EventManager) HandleAppEvent(eventName devent.AppEventName) {
+func (em *EventManager) HandleAppEvent(eventDispatch AppEventDispatch) {
 	defer em.Wg.Done()
-	appevents := []devent.AppEvent{}
+	appevents := []AppEvent{}
 	for _, event := range em.Events.Items() {
-		if devent.IsAppEvent(event) {
+		if IsAppEvent(event) {
 			appevent, _ := event.ToAppEvent()
-			appevents = append(appevents, appevent)
+			if appevent.Name == eventDispatch.Name {
+				appevents = append(appevents, appevent)
+			}
 		}
 	}
 	for _, appevent := range appevents {
-		appevent.Handler()
+		appevent.Handler(eventDispatch.Payload)
 	}
 }

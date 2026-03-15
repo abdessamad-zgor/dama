@@ -1,4 +1,4 @@
-package keybinding
+package dama
 
 import (
 	"fmt"
@@ -8,6 +8,7 @@ import (
 	"errors"
 	_ "strconv"
 	_ "github.com/abdessamad-zgor/dama/utils"
+	"github.com/abdessamad-zgor/dama/constants"
 	"github.com/abdessamad-zgor/dama/logger"
 )
 
@@ -45,7 +46,7 @@ func GetMatcherPattern(keybinding string) (string, error) {
 			i += 1
 		} else {
 			inMatch := matches[isInMatch]
-			if slices.Contains(SpecialCharacters, keybinding[inMatch[0]: inMatch[1]]) {
+			if slices.Contains(constants.SpecialCharacters, keybinding[inMatch[0]: inMatch[1]]) {
 				matcherPattern.WriteString(keybinding[inMatch[2]: inMatch[3]])
 				i = inMatch[3]
 			} else {

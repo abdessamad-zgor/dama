@@ -1,4 +1,4 @@
-package keybinding
+package constants
 
 import (
 	"github.com/gdamore/tcell/v2"

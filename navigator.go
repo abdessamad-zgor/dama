@@ -7,8 +7,6 @@ import (
 
 	"github.com/abdessamad-zgor/dama/logger"
 	dutils "github.com/abdessamad-zgor/dama/utils"
-	devent "github.com/abdessamad-zgor/dama/event"
-	keybinding "github.com/abdessamad-zgor/dama/keybinding"
 )
 
 type IndexItem struct {
@@ -125,8 +123,8 @@ func (navigator *Navigator) Navigate(tag rune) {
 	}
 }
 
-func (navigator *Navigator) GetNavigationKeybindings() []devent.Event {
-	keybindings := []devent.Event{}
+func (navigator *Navigator) GetNavigationKeybindings() []Event {
+	keybindings := []Event{}
 	reachables := []IndexItem{}
 	basePath := string([]rune(navigator.current.path)[:len(navigator.current.path) - 1])
 	for _, iItem := range navigator.index.Items() {
@@ -135,12 +133,12 @@ func (navigator *Navigator) GetNavigationKeybindings() []devent.Event {
 		}
 	}
 	for _, reachable := range reachables {
-		matcher, _ := keybinding.GetMatcher(string(reachable.element.GetTag()))
-		keybindings = append(keybindings, devent.Keybinding {
-			devent.NormalMode,
+		matcher, _ := GetMatcher(string(reachable.element.GetTag()))
+		keybindings = append(keybindings, Keybinding {
+			NormalMode,
 			string(reachable.element.GetTag()),
 			matcher,
-			func (match keybinding.Match) {
+			func (match Match) {
 				_ = match
 				navigator.Navigate(reachable.element.GetTag())
 			},

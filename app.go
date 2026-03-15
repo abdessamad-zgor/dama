@@ -1,11 +1,8 @@
 package dama
 
 import (
-	"fmt"
 	"os"
 	"testing"
-	devent "github.com/abdessamad-zgor/dama/event"
-	_ "github.com/abdessamad-zgor/dama/keybinding"
 	"github.com/gdamore/tcell/v2"
 	"github.com/abdessamad-zgor/dama/logger"
 )
@@ -18,7 +15,8 @@ type App interface {
 	GetNavigator() *Navigator
 	GetScreen() tcell.Screen
 	GetEventManager() *EventManager
-	SetKeybinding(mode devent.Mode, pattern string, callback devent.KeybindingCallback)
+	SetKeybinding(mode Mode, pattern string, callback KeybindingCallback)
+	DispatchEvent(appevent AppEventName, payload any)
 }
 
 type app struct {
@@ -70,13 +68,17 @@ func NewApp() (App, error) {
 	return app, nil
 }
 
-func (app *app) SetKeybinding(mode devent.Mode, pattern string, cb devent.KeybindingCallback) {
-	keybinding := devent.KeybindingToEvent(mode, pattern, cb)
+func (app *app) SetKeybinding(mode Mode, pattern string, cb KeybindingCallback) {
+	keybinding := KeybindingToEvent(mode, pattern, cb)
 	app.EventManager.GlobalEvents.Add(keybinding)
 }
 
-func (app *app) DispatchEvent(eventName devent.AppEventName) {
-	app.EventManager.AppEventChannel <- eventName
+func (app *app) DispatchEvent(eventname AppEventName, payload any) {
+	dispatch := AppEventDispatch{
+		eventname,
+		payload,
+	}
+	app.EventManager.AppEventChannel <- dispatch
 }
 
 func (app *app) Start() {
@@ -95,22 +97,9 @@ func (app *app) Start() {
 }
 
 func (app *app) Render(screen tcell.Screen) {
-	defer func() {
-		if x := recover(); x != nil {
-			// recovering from a panic; x contains whatever was passed to panic()
-			logger.Log(fmt.Sprintf("run time panic: %v", x))
-
-			// if you just want to log the panic, panic again
-			panic(x)
-		}
-	}()
 	app.EventManager.Wg.Wait()
 	app.Screen.Clear()
 	app.Container.Render(screen)
-	//app.Screen.SetCursorStyle(tcell.CursorStyleSteadyBlock)
-	//app.Screen.ShowCursor(2,2)
-	//app.Screen.SetCursorStyle(tcell.CursorStyleSteadyBar)
-	//app.Screen.ShowCursor(3,3)
 	app.Screen.Show()
 }
 
@@ -136,3 +125,4 @@ func (app *app) GetEventManager() *EventManager {
 func (app *app) GetScreen() tcell.Screen {
 	return app.Screen
 }
+

@@ -1,380 +1,1363 @@
-keybinding/parser.go:72: matcher pattern: *
-keybinding/parser.go:72: matcher pattern: <BS>
-keybinding/parser.go:72: matcher pattern: <Up>
-keybinding/parser.go:72: matcher pattern: <Down>
-keybinding/parser.go:72: matcher pattern: <Left>
-keybinding/parser.go:72: matcher pattern: <Right>
-keybinding/parser.go:72: matcher pattern: <Up>
-keybinding/parser.go:72: matcher pattern: <Down>
-keybinding/parser.go:72: matcher pattern: <Left>
-keybinding/parser.go:72: matcher pattern: <Right>
-keybinding/parser.go:72: matcher pattern: <Esc>
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: *
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <BS>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Up>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Down>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Left>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Right>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Up>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Down>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Left>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: <Right>
-widget.go:98: widget events: {items:0xc0000a0030}
-keybinding/parser.go:72: matcher pattern: *
-keybinding/parser.go:72: matcher pattern: <BS>
-keybinding/parser.go:72: matcher pattern: <Up>
-keybinding/parser.go:72: matcher pattern: <Down>
-keybinding/parser.go:72: matcher pattern: <Left>
-keybinding/parser.go:72: matcher pattern: <Right>
-keybinding/parser.go:72: matcher pattern: <Up>
-keybinding/parser.go:72: matcher pattern: <Down>
-keybinding/parser.go:72: matcher pattern: <Left>
-keybinding/parser.go:72: matcher pattern: <Right>
-keybinding/parser.go:72: matcher pattern: <Esc>
-keybinding/parser.go:72: matcher pattern: i
-keybinding/parser.go:72: matcher pattern: *
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <BS>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Up>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Down>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Left>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Right>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Up>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Down>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Left>
-widget.go:98: widget events: {items:0xc0000a0270}
-keybinding/parser.go:72: matcher pattern: <Right>
-widget.go:98: widget events: {items:0xc0000a0270}
-app.go:83: Starting App
-app.go:86: App rendered
-eventmanager.go:112: Starting App Event Loop
-navigator.go:102: Setup navigation
-navigator.go:49: Get root of navigation tree: &{0xc00007c630 0xc0000700e0 0xc000012200 0xc00007e1c0 0xc0001580a0}
-navigator.go:54: Getting root elements, found 2
-navigator.go:77: Indexing navigation tree
-navigator.go:79: Got flattened elements tree: [0xc00007c6c0 0xc00007c990 0xc00007c960]
-navigator.go:98: Finished indexing navigation tree: {0xc00000e018}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:normal Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:96: Starting tcell event loop.
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684749804081580 ext:1413430 loc:0x6a6a00} ws:{Width:168 Height:37 PixelWidth:0 PixelHeight:0}}
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5312e0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52b260} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52b1c0} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52b120} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52b080}]
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684750605200060 ext:728790211 loc:0x6a6a00} mod:0 key:256 ch:108}
-eventmanager.go:120: Key Sent: {l 2026-03-14 01:07:14.360360636 +0000 +00 m=+0.728790211}
-eventmanager.go:152: full keybinding matchs: []
-eventmanager.go:153: partial keybinding matchs: []
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:normal Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5312e0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52b260} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52b1c0} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52b120} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52b080}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684751632825220 ext:1682673593 loc:0x6a6a00} mod:0 key:256 ch:105}
-eventmanager.go:120: Key Sent: {i 2026-03-14 01:07:15.314243972 +0000 +00 m=+1.682673593}
-eventmanager.go:152: full keybinding matchs: [{normal i 0x527980 0x5312e0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {normal i 0x527980 0x5312e0}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684751894550882 ext:1944399244 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:15.575969634 +0000 +00 m=+1.944399244}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684752011305366 ext:2061153681 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:15.692724118 +0000 +00 m=+2.061153681}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684752183574188 ext:2233422492 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:15.86499294 +0000 +00 m=+2.233422492}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684752315759329 ext:2365607641 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:15.997178081 +0000 +00 m=+2.365607641}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684752540195836 ext:2516302322 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:16.147872764 +0000 +00 m=+2.516302322}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684752698669880 ext:2674776415 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:16.306346808 +0000 +00 m=+2.674776415}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} insert [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:insert Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684755638354288 ext:5393235305 loc:0x6a6a00} mod:0 key:27 ch:0}
-eventmanager.go:120: Key Sent: {<Esc> 2026-03-14 01:07:19.024805744 +0000 +00 m=+5.393235305}
-eventmanager.go:152: full keybinding matchs: [{insert <Esc> 0x527980 0x531380}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert <Esc> 0x527980 0x531380}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8780 Parent:<nil> Events:{items:0xc0000a0270} Mode:normal Traits:[0xc0000a4aa0]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5312e0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52b260} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52b1c0} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52b120} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52b080}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684756886588556 ext:6567727758 loc:0x6a6a00} mod:0 key:256 ch:85}
-eventmanager.go:120: Key Sent: {U 2026-03-14 01:07:20.199298188 +0000 +00 m=+6.567727758}
-eventmanager.go:152: full keybinding matchs: [{normal U 0x527980 0x530220}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {normal U 0x527980 0x530220}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:normal Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5312e0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52b260} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52b1c0} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52b120} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52b080}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684758303724109 ext:7911121469 loc:0x6a6a00} mod:0 key:256 ch:105}
-eventmanager.go:120: Key Sent: {i 2026-03-14 01:07:21.542691917 +0000 +00 m=+7.911121469}
-eventmanager.go:152: full keybinding matchs: [{normal i 0x527980 0x5312e0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {normal i 0x527980 0x5312e0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684758563137328 ext:8170534768 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:21.802105136 +0000 +00 m=+8.170534768}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684758723203340 ext:8330600770 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:21.962171148 +0000 +00 m=+8.330600770}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684758959287838 ext:8492943440 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:22.124513822 +0000 +00 m=+8.492943440}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684759087603311 ext:8621258858 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:22.252829295 +0000 +00 m=+8.621258858}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684759239639500 ext:8773295055 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:22.404865484 +0000 +00 m=+8.773295055}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684759379242114 ext:8912897662 loc:0x6a6a00} mod:0 key:256 ch:100}
-eventmanager.go:120: Key Sent: {d 2026-03-14 01:07:22.544468098 +0000 +00 m=+8.912897662}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684759467844418 ext:9001499872 loc:0x6a6a00} mod:0 key:256 ch:107}
-eventmanager.go:120: Key Sent: {k 2026-03-14 01:07:22.633070402 +0000 +00 m=+9.001499872}
-eventmanager.go:152: full keybinding matchs: [{insert * 0x527980 0x52b3a0}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert * 0x527980 0x52b3a0}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} insert [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:insert Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:insert Pattern:<Esc> Matcher:0x527980 Handler:0x531380} {Mode:insert Pattern:* Matcher:0x527980 Handler:0x52b3a0} {Mode:insert Pattern:<BS> Matcher:0x527980 Handler:0x52b300} {Mode:insert Pattern:<Up> Matcher:0x527980 Handler:0x52afe0} {Mode:insert Pattern:<Down> Matcher:0x527980 Handler:0x52af40} {Mode:insert Pattern:<Left> Matcher:0x527980 Handler:0x52aea0} {Mode:insert Pattern:<Right> Matcher:0x527980 Handler:0x52ae00}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684760668006913 ext:10127920663 loc:0x6a6a00} mod:0 key:27 ch:0}
-eventmanager.go:120: Key Sent: {<Esc> 2026-03-14 01:07:23.759491073 +0000 +00 m=+10.127920663}
-eventmanager.go:152: full keybinding matchs: [{insert <Esc> 0x527980 0x531380}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {insert <Esc> 0x527980 0x531380}
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:47: current widget: &{Element:0xc0000a8000 Parent:<nil> Events:{items:0xc0000a0030} Mode:normal Traits:[0xc0000a4000]}
-keybinding/parser.go:72: matcher pattern: <C-C>
-keybinding/parser.go:72: matcher pattern: O
-keybinding/parser.go:72: matcher pattern: U
-eventmanager.go:92: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x527980 Handler:0x52cc80} {Mode:normal Pattern:O Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:U Matcher:0x527980 Handler:0x530220} {Mode:normal Pattern:i Matcher:0x527980 Handler:0x5312e0} {Mode:normal Pattern:<Up> Matcher:0x527980 Handler:0x52b260} {Mode:normal Pattern:<Down> Matcher:0x527980 Handler:0x52b1c0} {Mode:normal Pattern:<Left> Matcher:0x527980 Handler:0x52b120} {Mode:normal Pattern:<Right> Matcher:0x527980 Handler:0x52b080}]
-eventmanager.go:99: Recieved tcell event&{t:{wall:14007684796213519680 ext:43239953301 loc:0x6a6a00} mod:2 key:3 ch:3}
-eventmanager.go:120: Key Sent: {<C-C> 2026-03-14 01:07:56.871523648 +0000 +00 m=+43.239953301}
-eventmanager.go:152: full keybinding matchs: [{normal <C-C> 0x527980 0x52cc80}]
-eventmanager.go:153: partial keybinding matchs: []
-eventmanager.go:157: Found one full keybinding: {normal <C-C> 0x527980 0x52cc80}
-eventmanager.go:52: Exit signal sent
-app.go:88: Exit signal recieved,  exiting
-eventmanager.go:99: Recieved tcell event<nil>
-eventmanager.go:99: Recieved tcell event<nil>
-eventmanager.go:99: Recieved tcell event<nil>
-container.go:73: &{0xc0000a8000 <nil> {0xc0000a0030} normal [0xc0000a4000]}
-eventmanager.go:99: Recieved tcell event<nil>
-widget.go:148: widget.Render() called
-box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc0000aa000}
-container.go:73: &{0xc0000a8780 <nil> {0xc0000a0270} normal [0xc0000a4aa0]}
-eventmanager.go:99: Recieved tcell event<nil>
-widget.go:148: widget.Render() called
-eventmanager.go:99: Recieved tcell event<nil>
-box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000aa0b8}
-eventmanager.go:99: Recieved tcell event<nil>
-app.go:93: App exited, screen fini
+keybinding.go:73: matcher pattern: *
+keybinding.go:73: matcher pattern: <BS>
+keybinding.go:73: matcher pattern: <Up>
+keybinding.go:73: matcher pattern: <Down>
+keybinding.go:73: matcher pattern: <Left>
+keybinding.go:73: matcher pattern: <Right>
+keybinding.go:73: matcher pattern: <Up>
+keybinding.go:73: matcher pattern: <Down>
+keybinding.go:73: matcher pattern: <Left>
+keybinding.go:73: matcher pattern: <Right>
+keybinding.go:73: matcher pattern: <Esc>
+keybinding.go:73: matcher pattern: i
+keybinding.go:73: matcher pattern: *
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <BS>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Up>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Down>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Left>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Right>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Up>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Down>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Left>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <Right>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: <CR>
+widget.go:96: widget events: {items:0xc00000e048}
+keybinding.go:73: matcher pattern: *
+keybinding.go:73: matcher pattern: <BS>
+keybinding.go:73: matcher pattern: <Up>
+keybinding.go:73: matcher pattern: <Down>
+keybinding.go:73: matcher pattern: <Left>
+keybinding.go:73: matcher pattern: <Right>
+keybinding.go:73: matcher pattern: <Up>
+keybinding.go:73: matcher pattern: <Down>
+keybinding.go:73: matcher pattern: <Left>
+keybinding.go:73: matcher pattern: <Right>
+keybinding.go:73: matcher pattern: <Esc>
+keybinding.go:73: matcher pattern: i
+keybinding.go:73: matcher pattern: *
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <BS>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Up>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Down>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Left>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Right>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Up>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Down>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Left>
+widget.go:96: widget events: {items:0xc00000e2a0}
+keybinding.go:73: matcher pattern: <Right>
+widget.go:96: widget events: {items:0xc00000e2a0}
+app.go:85: Starting App
+app.go:88: App rendered
+eventmanager.go:122: Starting App Event Loop
+navigator.go:100: Setup navigation
+navigator.go:47: Get root of navigation tree: &{0xc00009a030 0xc0000a0000 0xc00009c030 0xc0000a2040 0xc00009e050}
+navigator.go:52: Getting root elements, found 2
+navigator.go:75: Indexing navigation tree
+navigator.go:77: Got flattened elements tree: [0xc00009a0c0 0xc00009a3c0 0xc00009a390]
+navigator.go:96: Finished indexing navigation tree: {0xc0000a4000}
+eventmanager.go:45: current widget: &{Element:0xc0000747d0 Parent:<nil> Events:{items:0xc00000e2a0} Mode:normal Traits:[0xc00002eb60]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+eventmanager.go:106: Starting tcell event loop.
+keybinding.go:73: matcher pattern: U
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839858578555845 ext:1706605 loc:0x6a8a20} ws:{Width:168 Height:37 PixelWidth:0 PixelHeight:0}}
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839858579493580 ext:2644345 loc:0x6a8a20} mod:2 key:10 ch:10}
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Name:ping-url Handler:0x535ea0}]
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000460c8}
+eventmanager.go:130: Key Sent: {<C-J> 2026-03-15 17:14:49.959468236 +0000 +00 m=+0.002644345}
+eventmanager.go:160: full keybinding matchs: []
+eventmanager.go:161: partial keybinding matchs: []
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:false Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:true Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc0000747d0 Parent:<nil> Events:{items:0xc00000e2a0} Mode:normal Traits:[0xc00002eb60]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839860362595873 ext:1638263130 loc:0x6a8a20} mod:0 key:256 ch:85}
+eventmanager.go:130: Key Sent: {U 2026-03-15 17:14:51.595086881 +0000 +00 m=+1.638263130}
+eventmanager.go:160: full keybinding matchs: [{normal U 0x52e560 0x5304a0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal U 0x52e560 0x5304a0}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839861323798986 ext:2525724389 loc:0x6a8a20} mod:0 key:256 ch:105}
+eventmanager.go:130: Key Sent: {i 2026-03-15 17:14:52.48254817 +0000 +00 m=+2.525724389}
+eventmanager.go:160: full keybinding matchs: [{normal i 0x52e560 0x531560}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal i 0x52e560 0x531560}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839861726608680 ext:2928534124 loc:0x6a8a20} mod:0 key:256 ch:106}
+eventmanager.go:130: Key Sent: {j 2026-03-15 17:14:52.885357864 +0000 +00 m=+2.928534124}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839861982675807 ext:3110859427 loc:0x6a8a20} mod:0 key:256 ch:100}
+eventmanager.go:130: Key Sent: {d 2026-03-15 17:14:53.067683167 +0000 +00 m=+3.110859427}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839862107428906 ext:3235612456 loc:0x6a8a20} mod:0 key:256 ch:106}
+eventmanager.go:130: Key Sent: {j 2026-03-15 17:14:53.192436266 +0000 +00 m=+3.235612456}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839862206953582 ext:3335137115 loc:0x6a8a20} mod:0 key:256 ch:100}
+eventmanager.go:130: Key Sent: {d 2026-03-15 17:14:53.291960942 +0000 +00 m=+3.335137115}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839862408535995 ext:3536719578 loc:0x6a8a20} mod:0 key:256 ch:106}
+eventmanager.go:130: Key Sent: {j 2026-03-15 17:14:53.493543355 +0000 +00 m=+3.536719578}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839862449250997 ext:3577434575 loc:0x6a8a20} mod:0 key:256 ch:100}
+eventmanager.go:130: Key Sent: {d 2026-03-15 17:14:53.534258357 +0000 +00 m=+3.577434575}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839862865342052 ext:3993525586 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:53.950349412 +0000 +00 m=+3.993525586}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839863439956418 ext:4494398156 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:54.451221954 +0000 +00 m=+4.494398156}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839863470899130 ext:4525340884 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:54.482164666 +0000 +00 m=+4.525340884}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839863506069934 ext:4560511602 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:54.51733547 +0000 +00 m=+4.560511602}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839863531972976 ext:4586414626 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:54.543238512 +0000 +00 m=+4.586414626}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839863773064980 ext:4827506810 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:54.784330516 +0000 +00 m=+4.827506810}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839864587034231 ext:5567734158 loc:0x6a8a20} mod:0 key:256 ch:103}
+eventmanager.go:130: Key Sent: {g 2026-03-15 17:14:55.524557943 +0000 +00 m=+5.567734158}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839864791866098 ext:5772566056 loc:0x6a8a20} mod:0 key:256 ch:111}
+eventmanager.go:130: Key Sent: {o 2026-03-15 17:14:55.72938981 +0000 +00 m=+5.772566056}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839864922112900 ext:5902812787 loc:0x6a8a20} mod:0 key:256 ch:111}
+eventmanager.go:130: Key Sent: {o 2026-03-15 17:14:55.859636612 +0000 +00 m=+5.902812787}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839865147411134 ext:6054369224 loc:0x6a8a20} mod:0 key:256 ch:103}
+eventmanager.go:130: Key Sent: {g 2026-03-15 17:14:56.011193022 +0000 +00 m=+6.054369224}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839865806778759 ext:6713736890 loc:0x6a8a20} mod:0 key:256 ch:108}
+eventmanager.go:130: Key Sent: {l 2026-03-15 17:14:56.670560647 +0000 +00 m=+6.713736890}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839865918744649 ext:6825702679 loc:0x6a8a20} mod:0 key:256 ch:101}
+eventmanager.go:130: Key Sent: {e 2026-03-15 17:14:56.782526537 +0000 +00 m=+6.825702679}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839866521240161 ext:7354456391 loc:0x6a8a20} mod:0 key:256 ch:46}
+eventmanager.go:130: Key Sent: {. 2026-03-15 17:14:57.311280225 +0000 +00 m=+7.354456391}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839866998761161 ext:7831977450 loc:0x6a8a20} mod:0 key:256 ch:99}
+eventmanager.go:130: Key Sent: {c 2026-03-15 17:14:57.788801225 +0000 +00 m=+7.831977450}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839867116542786 ext:7949758990 loc:0x6a8a20} mod:0 key:256 ch:111}
+eventmanager.go:130: Key Sent: {o 2026-03-15 17:14:57.90658285 +0000 +00 m=+7.949758990}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839867660284279 ext:8419758754 loc:0x6a8a20} mod:0 key:256 ch:246}
+eventmanager.go:130: Key Sent: {ö 2026-03-15 17:14:58.376582519 +0000 +00 m=+8.419758754}
+eventmanager.go:160: full keybinding matchs: []
+eventmanager.go:161: partial keybinding matchs: []
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839868128055557 ext:8887530041 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:14:58.844353797 +0000 +00 m=+8.887530041}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839868882205871 ext:9567938499 loc:0x6a8a20} mod:0 key:256 ch:109}
+eventmanager.go:130: Key Sent: {m 2026-03-15 17:14:59.524762287 +0000 +00 m=+9.567938499}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839869574237513 ext:10186228356 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:00.143052105 +0000 +00 m=+10.186228356}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839869971855332 ext:10583846138 loc:0x6a8a20} mod:0 key:256 ch:111}
+eventmanager.go:130: Key Sent: {o 2026-03-15 17:15:00.540669924 +0000 +00 m=+10.583846138}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839870407011796 ext:11019002587 loc:0x6a8a20} mod:0 key:256 ch:109}
+eventmanager.go:130: Key Sent: {m 2026-03-15 17:15:00.975826388 +0000 +00 m=+11.019002587}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839871656133334 ext:12120640537 loc:0x6a8a20} mod:0 key:27 ch:0}
+eventmanager.go:130: Key Sent: {<Esc> 2026-03-15 17:15:02.077464278 +0000 +00 m=+12.120640537}
+eventmanager.go:160: full keybinding matchs: [{insert <Esc> 0x52e560 0x531600}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Esc> 0x52e560 0x531600}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839872097874549 ext:12562381735 loc:0x6a8a20} mod:0 key:13 ch:13}
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:15:02.519205493 +0000 +00 m=+12.562381735}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url google.com}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839901523370743 ext:39996848682 loc:0x6a8a20} mod:0 key:256 ch:105}
+eventmanager.go:130: Key Sent: {i 2026-03-15 17:15:29.953672439 +0000 +00 m=+39.996848682}
+eventmanager.go:160: full keybinding matchs: [{normal i 0x52e560 0x531560}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal i 0x52e560 0x531560}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839902107108468 ext:40506844549 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:30.46366834 +0000 +00 m=+40.506844549}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839902300616147 ext:40700352297 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:30.657176019 +0000 +00 m=+40.700352297}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839902492642681 ext:40892378765 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:30.849202553 +0000 +00 m=+40.892378765}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839902730321049 ext:41056315306 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:31.013139097 +0000 +00 m=+41.056315306}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839903336073571 ext:41662067792 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:31.618891619 +0000 +00 m=+41.662067792}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839903528529742 ext:41854524047 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:31.81134779 +0000 +00 m=+41.854524047}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839905152525346 ext:43331035989 loc:0x6a8a20} mod:0 key:27 ch:0}
+eventmanager.go:130: Key Sent: {<Esc> 2026-03-15 17:15:33.287859746 +0000 +00 m=+43.331035989}
+eventmanager.go:160: full keybinding matchs: [{insert <Esc> 0x52e560 0x531600}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Esc> 0x52e560 0x531600}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839913903563576 ext:51492139636 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:15:41.448963384 +0000 +00 m=+51.492139636}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839914290115608 ext:51878691623 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:15:41.835515416 +0000 +00 m=+51.878691623}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839914719391394 ext:52234225587 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:15:42.191049378 +0000 +00 m=+52.234225587}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839915082194439 ext:52597028690 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:42.553852423 +0000 +00 m=+52.597028690}
+eventmanager.go:160: full keybinding matchs: [{normal <Left> 0x52e560 0x52a200}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Left> 0x52e560 0x52a200}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839915310571512 ext:52825405716 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:42.782229496 +0000 +00 m=+52.825405716}
+eventmanager.go:160: full keybinding matchs: [{normal <Left> 0x52e560 0x52a200}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Left> 0x52e560 0x52a200}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839915467987310 ext:52982821515 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:42.939645294 +0000 +00 m=+52.982821515}
+eventmanager.go:160: full keybinding matchs: [{normal <Left> 0x52e560 0x52a200}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Left> 0x52e560 0x52a200}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839916260731259 ext:53701823642 loc:0x6a8a20} mod:0 key:256 ch:105}
+eventmanager.go:130: Key Sent: {i 2026-03-15 17:15:43.658647419 +0000 +00 m=+53.701823642}
+eventmanager.go:160: full keybinding matchs: [{normal i 0x52e560 0x531560}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal i 0x52e560 0x531560}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839916738634993 ext:54105985511 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:44.062809329 +0000 +00 m=+54.105985511}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839916922902375 ext:54290252954 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:44.247076711 +0000 +00 m=+54.290252954}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839917278228421 ext:54645578961 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:44.602402757 +0000 +00 m=+54.645578961}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839917591570310 ext:54958920876 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:44.915744646 +0000 +00 m=+54.958920876}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839918593514502 ext:55887123221 loc:0x6a8a20} mod:0 key:27 ch:0}
+eventmanager.go:130: Key Sent: {<Esc> 2026-03-15 17:15:45.843947014 +0000 +00 m=+55.887123221}
+eventmanager.go:160: full keybinding matchs: [{insert <Esc> 0x52e560 0x531600}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Esc> 0x52e560 0x531600}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839919391257440 ext:56611124350 loc:0x6a8a20} mod:0 key:13 ch:13}
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:15:46.567948128 +0000 +00 m=+56.611124350}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url .com}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839924099371811 ext:61024271415 loc:0x6a8a20} mod:0 key:256 ch:105}
+eventmanager.go:130: Key Sent: {i 2026-03-15 17:15:50.981095203 +0000 +00 m=+61.024271415}
+eventmanager.go:160: full keybinding matchs: [{normal i 0x52e560 0x531560}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal i 0x52e560 0x531560}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839927499420870 ext:64129353196 loc:0x6a8a20} mod:0 key:256 ch:110}
+eventmanager.go:130: Key Sent: {n 2026-03-15 17:15:54.086176966 +0000 +00 m=+64.129353196}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839927620988700 ext:64250921059 loc:0x6a8a20} mod:0 key:256 ch:101}
+eventmanager.go:130: Key Sent: {e 2026-03-15 17:15:54.207744796 +0000 +00 m=+64.250921059}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839928567053987 ext:65123244480 loc:0x6a8a20} mod:0 key:256 ch:116}
+eventmanager.go:130: Key Sent: {t 2026-03-15 17:15:55.080068259 +0000 +00 m=+65.123244480}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839929411913999 ext:65968104491 loc:0x6a8a20} mod:0 key:256 ch:102}
+eventmanager.go:130: Key Sent: {f 2026-03-15 17:15:55.924928271 +0000 +00 m=+65.968104491}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839930193244520 ext:66675693222 loc:0x6a8a20} mod:0 key:256 ch:108}
+eventmanager.go:130: Key Sent: {l 2026-03-15 17:15:56.632516968 +0000 +00 m=+66.675693222}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839930488328544 ext:66970777275 loc:0x6a8a20} mod:0 key:256 ch:101}
+eventmanager.go:130: Key Sent: {e 2026-03-15 17:15:56.927600992 +0000 +00 m=+66.970777275}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839931436968303 ext:67845675142 loc:0x6a8a20} mod:0 key:256 ch:120}
+eventmanager.go:130: Key Sent: {x 2026-03-15 17:15:57.802498927 +0000 +00 m=+67.845675142}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839932824510007 ext:69085733197 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:15:59.042556983 +0000 +00 m=+69.085733197}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839933350826852 ext:69612050006 loc:0x6a8a20} mod:0 key:127 ch:127}
+eventmanager.go:130: Key Sent: {<BS> 2026-03-15 17:15:59.568873828 +0000 +00 m=+69.612050006}
+eventmanager.go:160: full keybinding matchs: [{insert <BS> 0x52e560 0x52a3e0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <BS> 0x52e560 0x52a3e0}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839936519150896 ext:72559148621 loc:0x6a8a20} mod:0 key:256 ch:101}
+eventmanager.go:130: Key Sent: {e 2026-03-15 17:16:02.5159724 +0000 +00 m=+72.559148621}
+eventmanager.go:160: full keybinding matchs: [{insert * 0x52e560 0x52a480}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert * 0x52e560 0x52a480}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839937163941564 ext:73130197490 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:16:03.087021244 +0000 +00 m=+73.130197490}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839937750851200 ext:73717107104 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:16:03.67393088 +0000 +00 m=+73.717107104}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839937955221494 ext:73921477417 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:16:03.878301174 +0000 +00 m=+73.921477417}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839938210671021 ext:74103185084 loc:0x6a8a20} mod:0 key:260 ch:0}
+eventmanager.go:130: Key Sent: {<Left> 2026-03-15 17:16:04.060008877 +0000 +00 m=+74.103185084}
+eventmanager.go:160: full keybinding matchs: [{insert <Left> 0x52e560 0x529f80}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Left> 0x52e560 0x529f80}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} insert [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:insert Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:insert Pattern:<Esc> Matcher:0x52e560 Handler:0x531600} {Mode:insert Pattern:* Matcher:0x52e560 Handler:0x52a480} {Mode:insert Pattern:<BS> Matcher:0x52e560 Handler:0x52a3e0} {Mode:insert Pattern:<Up> Matcher:0x52e560 Handler:0x52a0c0} {Mode:insert Pattern:<Down> Matcher:0x52e560 Handler:0x52a020} {Mode:insert Pattern:<Left> Matcher:0x52e560 Handler:0x529f80} {Mode:insert Pattern:<Right> Matcher:0x52e560 Handler:0x529ee0} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839940778104941 ext:76523135385 loc:0x6a8a20} mod:0 key:27 ch:0}
+eventmanager.go:130: Key Sent: {<Esc> 2026-03-15 17:16:06.479959149 +0000 +00 m=+76.523135385}
+eventmanager.go:160: full keybinding matchs: [{insert <Esc> 0x52e560 0x531600}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {insert <Esc> 0x52e560 0x531600}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839941125256882 ext:76870287331 loc:0x6a8a20} mod:0 key:13 ch:13}
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:16:06.82711109 +0000 +00 m=+76.870287331}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url netflex.com}
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839946370855375 ext:81747176701 loc:0x6a8a20} mod:0 key:13 ch:13}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:16:11.704000463 +0000 +00 m=+81.747176701}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url netflex.com}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839953730805866 ext:88590934428 loc:0x6a8a20} mod:0 key:13 ch:13}
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:16:18.547758186 +0000 +00 m=+88.590934428}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url netflex.com}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839977553292102 ext:110791100508 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:16:40.747924294 +0000 +00 m=+110.791100508}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839977765843476 ext:111003651903 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:16:40.960475668 +0000 +00 m=+111.003651903}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839978026409941 ext:111190476527 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:16:41.147300309 +0000 +00 m=+111.190476527}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839978216412850 ext:111380479487 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:16:41.337303218 +0000 +00 m=+111.380479487}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839978409039716 ext:111573106327 loc:0x6a8a20} mod:0 key:259 ch:0}
+eventmanager.go:130: Key Sent: {<Right> 2026-03-15 17:16:41.529930084 +0000 +00 m=+111.573106327}
+eventmanager.go:160: full keybinding matchs: [{normal <Right> 0x52e560 0x52a160}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <Right> 0x52e560 0x52a160}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007839988084243495 ext:120584633656 loc:0x6a8a20} mod:0 key:13 ch:13}
+eventmanager.go:130: Key Sent: {<CR> 2026-03-15 17:16:50.541457447 +0000 +00 m=+120.584633656}
+eventmanager.go:160: full keybinding matchs: [{normal <CR> 0x52e560 0x536120}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <CR> 0x52e560 0x536120}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:135: App event sent: {ping-url netflex.com}
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+widget.go:146: widget.Render() called
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:45: current widget: &{Element:0xc000074000 Parent:<nil> Events:{items:0xc00000e048} Mode:normal Traits:[0xc00002e040]}
+keybinding.go:73: matcher pattern: <C-C>
+keybinding.go:73: matcher pattern: O
+keybinding.go:73: matcher pattern: U
+eventmanager.go:102: Registred events: [{Mode:normal Pattern:<C-C> Matcher:0x52e560 Handler:0x52c4a0} {Mode:normal Pattern:O Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:U Matcher:0x52e560 Handler:0x5304a0} {Mode:normal Pattern:i Matcher:0x52e560 Handler:0x531560} {Mode:normal Pattern:<Up> Matcher:0x52e560 Handler:0x52a340} {Mode:normal Pattern:<Down> Matcher:0x52e560 Handler:0x52a2a0} {Mode:normal Pattern:<Left> Matcher:0x52e560 Handler:0x52a200} {Mode:normal Pattern:<Right> Matcher:0x52e560 Handler:0x52a160} {Mode:normal Pattern:<CR> Matcher:0x52e560 Handler:0x536120} {Name:ping-url Handler:0x535ea0}]
+eventmanager.go:109: Recieved tcell event&{t:{wall:14007840004049506658 ext:135443769514 loc:0x6a8a20} mod:2 key:3 ch:3}
+eventmanager.go:130: Key Sent: {<C-C> 2026-03-15 17:17:05.40059325 +0000 +00 m=+135.443769514}
+eventmanager.go:160: full keybinding matchs: [{normal <C-C> 0x52e560 0x52c4a0}]
+eventmanager.go:161: partial keybinding matchs: []
+eventmanager.go:165: Found one full keybinding: {normal <C-C> 0x52e560 0x52c4a0}
+eventmanager.go:50: Exit signal sent
+app.go:90: Exit signal recieved,  exiting
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+container.go:73: &{0xc000074000 <nil> {0xc00000e048} normal [0xc00002e040]}
+eventmanager.go:109: Recieved tcell event<nil>
+widget.go:146: widget.Render() called
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+box.go:18: Element box: &{X:0 Y:0 Width:168 Height:7 Tag:85 Title:URL Focused:true Style:0xc000046008}
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+container.go:73: &{0xc0000747d0 <nil> {0xc00000e2a0} normal [0xc00002eb60]}
+eventmanager.go:109: Recieved tcell event<nil>
+widget.go:146: widget.Render() called
+eventmanager.go:109: Recieved tcell event<nil>
+box.go:18: Element box: &{X:33 Y:7 Width:99 Height:21 Tag:79 Title:Output Focused:false Style:0xc0000460c8}
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+eventmanager.go:109: Recieved tcell event<nil>
+app.go:95: App exited, screen fini
+eventmanager.go:109: Recieved tcell event<nil>
