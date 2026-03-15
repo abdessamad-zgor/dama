@@ -1,4 +1,4 @@
-module github.com/abdessamad-zgor/dama
+module github.com/samazee/dama
 
 go 1.24.0
 
